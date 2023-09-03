@@ -56,16 +56,6 @@
 			<location>D:/work/hy/rf_01/src/gpio.h</location>
 		</link>
 		<link>
-			<name>Bsp/spi.c</name>
-			<type>1</type>
-			<location>D:/work/hy/rf_01/src/spi.c</location>
-		</link>
-		<link>
-			<name>Bsp/spi.h</name>
-			<type>1</type>
-			<location>D:/work/hy/rf_01/src/spi.h</location>
-		</link>
-		<link>
 			<name>Bsp/user.h</name>
 			<type>1</type>
 			<location>D:/work/hy/rf_01/src/user.h</location>

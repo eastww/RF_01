@@ -11,8 +11,7 @@ void Delay_Us (uint32_t delay)
   }
 }
 
-
-void Delay_Ms(uint32_t delay )
+void Delay_Ms(uint32_t delay)
 {
   uint32_t i=0;
   uint32_t j=0;
