@@ -21,7 +21,7 @@
 
 #include "cmt2300.h"
 #include "CMT2300_FrqSetTab.h"
-#include "delay.h"
+#include "./../../delay.h"
 /*! ********************************************************
 * @name    Cmt2300_SoftReset
 * @desc    Soft reset.

@@ -20,7 +20,7 @@
 
 #include "cmt2300_hal.h"
 #include "cmt_spi3.h"
-#include "gpio.h"
+#include "./../../gpio.h"
 /*! ********************************************************
 * @name    Cmt2300_InitGpio
 * @desc    Initializes the CMT2300 interface GPIOs.

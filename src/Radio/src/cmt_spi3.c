@@ -1,5 +1,5 @@
 #include "cmt_spi3.h"
-#include "gpio.h"
+#include "./../../gpio.h"
 
 void cmt_spi3_delay(void)
 {

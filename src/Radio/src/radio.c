@@ -22,8 +22,8 @@
 #include "cmt2300_params.h"
 #include "CMT230_params_RxTxTest.h"
 #include "string.h"
-#include "gpio.h"
-#include "delay.h"
+#include "./../../gpio.h"
+#include "./../../delay.h"
 
 #define INFINITE 0xffffffff
 

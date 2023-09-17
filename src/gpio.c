@@ -1,6 +1,7 @@
 #include "stm32f0xx.h"
 #include "gpio.h"
 
+#ifndef USE_CUBEIDE
 void GPIO_Pin_Setting(GPIO_TypeDef *gpio, uint16_t nPin, GPIOSpeed_TypeDef speed, GPIOMode_TypeDef mode)
 {
 
@@ -13,6 +14,7 @@ void GPIO_Pin_Setting(GPIO_TypeDef *gpio, uint16_t nPin, GPIOSpeed_TypeDef speed
     GPIO_InitStructure.GPIO_Mode = mode;
     GPIO_Init(gpio, &GPIO_InitStructure);
 }
+#endif
 
 /* ************************************************************************
 *  The following need to be modified by user

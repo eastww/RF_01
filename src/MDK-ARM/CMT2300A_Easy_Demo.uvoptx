@@ -82,17 +82,17 @@
         <Book>
           <Number>0</Number>
           <Title>Quick Start Guide (STM32F030-Discovery)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.1\MDK\Boards\ST\STM32F030-Discovery\Documents\32F030DISCOVERY_QSG.pdf</Path>
+          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\MDK\Boards\ST\STM32F030-Discovery\Documents\32F030DISCOVERY_QSG.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
           <Title>Data Brief (STM32F030-Discovery)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.1\MDK\Boards\ST\STM32F030-Discovery\Documents\DM00092305.pdf</Path>
+          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\MDK\Boards\ST\STM32F030-Discovery\Documents\DM00092305.pdf</Path>
         </Book>
         <Book>
           <Number>2</Number>
           <Title>Schematics (STM32F030-Discovery)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.1\MDK\Boards\ST\STM32F030-Discovery\Documents\MB1134.pdf</Path>
+          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\MDK\Boards\ST\STM32F030-Discovery\Documents\MB1134.pdf</Path>
         </Book>
         <Book>
           <Number>3</Number>
@@ -122,7 +122,7 @@
         <tRSysVw>1</tRSysVw>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
-        <nTsel>6</nTsel>
+        <nTsel>11</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -133,9 +133,14 @@
         <tDlgDll></tDlgDll>
         <tDlgPa></tDlgPa>
         <tIfile></tIfile>
-        <pMon>Segger\JL2CM3.dll</pMon>
+        <pMon>STLink\ST-LINKIII-KEIL_SWO.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>ST-LINKIII-KEIL_SWO</Key>
+          <Name>-U003E001B3156501420323443 -O206 -S0 -C0 -A0 -TO18 -TC10000000 -TP21 -TDS8004 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN0</Name>
+        </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
