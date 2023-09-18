@@ -6,6 +6,8 @@
 "./Bsp/bsp_test.o"
 "./Bsp/delay.o"
 "./Bsp/gpio.o"
+"./Bsp/timer.o"
+"./Bsp/uart.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f0xx_hal_msp.o"
 "./Core/Src/stm32f0xx_it.o"
@@ -30,3 +32,4 @@
 "./Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o"
 "./Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o"
 "./Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o"
+"./Service/kfifo/Kfifo.o"
