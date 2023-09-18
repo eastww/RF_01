@@ -1,6 +1,4 @@
 #include "bsp_test.h"
-#include "./../../delay.h"
-#include "./../../gpio.h"
 
 /**
  * @brief led test

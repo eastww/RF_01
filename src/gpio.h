@@ -49,6 +49,10 @@
 #define LED2_ON HAL_GPIO_WritePin(LED2_PORT, LED2_PIN, GPIO_PIN_SET)
 #define LED2_OFF HAL_GPIO_WritePin(LED2_PORT, LED2_PIN, GPIO_PIN_RESET)
 
+/* define RS485 enable */
+#define RS485_ON HAL_GPIO_WritePin(GPIO_RS485_EN_GPIO_Port, GPIO_RS485_EN_Pin, GPIO_PIN_SET)
+#define RS485_OFF HAL_GPIO_WritePin(GPIO_RS485_EN_GPIO_Port, GPIO_RS485_EN_Pin, GPIO_PIN_RESET)
+
 #else
 
 #define cmt_spi_gpio3_port GPIOB

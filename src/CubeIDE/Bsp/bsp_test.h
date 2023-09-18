@@ -11,6 +11,10 @@
 #ifndef __BSP_TEST_H
 #define __BSP_TEST_H
 
+/* include external peripheral */
+#include "./../../delay.h"
+#include "./../../gpio.h"
+
 /* external function define */
 void bsp_test(void);
 
