@@ -73,6 +73,16 @@ void uartInit(uartChannel_t channel)
 }
 
 /**
+ * @brief uart recovery mode
+ * @param channel 
+ */
+static void uartRecovery(uartChannel_t channel)
+{
+    HAL_UART_DeInit(uartPara[channel].uart_handle_addr);
+    uartInit(channel);
+}
+
+/**
  * @brief Uart send handle
  * @param channel
  * @param data
@@ -88,7 +98,7 @@ void uartSendData(uartChannel_t channel, uint8_t data[], uint16_t length)
 	/* use poll mode send data */
 	if (HAL_UART_Transmit(uartPara[channel].uart_handle_addr, data, length, 0xFFFF) != HAL_OK)
     {
-        Error_Handler();
+        uartRecovery(channel);
     }
 }
 
@@ -131,11 +141,6 @@ uint32_t uartGetData(uartChannel_t channel, uint8_t data[], uint16_t length)
 
     return ret;
 }
-
-/**
- * @brief  清除串口缓存中的数据,
- * @param  channel:	UART通道, 在头文件中列出
- */
 
 /**
  * @brief Reset uart fifo data
@@ -184,7 +189,6 @@ void uartSetRxStatus(uartChannel_t channel, uartStatus_t status)
 
 /**
  * @brief Uart rx callback
- * 
  * @param huart 
  */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -234,10 +238,15 @@ void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
 
 /**
  * @brief uart error callback
- * 
  * @param huart 
  */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 {
-
+    for (uint8_t i = 0; i < UART_ENABLED_CHANNEL; i++)
+    {
+        if (uartPara[i].uart_instance == huart->Instance)
+        {
+            uartRecovery(i);
+        }
+    }
 }
