@@ -114,7 +114,7 @@ int main(void)
 	{
 		/* send the buffer data to uart1 */
 		uartSendData(BSP_TTL_CHANNEL1, buffer, bufferSize);
-		HAL_Delay_nMs(10);
+		HAL_Delay_nMs(1000);
 
 		/* reset the value */
 		bufferSize = 0;

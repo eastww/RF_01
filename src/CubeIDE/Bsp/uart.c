@@ -218,12 +218,13 @@ void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
             HAL_TIM_Base_Stop_IT(uartPara[i].tim_handle_addr); 
             uart_rx_status[i] = BSP_UART_RX_COMPLETED;
             uart_rx_size[i] += uart_rx_counter[i];
-//            if (uart_rx_size[i] > UART_BUFFER_SIZE)
-//            {
-//            	uart_rx_size[i] = uart_rx_counter[i];
-//            }
-//            uart_rx_size[i] += uart_rx_counter[i];
-            uart_rx_size[i] = uart_rx_counter[i];
+            /* uart fifo overflow, discard one package */
+            if (uart_rx_size[i] > UART_BUFFER_SIZE)
+            {
+            	uart_rx_size[i] = uart_rx_counter[i];
+            	kfifo_reset(&uart_rx_fifo[i]);
+            	uart_rx_size[i] = 0;
+            }
             uart_rx_counter[i] = 0;
 //            UART_Receive_IT(uartPara[i].uart_handle_addr, &uart_rx_byte[i], 1);
             break;
