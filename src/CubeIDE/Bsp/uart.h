@@ -2,6 +2,9 @@
  * @file uart.h
  * @author Marshall (eastww@hotmail.com)
  * @brief This is STM32F030 uart bsp driver
+ * 		  defect:
+ * 		  Uart use kfifo to cache data, but only cache one package, if two package come,
+ * 		  the cached data are wrong.
  * @version 0.2
  * @date 2023-09-18
  *

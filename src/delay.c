@@ -22,7 +22,7 @@ void Delay_Ms(uint32_t delay)
   }
 }
 
-void HAL_Delay_nMs( uint32_t Delay )
+void HAL_Delay_nMs(uint32_t Delay)
 {
     uint32_t tickstart = 0;
     tickstart = HAL_GetTick( );

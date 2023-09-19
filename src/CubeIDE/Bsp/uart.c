@@ -146,6 +146,7 @@ void uartResetData(uartChannel_t channel)
 {
     kfifo_reset(&uart_rx_fifo[channel]);
     uart_rx_size[channel] = 0;
+    uart_rx_status[channel] = BSP_UART_IDLE;
 }
 
 /**
@@ -206,7 +207,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 /**
  * @brief Uart rx timeout callback
- * 
  * @param htim 
  */
 void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
@@ -216,11 +216,17 @@ void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
         if (uartPara[i].tim_instance == htim->Instance)
 		{
             HAL_TIM_Base_Stop_IT(uartPara[i].tim_handle_addr); 
-            uart_rx_status[i] = BSP_UART_RX_COMPLETED; 
-            uart_rx_size[i] = uart_rx_counter[i]; //TODO: should set +=
+            uart_rx_status[i] = BSP_UART_RX_COMPLETED;
+            uart_rx_size[i] += uart_rx_counter[i];
+//            if (uart_rx_size[i] > UART_BUFFER_SIZE)
+//            {
+//            	uart_rx_size[i] = uart_rx_counter[i];
+//            }
+//            uart_rx_size[i] += uart_rx_counter[i];
+            uart_rx_size[i] = uart_rx_counter[i];
             uart_rx_counter[i] = 0;
-            UART_Receive_IT(uartPara[i].uart_handle_addr, &uart_rx_byte[i], 1);
-            return;
+//            UART_Receive_IT(uartPara[i].uart_handle_addr, &uart_rx_byte[i], 1);
+            break;
         }
     }
 }

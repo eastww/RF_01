@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "bsp_test.h"
+#include "uart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,7 +71,8 @@ static void MX_TIM17_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  uint8_t buffer[256] = { 0 };
+  uint32_t bufferSize = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -79,7 +81,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -95,7 +96,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
-
+  uartInit(BSP_TTL_CHANNEL1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,6 +109,17 @@ int main(void)
 #if BSP_TEST_ENABLE
 	  bspTest();
 #endif
+	bufferSize = uartGetData(BSP_TTL_CHANNEL1, buffer, 256);
+	if (bufferSize)
+	{
+		/* send the buffer data to uart1 */
+		uartSendData(BSP_TTL_CHANNEL1, buffer, bufferSize);
+		HAL_Delay_nMs(10);
+
+		/* reset the value */
+		bufferSize = 0;
+		uartResetData(BSP_TTL_CHANNEL1);
+	}
   }
   /* USER CODE END 3 */
 }
@@ -173,7 +185,7 @@ static void MX_TIM17_Init(void)
   htim17.Instance = TIM17;
   htim17.Init.Prescaler = 4800-1;
   htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim17.Init.Period = 65535;
+  htim17.Init.Period = 36-1;
   htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim17.Init.RepetitionCounter = 0;
   htim17.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
