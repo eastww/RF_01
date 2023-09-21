@@ -13,7 +13,7 @@
  */
 #ifndef __BSP_UART_H
 #define __BSP_UART_H
-#include "Kfifo.h"
+#include "kfifo.h"
 #include "main.h"
 #include <stdbool.h>
 #include <string.h>

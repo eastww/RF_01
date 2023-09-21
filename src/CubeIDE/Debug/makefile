@@ -9,8 +9,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include Service/state_machine/subdir.mk
--include Service/message_queue/subdir.mk
+-include Service/stateMachine/subdir.mk
+-include Service/messageQueue/subdir.mk
 -include Service/kfifo/subdir.mk
 -include Drivers/STM32F0xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
