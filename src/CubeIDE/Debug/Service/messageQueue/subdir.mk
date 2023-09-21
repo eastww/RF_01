@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Service/messageQueue/messageQueue.c 
+../Service/messageQueue/messageQueue.c \
+../Service/messageQueue/messageQueueTest.c 
 
 OBJS += \
-./Service/messageQueue/messageQueue.o 
+./Service/messageQueue/messageQueue.o \
+./Service/messageQueue/messageQueueTest.o 
 
 C_DEPS += \
-./Service/messageQueue/messageQueue.d 
+./Service/messageQueue/messageQueue.d \
+./Service/messageQueue/messageQueueTest.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ Service/messageQueue/%.o Service/messageQueue/%.su: ../Service/messageQueue/%.c 
 clean: clean-Service-2f-messageQueue
 
 clean-Service-2f-messageQueue:
-	-$(RM) ./Service/messageQueue/messageQueue.d ./Service/messageQueue/messageQueue.o ./Service/messageQueue/messageQueue.su
+	-$(RM) ./Service/messageQueue/messageQueue.d ./Service/messageQueue/messageQueue.o ./Service/messageQueue/messageQueue.su ./Service/messageQueue/messageQueueTest.d ./Service/messageQueue/messageQueueTest.o ./Service/messageQueue/messageQueueTest.su
 
 .PHONY: clean-Service-2f-messageQueue
 

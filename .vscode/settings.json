@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "kfifo.h": "c"
+        "kfifo.h": "c",
+        "messagequeue.h": "c"
     }
 }

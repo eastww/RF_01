@@ -57,7 +57,7 @@ static void MX_USART1_UART_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM17_Init(void);
 /* USER CODE BEGIN PFP */
-
+extern void messageQueueTest(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,7 +98,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   uartInit(BSP_TTL_CHANNEL1);
   RF_Init();
-
   /* check rf is inited ok */
   if (Cmt2300_IsExist())
   {
@@ -119,6 +118,8 @@ int main(void)
   Cmt2300_ConfigDataMode(CMT2300_DATA_MODE_PACKET);
   /* enable fifo */
   Cmt2300_EnableFifoMerge(true);
+
+  messageQueueTest();
   /* USER CODE END 2 */
 
   /* Infinite loop */

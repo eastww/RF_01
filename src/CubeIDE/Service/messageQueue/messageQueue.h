@@ -2,6 +2,8 @@
  * @file messageQueue.h
  * @author Marshall (eastww@hotmail.com)
  * @brief This is the message queue implementation.
+ *        v0.1
+ *        mq use definited argument, cost lots of ram
  * @version 0.1
  * @date 2023-09-21
  * 
@@ -14,26 +16,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-/* message argument */
-union msgArgument
-{
-    uint8_t u8Arg;
-    int8_t s8Arg;
-
-    uint16_t u16Arg;
-    int16_t s16Arg;
-
-    uint32_t u32Arg;
-    int32_t s32Arg;
-
-    void *pArg;
-};
+/* define msg queue size */
+#define MSGQUEUESIZE                        8
+#define MSGQUEUEDATASIZE                    32
 
 /* message */
 struct msg
 {
     uint32_t type;
-    union msgArgument data;
+    void* data;
 };
 
 /* message queue */
@@ -43,12 +34,12 @@ struct msgQueue
     uint32_t size;
     uint32_t head;
     uint32_t tail;
-    struct msg *list;
+    struct msg list[MSGQUEUESIZE];
 };
 
 /* function definition */
-struct msgQueue *mq_init(uint32_t size, uint32_t listSize);
-void *mq_deinit(struct msgQueue *queue);
+struct msgQueue *mq_init(void);
+void mq_deinit(struct msgQueue *queue);
 bool mq_lock(struct msgQueue *queue);
 bool mq_unlock(struct msgQueue *queue);
 bool mq_isEmpty(struct msgQueue *queue);
