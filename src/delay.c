@@ -1,5 +1,6 @@
 #include "delay.h"
 #include <stdint.h>
+#include "./CubeIDE/Core/Inc/main.h"
 
 void Delay_Us (uint32_t delay)
 {

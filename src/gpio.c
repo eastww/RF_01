@@ -133,7 +133,7 @@ void cmt_spi3_gpio3_in(void)
 	GPIO_InitStruct.Pin = GPIO_RF_GPIO3_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
 	GPIO_InitStruct.Pull = GPIO_PULLUP;
-HAL_GPIO_Init(GPIO_RF_GPIO3_GPIO_Port, &GPIO_InitStruct);
+	HAL_GPIO_Init(GPIO_RF_GPIO3_GPIO_Port, &GPIO_InitStruct);
 #else
     GPIO_InitTypeDef GPIO_InitStructure;
 
