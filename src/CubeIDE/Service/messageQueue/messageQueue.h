@@ -4,7 +4,9 @@
  * @brief This is the message queue implementation.
  *        v0.1
  *        mq use definited argument, cost lots of ram
- * @version 0.1
+ *        v0.2
+ *        mq use void pointer to transfer arguments
+ * @version 0.2
  * @date 2023-09-21
  * 
  * @copyright Copyright (c) 2023
@@ -17,8 +19,7 @@
 #include <stdbool.h>
 
 /* define msg queue size */
-#define MSGQUEUESIZE                        8
-#define MSGQUEUEDATASIZE                    32
+#define MSGQUEUESIZE                        16
 
 /* message */
 struct msg

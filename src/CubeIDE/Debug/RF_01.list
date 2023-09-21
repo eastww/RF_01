@@ -5,45 +5,45 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   000000c0  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         0000561c  080000c0  080000c0  000100c0  2**2
+  1 .text         000054e4  080000c0  080000c0  000100c0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000204  080056dc  080056dc  000156dc  2**2
+  2 .rodata       00000204  080055a4  080055a4  000155a4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  080058e0  080058e0  00020108  2**0
+  3 .ARM.extab    00000000  080057a8  080057a8  00020108  2**0
                   CONTENTS
-  4 .ARM          00000000  080058e0  080058e0  00020108  2**0
+  4 .ARM          00000000  080057a8  080057a8  00020108  2**0
                   CONTENTS
-  5 .preinit_array 00000000  080058e0  080058e0  00020108  2**0
+  5 .preinit_array 00000000  080057a8  080057a8  00020108  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  080058e0  080058e0  000158e0  2**2
+  6 .init_array   00000004  080057a8  080057a8  000157a8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  080058e4  080058e4  000158e4  2**2
+  7 .fini_array   00000004  080057ac  080057ac  000157ac  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000108  20000000  080058e8  00020000  2**2
+  8 .data         00000108  20000000  080057b0  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000002e0  20000108  080059f0  00020108  2**2
+  9 .bss          000002e0  20000108  080058b8  00020108  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  200003e8  080059f0  000203e8  2**0
+ 10 ._user_heap_stack 00000600  200003e8  080058b8  000203e8  2**0
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  00020108  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00011d32  00000000  00000000  00020130  2**0
+ 12 .debug_info   00011d14  00000000  00000000  00020130  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00003053  00000000  00000000  00031e62  2**0
+ 13 .debug_abbrev 0000304e  00000000  00000000  00031e44  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00001118  00000000  00000000  00034eb8  2**3
+ 14 .debug_aranges 00001118  00000000  00000000  00034e98  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000fa0  00000000  00000000  00035fd0  2**3
+ 15 .debug_ranges 00000fa0  00000000  00000000  00035fb0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000136a3  00000000  00000000  00036f70  2**0
+ 16 .debug_macro  00013695  00000000  00000000  00036f50  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000165fc  00000000  00000000  0004a613  2**0
+ 17 .debug_line   000165dc  00000000  00000000  0004a5e5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0006a3b1  00000000  00000000  00060c0f  2**0
+ 18 .debug_str    0006a39e  00000000  00000000  00060bc1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000cafc0  2**0
+ 19 .comment      00000050  00000000  00000000  000caf5f  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003dd0  00000000  00000000  000cb010  2**2
+ 20 .debug_frame  00003da4  00000000  00000000  000cafb0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -65,7 +65,7 @@ Disassembly of section .text:
  80000da:	bd10      	pop	{r4, pc}
  80000dc:	20000108 	.word	0x20000108
  80000e0:	00000000 	.word	0x00000000
- 80000e4:	080056c4 	.word	0x080056c4
+ 80000e4:	0800558c 	.word	0x0800558c
 
 080000e8 <frame_dummy>:
  80000e8:	4b04      	ldr	r3, [pc, #16]	; (80000fc <frame_dummy+0x14>)
@@ -80,7 +80,7 @@ Disassembly of section .text:
  80000fa:	46c0      	nop			; (mov r8, r8)
  80000fc:	00000000 	.word	0x00000000
  8000100:	2000010c 	.word	0x2000010c
- 8000104:	080056c4 	.word	0x080056c4
+ 8000104:	0800558c 	.word	0x0800558c
 
 08000108 <__udivsi3>:
  8000108:	2200      	movs	r2, #0
@@ -1396,8 +1396,8 @@ void Cmt2300_ConfigDataRate(uint8_t DataRate)
  80008f2:	b005      	add	sp, #20
  80008f4:	bd90      	pop	{r4, r7, pc}
  80008f6:	46c0      	nop			; (mov r8, r8)
- 80008f8:	080056f4 	.word	0x080056f4
- 80008fc:	080057b4 	.word	0x080057b4
+ 80008f8:	080055bc 	.word	0x080055bc
+ 80008fc:	0800567c 	.word	0x0800567c
 
 08000900 <Cmt2300_ConfigDataMode>:
 //							CMT2300_DATA_MODE_DIRECT
@@ -1557,7 +1557,7 @@ void Cmt2300_ConfigTxPower(uint8_t TxPower)
  8000a06:	b005      	add	sp, #20
  8000a08:	bd90      	pop	{r4, r7, pc}
  8000a0a:	46c0      	nop			; (mov r8, r8)
- 8000a0c:	080057fc 	.word	0x080057fc
+ 8000a0c:	080056c4 	.word	0x080056c4
 
 08000a10 <Cmt2300_IsExist>:
 * @name    Cmt2300_IsExist
@@ -2966,12 +2966,12 @@ void RF_Init(void)
  800128e:	46bd      	mov	sp, r7
  8001290:	bd80      	pop	{r7, pc}
  8001292:	46c0      	nop			; (mov r8, r8)
- 8001294:	0800581c 	.word	0x0800581c
- 8001298:	08005828 	.word	0x08005828
- 800129c:	08005834 	.word	0x08005834
- 80012a0:	0800583c 	.word	0x0800583c
- 80012a4:	08005854 	.word	0x08005854
- 80012a8:	08005874 	.word	0x08005874
+ 8001294:	080056e4 	.word	0x080056e4
+ 8001298:	080056f0 	.word	0x080056f0
+ 800129c:	080056fc 	.word	0x080056fc
+ 80012a0:	08005704 	.word	0x08005704
+ 80012a4:	0800571c 	.word	0x0800571c
+ 80012a8:	0800573c 	.word	0x0800573c
 
 080012ac <RF_Config>:
         g_nNextRFState = RF_STATE_RX_WAIT;
@@ -3479,7 +3479,7 @@ EnumRFResult RF_Process(void)
  800151c:	bd80      	pop	{r7, pc}
  800151e:	46c0      	nop			; (mov r8, r8)
  8001520:	20000124 	.word	0x20000124
- 8001524:	08005880 	.word	0x08005880
+ 8001524:	08005748 	.word	0x08005748
  8001528:	2000013e 	.word	0x2000013e
  800152c:	20000140 	.word	0x20000140
  8001530:	20000134 	.word	0x20000134
@@ -3562,7 +3562,7 @@ static void rfTxTest(void)
  80015b8:	46c0      	nop			; (mov r8, r8)
         switch (RF_Process())
  80015ba:	e7dd      	b.n	8001578 <rfTxTest+0x24>
- 80015bc:	080056e8 	.word	0x080056e8
+ 80015bc:	080055b0 	.word	0x080055b0
  80015c0:	48000400 	.word	0x48000400
 
 080015c4 <bspTest>:
@@ -3674,7 +3674,7 @@ void cmt_spi3_sda_out(void)
  8001632:	2314      	movs	r3, #20
  8001634:	001a      	movs	r2, r3
  8001636:	2100      	movs	r1, #0
- 8001638:	f003 ff35 	bl	80054a6 <memset>
+ 8001638:	f003 fee3 	bl	8005402 <memset>
 
 	__HAL_RCC_GPIOA_CLK_ENABLE();
  800163c:	4b12      	ldr	r3, [pc, #72]	; (8001688 <cmt_spi3_sda_out+0x60>)
@@ -3741,7 +3741,7 @@ void cmt_spi3_sda_in(void)
  8001696:	2314      	movs	r3, #20
  8001698:	001a      	movs	r2, r3
  800169a:	2100      	movs	r1, #0
- 800169c:	f003 ff03 	bl	80054a6 <memset>
+ 800169c:	f003 feb1 	bl	8005402 <memset>
 
 	__HAL_RCC_GPIOA_CLK_ENABLE();
  80016a0:	4b11      	ldr	r3, [pc, #68]	; (80016e8 <cmt_spi3_sda_in+0x5c>)
@@ -4529,7 +4529,7 @@ int main(void)
  8001b5e:	22fc      	movs	r2, #252	; 0xfc
  8001b60:	2100      	movs	r1, #0
  8001b62:	0018      	movs	r0, r3
- 8001b64:	f003 fc9f 	bl	80054a6 <memset>
+ 8001b64:	f003 fc4d 	bl	8005402 <memset>
   uint32_t bufferSize = 0;
  8001b68:	2300      	movs	r3, #0
  8001b6a:	1d7a      	adds	r2, r7, #5
@@ -4614,7 +4614,7 @@ int main(void)
  8001bce:	f7fe fc59 	bl	8000484 <Cmt2300_EnableFifoMerge>
 
   messageQueueTest();
- 8001bd2:	f003 fbcf 	bl	8005374 <messageQueueTest>
+ 8001bd2:	f003 fb87 	bl	80052e4 <messageQueueTest>
   {
     /* USER CODE END WHILE */
 
@@ -4643,7 +4643,7 @@ void SystemClock_Config(void)
  8001bf0:	2330      	movs	r3, #48	; 0x30
  8001bf2:	001a      	movs	r2, r3
  8001bf4:	2100      	movs	r1, #0
- 8001bf6:	f003 fc56 	bl	80054a6 <memset>
+ 8001bf6:	f003 fc04 	bl	8005402 <memset>
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
  8001bfa:	2310      	movs	r3, #16
  8001bfc:	18fb      	adds	r3, r7, r3
@@ -4651,14 +4651,14 @@ void SystemClock_Config(void)
  8001c00:	2310      	movs	r3, #16
  8001c02:	001a      	movs	r2, r3
  8001c04:	2100      	movs	r1, #0
- 8001c06:	f003 fc4e 	bl	80054a6 <memset>
+ 8001c06:	f003 fbfc 	bl	8005402 <memset>
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
  8001c0a:	003b      	movs	r3, r7
  8001c0c:	0018      	movs	r0, r3
  8001c0e:	2310      	movs	r3, #16
  8001c10:	001a      	movs	r2, r3
  8001c12:	2100      	movs	r1, #0
- 8001c14:	f003 fc47 	bl	80054a6 <memset>
+ 8001c14:	f003 fbf5 	bl	8005402 <memset>
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -4990,7 +4990,7 @@ static void MX_GPIO_Init(void)
  8001dc0:	2314      	movs	r3, #20
  8001dc2:	001a      	movs	r2, r3
  8001dc4:	2100      	movs	r1, #0
- 8001dc6:	f003 fb6e 	bl	80054a6 <memset>
+ 8001dc6:	f003 fb1c 	bl	8005402 <memset>
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOF_CLK_ENABLE();
@@ -5431,7 +5431,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
  8002042:	2314      	movs	r3, #20
  8002044:	001a      	movs	r2, r3
  8002046:	2100      	movs	r1, #0
- 8002048:	f003 fa2d 	bl	80054a6 <memset>
+ 8002048:	f003 f9db 	bl	8005402 <memset>
   if(huart->Instance==USART1)
  800204c:	687b      	ldr	r3, [r7, #4]
  800204e:	681b      	ldr	r3, [r3, #0]
@@ -5903,7 +5903,7 @@ void *_sbrk(ptrdiff_t incr)
  8002276:	d207      	bcs.n	8002288 <_sbrk+0x40>
   {
     errno = ENOMEM;
- 8002278:	f003 f8ce 	bl	8005418 <__errno>
+ 8002278:	f003 f886 	bl	8005388 <__errno>
  800227c:	0003      	movs	r3, r0
  800227e:	220c      	movs	r2, #12
  8002280:	601a      	str	r2, [r3, #0]
@@ -6032,7 +6032,7 @@ LoopFillZerobss:
 
 /* Call static constructors */
   bl __libc_init_array
- 80022ee:	f003 f899 	bl	8005424 <__libc_init_array>
+ 80022ee:	f003 f851 	bl	8005394 <__libc_init_array>
 /* Call the application's entry point.*/
   bl main
  80022f2:	f7ff fc29 	bl	8001b48 <main>
@@ -6049,7 +6049,7 @@ LoopForever:
   ldr r1, =_edata
  8002300:	20000108 	.word	0x20000108
   ldr r2, =_sidata
- 8002304:	080058e8 	.word	0x080058e8
+ 8002304:	080057b0 	.word	0x080057b0
   ldr r2, =_sbss
  8002308:	20000108 	.word	0x20000108
   ldr r4, =_ebss
@@ -9194,7 +9194,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  80033e0:	40021000 	.word	0x40021000
  80033e4:	00001388 	.word	0x00001388
  80033e8:	fffff8ff 	.word	0xfffff8ff
- 80033ec:	080058a8 	.word	0x080058a8
+ 80033ec:	08005770 	.word	0x08005770
  80033f0:	20000018 	.word	0x20000018
 
 080033f4 <HAL_RCC_GetSysClockFreq>:
@@ -9330,8 +9330,8 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  800348e:	46c0      	nop			; (mov r8, r8)
  8003490:	40021000 	.word	0x40021000
  8003494:	00f42400 	.word	0x00f42400
- 8003498:	080058c0 	.word	0x080058c0
- 800349c:	080058d0 	.word	0x080058d0
+ 8003498:	08005788 	.word	0x08005788
+ 800349c:	08005798 	.word	0x08005798
  80034a0:	007a1200 	.word	0x007a1200
 
 080034a4 <HAL_RCC_GetHCLKFreq>:
@@ -9381,7 +9381,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  80034d8:	bd80      	pop	{r7, pc}
  80034da:	46c0      	nop			; (mov r8, r8)
  80034dc:	40021000 	.word	0x40021000
- 80034e0:	080058b8 	.word	0x080058b8
+ 80034e0:	08005780 	.word	0x08005780
 
 080034e4 <HAL_RCCEx_PeriphCLKConfig>:
   *         the backup registers) and RCC_BDCR register are set to their reset values.
@@ -14494,7 +14494,7 @@ static __inline void __kfifo_in_data(struct kfifo *fifo,
  800504e:	697a      	ldr	r2, [r7, #20]
  8005050:	68b9      	ldr	r1, [r7, #8]
  8005052:	0018      	movs	r0, r3
- 8005054:	f000 fa1e 	bl	8005494 <memcpy>
+ 8005054:	f000 f9cc 	bl	80053f0 <memcpy>
 
 	/* then put the rest (if any) at the beginning of the buffer */
 	memcpy(fifo->buffer, (char*)(from) + l, len - l);
@@ -14507,7 +14507,7 @@ static __inline void __kfifo_in_data(struct kfifo *fifo,
  8005064:	697b      	ldr	r3, [r7, #20]
  8005066:	1ad3      	subs	r3, r2, r3
  8005068:	001a      	movs	r2, r3
- 800506a:	f000 fa13 	bl	8005494 <memcpy>
+ 800506a:	f000 f9c1 	bl	80053f0 <memcpy>
 }
  800506e:	46c0      	nop			; (mov r8, r8)
  8005070:	46bd      	mov	sp, r7
@@ -14570,12 +14570,12 @@ unsigned int kfifo_in(struct kfifo *fifo, const void *from,
  */
 struct msgQueue *mq_init(void)
 {
- 80050c4:	b590      	push	{r4, r7, lr}
- 80050c6:	b083      	sub	sp, #12
+ 80050c4:	b580      	push	{r7, lr}
+ 80050c6:	b082      	sub	sp, #8
  80050c8:	af00      	add	r7, sp, #0
     struct msgQueue *mq = (struct msgQueue *)malloc(sizeof(struct msgQueue));
- 80050ca:	2050      	movs	r0, #80	; 0x50
- 80050cc:	f000 f9ce 	bl	800546c <malloc>
+ 80050ca:	2090      	movs	r0, #144	; 0x90
+ 80050cc:	f000 f986 	bl	80053dc <malloc>
  80050d0:	0003      	movs	r3, r0
  80050d2:	603b      	str	r3, [r7, #0]
     if (mq == NULL)
@@ -14585,7 +14585,7 @@ struct msgQueue *mq_init(void)
     {
         return NULL;
  80050da:	2300      	movs	r3, #0
- 80050dc:	e036      	b.n	800514c <mq_init+0x88>
+ 80050dc:	e024      	b.n	8005128 <mq_init+0x64>
     }
     mq->lock = 0;
  80050de:	683b      	ldr	r3, [r7, #0]
@@ -14593,7 +14593,7 @@ struct msgQueue *mq_init(void)
  80050e2:	701a      	strb	r2, [r3, #0]
     mq->size = MSGQUEUESIZE;
  80050e4:	683b      	ldr	r3, [r7, #0]
- 80050e6:	2208      	movs	r2, #8
+ 80050e6:	2210      	movs	r2, #16
  80050e8:	605a      	str	r2, [r3, #4]
     mq->head = 0;
  80050ea:	683b      	ldr	r3, [r7, #0]
@@ -14607,928 +14607,757 @@ struct msgQueue *mq_init(void)
  80050f6:	1dfb      	adds	r3, r7, #7
  80050f8:	2200      	movs	r2, #0
  80050fa:	701a      	strb	r2, [r3, #0]
- 80050fc:	e021      	b.n	8005142 <mq_init+0x7e>
+ 80050fc:	e00f      	b.n	800511e <mq_init+0x5a>
     {
-        mq->list[i].data = (uint8_t *)malloc(MSGQUEUEDATASIZE);
+        memset(&(mq->list[i]), 0, sizeof(struct msgQueue));
  80050fe:	1dfb      	adds	r3, r7, #7
- 8005100:	781c      	ldrb	r4, [r3, #0]
- 8005102:	2020      	movs	r0, #32
- 8005104:	f000 f9b2 	bl	800546c <malloc>
- 8005108:	0003      	movs	r3, r0
- 800510a:	0019      	movs	r1, r3
- 800510c:	683a      	ldr	r2, [r7, #0]
- 800510e:	1ca3      	adds	r3, r4, #2
- 8005110:	00db      	lsls	r3, r3, #3
- 8005112:	18d3      	adds	r3, r2, r3
- 8005114:	3304      	adds	r3, #4
- 8005116:	6019      	str	r1, [r3, #0]
-        if (mq->list[i].data == NULL)
- 8005118:	1dfb      	adds	r3, r7, #7
- 800511a:	781b      	ldrb	r3, [r3, #0]
- 800511c:	683a      	ldr	r2, [r7, #0]
- 800511e:	3302      	adds	r3, #2
- 8005120:	00db      	lsls	r3, r3, #3
- 8005122:	18d3      	adds	r3, r2, r3
- 8005124:	3304      	adds	r3, #4
- 8005126:	681b      	ldr	r3, [r3, #0]
- 8005128:	2b00      	cmp	r3, #0
- 800512a:	d105      	bne.n	8005138 <mq_init+0x74>
-        {
-            /* rough handle */
-            mq_deinit(mq);
- 800512c:	683b      	ldr	r3, [r7, #0]
- 800512e:	0018      	movs	r0, r3
- 8005130:	f000 f810 	bl	8005154 <mq_deinit>
-            return NULL;
- 8005134:	2300      	movs	r3, #0
- 8005136:	e009      	b.n	800514c <mq_init+0x88>
+ 8005100:	781b      	ldrb	r3, [r3, #0]
+ 8005102:	3302      	adds	r3, #2
+ 8005104:	00db      	lsls	r3, r3, #3
+ 8005106:	683a      	ldr	r2, [r7, #0]
+ 8005108:	18d3      	adds	r3, r2, r3
+ 800510a:	2290      	movs	r2, #144	; 0x90
+ 800510c:	2100      	movs	r1, #0
+ 800510e:	0018      	movs	r0, r3
+ 8005110:	f000 f977 	bl	8005402 <memset>
     for (uint8_t i = 0; i < MSGQUEUESIZE; i++)
- 8005138:	1dfb      	adds	r3, r7, #7
- 800513a:	781a      	ldrb	r2, [r3, #0]
- 800513c:	1dfb      	adds	r3, r7, #7
- 800513e:	3201      	adds	r2, #1
- 8005140:	701a      	strb	r2, [r3, #0]
- 8005142:	1dfb      	adds	r3, r7, #7
- 8005144:	781b      	ldrb	r3, [r3, #0]
- 8005146:	2b07      	cmp	r3, #7
- 8005148:	d9d9      	bls.n	80050fe <mq_init+0x3a>
-        }
+ 8005114:	1dfb      	adds	r3, r7, #7
+ 8005116:	781a      	ldrb	r2, [r3, #0]
+ 8005118:	1dfb      	adds	r3, r7, #7
+ 800511a:	3201      	adds	r2, #1
+ 800511c:	701a      	strb	r2, [r3, #0]
+ 800511e:	1dfb      	adds	r3, r7, #7
+ 8005120:	781b      	ldrb	r3, [r3, #0]
+ 8005122:	2b0f      	cmp	r3, #15
+ 8005124:	d9eb      	bls.n	80050fe <mq_init+0x3a>
     }
     return mq;
- 800514a:	683b      	ldr	r3, [r7, #0]
+ 8005126:	683b      	ldr	r3, [r7, #0]
 }
- 800514c:	0018      	movs	r0, r3
- 800514e:	46bd      	mov	sp, r7
- 8005150:	b003      	add	sp, #12
- 8005152:	bd90      	pop	{r4, r7, pc}
+ 8005128:	0018      	movs	r0, r3
+ 800512a:	46bd      	mov	sp, r7
+ 800512c:	b002      	add	sp, #8
+ 800512e:	bd80      	pop	{r7, pc}
 
-08005154 <mq_deinit>:
- * 
- * @param queue 
- * @return None 
- */
-void mq_deinit(struct msgQueue *queue)
-{
- 8005154:	b590      	push	{r4, r7, lr}
- 8005156:	b085      	sub	sp, #20
- 8005158:	af00      	add	r7, sp, #0
- 800515a:	6078      	str	r0, [r7, #4]
-    queue->lock = 0;
- 800515c:	687b      	ldr	r3, [r7, #4]
- 800515e:	2200      	movs	r2, #0
- 8005160:	701a      	strb	r2, [r3, #0]
-    queue->head = 0;
- 8005162:	687b      	ldr	r3, [r7, #4]
- 8005164:	2200      	movs	r2, #0
- 8005166:	609a      	str	r2, [r3, #8]
-    queue->tail = 0;
- 8005168:	687b      	ldr	r3, [r7, #4]
- 800516a:	2200      	movs	r2, #0
- 800516c:	60da      	str	r2, [r3, #12]
-    for (uint8_t i = 0; i < MSGQUEUESIZE; i++)
- 800516e:	230f      	movs	r3, #15
- 8005170:	18fb      	adds	r3, r7, r3
- 8005172:	2200      	movs	r2, #0
- 8005174:	701a      	strb	r2, [r3, #0]
- 8005176:	e019      	b.n	80051ac <mq_deinit+0x58>
-    {
-        free(queue->list[i].data);
- 8005178:	240f      	movs	r4, #15
- 800517a:	193b      	adds	r3, r7, r4
- 800517c:	781b      	ldrb	r3, [r3, #0]
- 800517e:	687a      	ldr	r2, [r7, #4]
- 8005180:	3302      	adds	r3, #2
- 8005182:	00db      	lsls	r3, r3, #3
- 8005184:	18d3      	adds	r3, r2, r3
- 8005186:	3304      	adds	r3, #4
- 8005188:	681b      	ldr	r3, [r3, #0]
- 800518a:	0018      	movs	r0, r3
- 800518c:	f000 f978 	bl	8005480 <free>
-        queue->list[i].data = NULL;
- 8005190:	193b      	adds	r3, r7, r4
- 8005192:	781b      	ldrb	r3, [r3, #0]
- 8005194:	687a      	ldr	r2, [r7, #4]
- 8005196:	3302      	adds	r3, #2
- 8005198:	00db      	lsls	r3, r3, #3
- 800519a:	18d3      	adds	r3, r2, r3
- 800519c:	3304      	adds	r3, #4
- 800519e:	2200      	movs	r2, #0
- 80051a0:	601a      	str	r2, [r3, #0]
-    for (uint8_t i = 0; i < MSGQUEUESIZE; i++)
- 80051a2:	193b      	adds	r3, r7, r4
- 80051a4:	781a      	ldrb	r2, [r3, #0]
- 80051a6:	193b      	adds	r3, r7, r4
- 80051a8:	3201      	adds	r2, #1
- 80051aa:	701a      	strb	r2, [r3, #0]
- 80051ac:	230f      	movs	r3, #15
- 80051ae:	18fb      	adds	r3, r7, r3
- 80051b0:	781b      	ldrb	r3, [r3, #0]
- 80051b2:	2b07      	cmp	r3, #7
- 80051b4:	d9e0      	bls.n	8005178 <mq_deinit+0x24>
-    }
-    queue->size = 0;
- 80051b6:	687b      	ldr	r3, [r7, #4]
- 80051b8:	2200      	movs	r2, #0
- 80051ba:	605a      	str	r2, [r3, #4]
-    free(queue);
- 80051bc:	687b      	ldr	r3, [r7, #4]
- 80051be:	0018      	movs	r0, r3
- 80051c0:	f000 f95e 	bl	8005480 <free>
-    queue = NULL;
- 80051c4:	2300      	movs	r3, #0
- 80051c6:	607b      	str	r3, [r7, #4]
-}
- 80051c8:	46c0      	nop			; (mov r8, r8)
- 80051ca:	46bd      	mov	sp, r7
- 80051cc:	b005      	add	sp, #20
- 80051ce:	bd90      	pop	{r4, r7, pc}
-
-080051d0 <mq_lock>:
+08005130 <mq_lock>:
  * @param msg queue
  * @return true 
  * @return false 
  */
 bool mq_lock(struct msgQueue *queue)
 {
- 80051d0:	b580      	push	{r7, lr}
- 80051d2:	b082      	sub	sp, #8
- 80051d4:	af00      	add	r7, sp, #0
- 80051d6:	6078      	str	r0, [r7, #4]
+ 8005130:	b580      	push	{r7, lr}
+ 8005132:	b082      	sub	sp, #8
+ 8005134:	af00      	add	r7, sp, #0
+ 8005136:	6078      	str	r0, [r7, #4]
     if (queue != NULL)
- 80051d8:	687b      	ldr	r3, [r7, #4]
- 80051da:	2b00      	cmp	r3, #0
- 80051dc:	d004      	beq.n	80051e8 <mq_lock+0x18>
+ 8005138:	687b      	ldr	r3, [r7, #4]
+ 800513a:	2b00      	cmp	r3, #0
+ 800513c:	d004      	beq.n	8005148 <mq_lock+0x18>
     {
         queue->lock = 1;
- 80051de:	687b      	ldr	r3, [r7, #4]
- 80051e0:	2201      	movs	r2, #1
- 80051e2:	701a      	strb	r2, [r3, #0]
+ 800513e:	687b      	ldr	r3, [r7, #4]
+ 8005140:	2201      	movs	r2, #1
+ 8005142:	701a      	strb	r2, [r3, #0]
         return true;
- 80051e4:	2301      	movs	r3, #1
- 80051e6:	e000      	b.n	80051ea <mq_lock+0x1a>
+ 8005144:	2301      	movs	r3, #1
+ 8005146:	e000      	b.n	800514a <mq_lock+0x1a>
     }
 
     return false;
- 80051e8:	2300      	movs	r3, #0
+ 8005148:	2300      	movs	r3, #0
 }
- 80051ea:	0018      	movs	r0, r3
- 80051ec:	46bd      	mov	sp, r7
- 80051ee:	b002      	add	sp, #8
- 80051f0:	bd80      	pop	{r7, pc}
+ 800514a:	0018      	movs	r0, r3
+ 800514c:	46bd      	mov	sp, r7
+ 800514e:	b002      	add	sp, #8
+ 8005150:	bd80      	pop	{r7, pc}
 
-080051f2 <mq_unlock>:
+08005152 <mq_unlock>:
  * @param msg queue 
  * @return true 
  * @return false 
  */
 bool mq_unlock(struct msgQueue *queue)
 {
- 80051f2:	b580      	push	{r7, lr}
- 80051f4:	b082      	sub	sp, #8
- 80051f6:	af00      	add	r7, sp, #0
- 80051f8:	6078      	str	r0, [r7, #4]
+ 8005152:	b580      	push	{r7, lr}
+ 8005154:	b082      	sub	sp, #8
+ 8005156:	af00      	add	r7, sp, #0
+ 8005158:	6078      	str	r0, [r7, #4]
     if (queue != NULL)
- 80051fa:	687b      	ldr	r3, [r7, #4]
- 80051fc:	2b00      	cmp	r3, #0
- 80051fe:	d004      	beq.n	800520a <mq_unlock+0x18>
+ 800515a:	687b      	ldr	r3, [r7, #4]
+ 800515c:	2b00      	cmp	r3, #0
+ 800515e:	d004      	beq.n	800516a <mq_unlock+0x18>
     {
         queue->lock = 0;
- 8005200:	687b      	ldr	r3, [r7, #4]
- 8005202:	2200      	movs	r2, #0
- 8005204:	701a      	strb	r2, [r3, #0]
+ 8005160:	687b      	ldr	r3, [r7, #4]
+ 8005162:	2200      	movs	r2, #0
+ 8005164:	701a      	strb	r2, [r3, #0]
         return true;
- 8005206:	2301      	movs	r3, #1
- 8005208:	e000      	b.n	800520c <mq_unlock+0x1a>
+ 8005166:	2301      	movs	r3, #1
+ 8005168:	e000      	b.n	800516c <mq_unlock+0x1a>
     }
     
     return false;
- 800520a:	2300      	movs	r3, #0
+ 800516a:	2300      	movs	r3, #0
 }
- 800520c:	0018      	movs	r0, r3
- 800520e:	46bd      	mov	sp, r7
- 8005210:	b002      	add	sp, #8
- 8005212:	bd80      	pop	{r7, pc}
+ 800516c:	0018      	movs	r0, r3
+ 800516e:	46bd      	mov	sp, r7
+ 8005170:	b002      	add	sp, #8
+ 8005172:	bd80      	pop	{r7, pc}
 
-08005214 <mq_isEmpty>:
+08005174 <mq_isEmpty>:
  * @param msg queue 
  * @return true 
  * @return false 
  */
 bool mq_isEmpty(struct msgQueue *queue)
 {
- 8005214:	b580      	push	{r7, lr}
- 8005216:	b082      	sub	sp, #8
- 8005218:	af00      	add	r7, sp, #0
- 800521a:	6078      	str	r0, [r7, #4]
+ 8005174:	b580      	push	{r7, lr}
+ 8005176:	b082      	sub	sp, #8
+ 8005178:	af00      	add	r7, sp, #0
+ 800517a:	6078      	str	r0, [r7, #4]
     if (queue != NULL && mq_getCurrentSize(queue))
- 800521c:	687b      	ldr	r3, [r7, #4]
- 800521e:	2b00      	cmp	r3, #0
- 8005220:	d007      	beq.n	8005232 <mq_isEmpty+0x1e>
- 8005222:	687b      	ldr	r3, [r7, #4]
- 8005224:	0018      	movs	r0, r3
- 8005226:	f000 f809 	bl	800523c <mq_getCurrentSize>
- 800522a:	1e03      	subs	r3, r0, #0
- 800522c:	d001      	beq.n	8005232 <mq_isEmpty+0x1e>
+ 800517c:	687b      	ldr	r3, [r7, #4]
+ 800517e:	2b00      	cmp	r3, #0
+ 8005180:	d007      	beq.n	8005192 <mq_isEmpty+0x1e>
+ 8005182:	687b      	ldr	r3, [r7, #4]
+ 8005184:	0018      	movs	r0, r3
+ 8005186:	f000 f809 	bl	800519c <mq_getCurrentSize>
+ 800518a:	1e03      	subs	r3, r0, #0
+ 800518c:	d001      	beq.n	8005192 <mq_isEmpty+0x1e>
     {
         return true;
- 800522e:	2301      	movs	r3, #1
- 8005230:	e000      	b.n	8005234 <mq_isEmpty+0x20>
+ 800518e:	2301      	movs	r3, #1
+ 8005190:	e000      	b.n	8005194 <mq_isEmpty+0x20>
     }
     return false;
- 8005232:	2300      	movs	r3, #0
+ 8005192:	2300      	movs	r3, #0
 }
- 8005234:	0018      	movs	r0, r3
- 8005236:	46bd      	mov	sp, r7
- 8005238:	b002      	add	sp, #8
- 800523a:	bd80      	pop	{r7, pc}
+ 8005194:	0018      	movs	r0, r3
+ 8005196:	46bd      	mov	sp, r7
+ 8005198:	b002      	add	sp, #8
+ 800519a:	bd80      	pop	{r7, pc}
 
-0800523c <mq_getCurrentSize>:
+0800519c <mq_getCurrentSize>:
  * 
  * @param queue 
  * @return uint32_t 
  */
 uint32_t mq_getCurrentSize(struct msgQueue *queue)
 {
- 800523c:	b580      	push	{r7, lr}
- 800523e:	b082      	sub	sp, #8
- 8005240:	af00      	add	r7, sp, #0
- 8005242:	6078      	str	r0, [r7, #4]
+ 800519c:	b580      	push	{r7, lr}
+ 800519e:	b082      	sub	sp, #8
+ 80051a0:	af00      	add	r7, sp, #0
+ 80051a2:	6078      	str	r0, [r7, #4]
     if (queue == NULL)
- 8005244:	687b      	ldr	r3, [r7, #4]
- 8005246:	2b00      	cmp	r3, #0
- 8005248:	d101      	bne.n	800524e <mq_getCurrentSize+0x12>
+ 80051a4:	687b      	ldr	r3, [r7, #4]
+ 80051a6:	2b00      	cmp	r3, #0
+ 80051a8:	d101      	bne.n	80051ae <mq_getCurrentSize+0x12>
     {
         return 0;
- 800524a:	2300      	movs	r3, #0
- 800524c:	e019      	b.n	8005282 <mq_getCurrentSize+0x46>
+ 80051aa:	2300      	movs	r3, #0
+ 80051ac:	e019      	b.n	80051e2 <mq_getCurrentSize+0x46>
     }
     if (queue->head - queue->tail)
- 800524e:	687b      	ldr	r3, [r7, #4]
- 8005250:	689a      	ldr	r2, [r3, #8]
- 8005252:	687b      	ldr	r3, [r7, #4]
- 8005254:	68db      	ldr	r3, [r3, #12]
- 8005256:	429a      	cmp	r2, r3
- 8005258:	d005      	beq.n	8005266 <mq_getCurrentSize+0x2a>
+ 80051ae:	687b      	ldr	r3, [r7, #4]
+ 80051b0:	689a      	ldr	r2, [r3, #8]
+ 80051b2:	687b      	ldr	r3, [r7, #4]
+ 80051b4:	68db      	ldr	r3, [r3, #12]
+ 80051b6:	429a      	cmp	r2, r3
+ 80051b8:	d005      	beq.n	80051c6 <mq_getCurrentSize+0x2a>
     {
         return queue->head - queue->tail;
- 800525a:	687b      	ldr	r3, [r7, #4]
- 800525c:	689a      	ldr	r2, [r3, #8]
- 800525e:	687b      	ldr	r3, [r7, #4]
- 8005260:	68db      	ldr	r3, [r3, #12]
- 8005262:	1ad3      	subs	r3, r2, r3
- 8005264:	e00d      	b.n	8005282 <mq_getCurrentSize+0x46>
+ 80051ba:	687b      	ldr	r3, [r7, #4]
+ 80051bc:	689a      	ldr	r2, [r3, #8]
+ 80051be:	687b      	ldr	r3, [r7, #4]
+ 80051c0:	68db      	ldr	r3, [r3, #12]
+ 80051c2:	1ad3      	subs	r3, r2, r3
+ 80051c4:	e00d      	b.n	80051e2 <mq_getCurrentSize+0x46>
     } 
     else if (queue->tail - queue->head)
- 8005266:	687b      	ldr	r3, [r7, #4]
- 8005268:	68da      	ldr	r2, [r3, #12]
- 800526a:	687b      	ldr	r3, [r7, #4]
- 800526c:	689b      	ldr	r3, [r3, #8]
- 800526e:	429a      	cmp	r2, r3
- 8005270:	d006      	beq.n	8005280 <mq_getCurrentSize+0x44>
+ 80051c6:	687b      	ldr	r3, [r7, #4]
+ 80051c8:	68da      	ldr	r2, [r3, #12]
+ 80051ca:	687b      	ldr	r3, [r7, #4]
+ 80051cc:	689b      	ldr	r3, [r3, #8]
+ 80051ce:	429a      	cmp	r2, r3
+ 80051d0:	d006      	beq.n	80051e0 <mq_getCurrentSize+0x44>
     {
         return queue->head + MSGQUEUESIZE - queue->tail;
- 8005272:	687b      	ldr	r3, [r7, #4]
- 8005274:	689a      	ldr	r2, [r3, #8]
- 8005276:	687b      	ldr	r3, [r7, #4]
- 8005278:	68db      	ldr	r3, [r3, #12]
- 800527a:	1ad3      	subs	r3, r2, r3
- 800527c:	3308      	adds	r3, #8
- 800527e:	e000      	b.n	8005282 <mq_getCurrentSize+0x46>
+ 80051d2:	687b      	ldr	r3, [r7, #4]
+ 80051d4:	689a      	ldr	r2, [r3, #8]
+ 80051d6:	687b      	ldr	r3, [r7, #4]
+ 80051d8:	68db      	ldr	r3, [r3, #12]
+ 80051da:	1ad3      	subs	r3, r2, r3
+ 80051dc:	3310      	adds	r3, #16
+ 80051de:	e000      	b.n	80051e2 <mq_getCurrentSize+0x46>
     }
     else
     {
         return 0;
- 8005280:	2300      	movs	r3, #0
+ 80051e0:	2300      	movs	r3, #0
     }
 }
- 8005282:	0018      	movs	r0, r3
- 8005284:	46bd      	mov	sp, r7
- 8005286:	b002      	add	sp, #8
- 8005288:	bd80      	pop	{r7, pc}
+ 80051e2:	0018      	movs	r0, r3
+ 80051e4:	46bd      	mov	sp, r7
+ 80051e6:	b002      	add	sp, #8
+ 80051e8:	bd80      	pop	{r7, pc}
 
-0800528a <mq_getQueueSize>:
+080051ea <mq_getQueueSize>:
  * 
  * @param msg queue 
  * @return uint32_t msg queue size 
  */
 uint32_t mq_getQueueSize(struct msgQueue *queue)
 {
- 800528a:	b580      	push	{r7, lr}
- 800528c:	b082      	sub	sp, #8
- 800528e:	af00      	add	r7, sp, #0
- 8005290:	6078      	str	r0, [r7, #4]
+ 80051ea:	b580      	push	{r7, lr}
+ 80051ec:	b082      	sub	sp, #8
+ 80051ee:	af00      	add	r7, sp, #0
+ 80051f0:	6078      	str	r0, [r7, #4]
     if (queue != NULL)
- 8005292:	687b      	ldr	r3, [r7, #4]
- 8005294:	2b00      	cmp	r3, #0
- 8005296:	d002      	beq.n	800529e <mq_getQueueSize+0x14>
+ 80051f2:	687b      	ldr	r3, [r7, #4]
+ 80051f4:	2b00      	cmp	r3, #0
+ 80051f6:	d002      	beq.n	80051fe <mq_getQueueSize+0x14>
     {
         return queue->size;
- 8005298:	687b      	ldr	r3, [r7, #4]
- 800529a:	685b      	ldr	r3, [r3, #4]
- 800529c:	e000      	b.n	80052a0 <mq_getQueueSize+0x16>
+ 80051f8:	687b      	ldr	r3, [r7, #4]
+ 80051fa:	685b      	ldr	r3, [r3, #4]
+ 80051fc:	e000      	b.n	8005200 <mq_getQueueSize+0x16>
     }
     return 0;
- 800529e:	2300      	movs	r3, #0
+ 80051fe:	2300      	movs	r3, #0
 }
- 80052a0:	0018      	movs	r0, r3
- 80052a2:	46bd      	mov	sp, r7
- 80052a4:	b002      	add	sp, #8
- 80052a6:	bd80      	pop	{r7, pc}
+ 8005200:	0018      	movs	r0, r3
+ 8005202:	46bd      	mov	sp, r7
+ 8005204:	b002      	add	sp, #8
+ 8005206:	bd80      	pop	{r7, pc}
 
-080052a8 <mq_push>:
+08005208 <mq_push>:
  * @param queue 
  * @param msg 
  * @return uint32_t 
  */
 uint32_t mq_push(struct msgQueue *queue, struct msg *msg)
 {
- 80052a8:	b580      	push	{r7, lr}
- 80052aa:	b084      	sub	sp, #16
- 80052ac:	af00      	add	r7, sp, #0
- 80052ae:	6078      	str	r0, [r7, #4]
- 80052b0:	6039      	str	r1, [r7, #0]
+ 8005208:	b580      	push	{r7, lr}
+ 800520a:	b084      	sub	sp, #16
+ 800520c:	af00      	add	r7, sp, #0
+ 800520e:	6078      	str	r0, [r7, #4]
+ 8005210:	6039      	str	r1, [r7, #0]
     if (queue == NULL || msg == NULL)
- 80052b2:	687b      	ldr	r3, [r7, #4]
- 80052b4:	2b00      	cmp	r3, #0
- 80052b6:	d002      	beq.n	80052be <mq_push+0x16>
- 80052b8:	683b      	ldr	r3, [r7, #0]
- 80052ba:	2b00      	cmp	r3, #0
- 80052bc:	d101      	bne.n	80052c2 <mq_push+0x1a>
+ 8005212:	687b      	ldr	r3, [r7, #4]
+ 8005214:	2b00      	cmp	r3, #0
+ 8005216:	d002      	beq.n	800521e <mq_push+0x16>
+ 8005218:	683b      	ldr	r3, [r7, #0]
+ 800521a:	2b00      	cmp	r3, #0
+ 800521c:	d101      	bne.n	8005222 <mq_push+0x1a>
     {
         return 0;
- 80052be:	2300      	movs	r3, #0
- 80052c0:	e030      	b.n	8005324 <mq_push+0x7c>
+ 800521e:	2300      	movs	r3, #0
+ 8005220:	e02d      	b.n	800527e <mq_push+0x76>
     }
     if ((queue->head - queue->tail) == MSGQUEUESIZE - 1)
- 80052c2:	687b      	ldr	r3, [r7, #4]
- 80052c4:	689a      	ldr	r2, [r3, #8]
- 80052c6:	687b      	ldr	r3, [r7, #4]
- 80052c8:	68db      	ldr	r3, [r3, #12]
- 80052ca:	1ad3      	subs	r3, r2, r3
- 80052cc:	2b07      	cmp	r3, #7
- 80052ce:	d104      	bne.n	80052da <mq_push+0x32>
+ 8005222:	687b      	ldr	r3, [r7, #4]
+ 8005224:	689a      	ldr	r2, [r3, #8]
+ 8005226:	687b      	ldr	r3, [r7, #4]
+ 8005228:	68db      	ldr	r3, [r3, #12]
+ 800522a:	1ad3      	subs	r3, r2, r3
+ 800522c:	2b0f      	cmp	r3, #15
+ 800522e:	d105      	bne.n	800523c <mq_push+0x34>
     {
         queue->head -= MSGQUEUESIZE - 1;
- 80052d0:	687b      	ldr	r3, [r7, #4]
- 80052d2:	689b      	ldr	r3, [r3, #8]
- 80052d4:	1fda      	subs	r2, r3, #7
- 80052d6:	687b      	ldr	r3, [r7, #4]
- 80052d8:	609a      	str	r2, [r3, #8]
+ 8005230:	687b      	ldr	r3, [r7, #4]
+ 8005232:	689b      	ldr	r3, [r3, #8]
+ 8005234:	3b0f      	subs	r3, #15
+ 8005236:	001a      	movs	r2, r3
+ 8005238:	687b      	ldr	r3, [r7, #4]
+ 800523a:	609a      	str	r2, [r3, #8]
     }
 
     uint8_t index = queue->head & (MSGQUEUESIZE - 1);
- 80052da:	687b      	ldr	r3, [r7, #4]
- 80052dc:	689b      	ldr	r3, [r3, #8]
- 80052de:	b2da      	uxtb	r2, r3
- 80052e0:	200f      	movs	r0, #15
- 80052e2:	183b      	adds	r3, r7, r0
- 80052e4:	2107      	movs	r1, #7
- 80052e6:	400a      	ands	r2, r1
- 80052e8:	701a      	strb	r2, [r3, #0]
+ 800523c:	687b      	ldr	r3, [r7, #4]
+ 800523e:	689b      	ldr	r3, [r3, #8]
+ 8005240:	b2da      	uxtb	r2, r3
+ 8005242:	200f      	movs	r0, #15
+ 8005244:	183b      	adds	r3, r7, r0
+ 8005246:	210f      	movs	r1, #15
+ 8005248:	400a      	ands	r2, r1
+ 800524a:	701a      	strb	r2, [r3, #0]
     queue->list[index].type = msg->type;
- 80052ea:	183b      	adds	r3, r7, r0
- 80052ec:	781a      	ldrb	r2, [r3, #0]
- 80052ee:	683b      	ldr	r3, [r7, #0]
- 80052f0:	6819      	ldr	r1, [r3, #0]
- 80052f2:	687b      	ldr	r3, [r7, #4]
- 80052f4:	3202      	adds	r2, #2
- 80052f6:	00d2      	lsls	r2, r2, #3
- 80052f8:	50d1      	str	r1, [r2, r3]
-    memcpy(queue->list[index].data, msg->data, MSGQUEUEDATASIZE);
- 80052fa:	183b      	adds	r3, r7, r0
- 80052fc:	781b      	ldrb	r3, [r3, #0]
- 80052fe:	687a      	ldr	r2, [r7, #4]
- 8005300:	3302      	adds	r3, #2
- 8005302:	00db      	lsls	r3, r3, #3
- 8005304:	18d3      	adds	r3, r2, r3
- 8005306:	3304      	adds	r3, #4
- 8005308:	6818      	ldr	r0, [r3, #0]
- 800530a:	683b      	ldr	r3, [r7, #0]
- 800530c:	685b      	ldr	r3, [r3, #4]
- 800530e:	2220      	movs	r2, #32
- 8005310:	0019      	movs	r1, r3
- 8005312:	f000 f8bf 	bl	8005494 <memcpy>
+ 800524c:	183b      	adds	r3, r7, r0
+ 800524e:	781a      	ldrb	r2, [r3, #0]
+ 8005250:	683b      	ldr	r3, [r7, #0]
+ 8005252:	6819      	ldr	r1, [r3, #0]
+ 8005254:	687b      	ldr	r3, [r7, #4]
+ 8005256:	3202      	adds	r2, #2
+ 8005258:	00d2      	lsls	r2, r2, #3
+ 800525a:	50d1      	str	r1, [r2, r3]
+    queue->list[index].data = msg->data;
+ 800525c:	183b      	adds	r3, r7, r0
+ 800525e:	7818      	ldrb	r0, [r3, #0]
+ 8005260:	683b      	ldr	r3, [r7, #0]
+ 8005262:	685a      	ldr	r2, [r3, #4]
+ 8005264:	6879      	ldr	r1, [r7, #4]
+ 8005266:	1c83      	adds	r3, r0, #2
+ 8005268:	00db      	lsls	r3, r3, #3
+ 800526a:	18cb      	adds	r3, r1, r3
+ 800526c:	3304      	adds	r3, #4
+ 800526e:	601a      	str	r2, [r3, #0]
     queue->head++;
- 8005316:	687b      	ldr	r3, [r7, #4]
- 8005318:	689b      	ldr	r3, [r3, #8]
- 800531a:	1c5a      	adds	r2, r3, #1
- 800531c:	687b      	ldr	r3, [r7, #4]
- 800531e:	609a      	str	r2, [r3, #8]
+ 8005270:	687b      	ldr	r3, [r7, #4]
+ 8005272:	689b      	ldr	r3, [r3, #8]
+ 8005274:	1c5a      	adds	r2, r3, #1
+ 8005276:	687b      	ldr	r3, [r7, #4]
+ 8005278:	609a      	str	r2, [r3, #8]
 
     return queue->head;
- 8005320:	687b      	ldr	r3, [r7, #4]
- 8005322:	689b      	ldr	r3, [r3, #8]
+ 800527a:	687b      	ldr	r3, [r7, #4]
+ 800527c:	689b      	ldr	r3, [r3, #8]
 }
- 8005324:	0018      	movs	r0, r3
- 8005326:	46bd      	mov	sp, r7
- 8005328:	b004      	add	sp, #16
- 800532a:	bd80      	pop	{r7, pc}
+ 800527e:	0018      	movs	r0, r3
+ 8005280:	46bd      	mov	sp, r7
+ 8005282:	b004      	add	sp, #16
+ 8005284:	bd80      	pop	{r7, pc}
 
-0800532c <mq_pop>:
+08005286 <mq_pop>:
  * 
  * @param queue 
  * @return struct msg* 
  */
 struct msg *mq_pop(struct msgQueue *queue)
 {
- 800532c:	b580      	push	{r7, lr}
- 800532e:	b084      	sub	sp, #16
- 8005330:	af00      	add	r7, sp, #0
- 8005332:	6078      	str	r0, [r7, #4]
+ 8005286:	b580      	push	{r7, lr}
+ 8005288:	b084      	sub	sp, #16
+ 800528a:	af00      	add	r7, sp, #0
+ 800528c:	6078      	str	r0, [r7, #4]
     if (queue == NULL)
- 8005334:	687b      	ldr	r3, [r7, #4]
- 8005336:	2b00      	cmp	r3, #0
- 8005338:	d101      	bne.n	800533e <mq_pop+0x12>
+ 800528e:	687b      	ldr	r3, [r7, #4]
+ 8005290:	2b00      	cmp	r3, #0
+ 8005292:	d101      	bne.n	8005298 <mq_pop+0x12>
     {
         return NULL;
- 800533a:	2300      	movs	r3, #0
- 800533c:	e015      	b.n	800536a <mq_pop+0x3e>
+ 8005294:	2300      	movs	r3, #0
+ 8005296:	e021      	b.n	80052dc <mq_pop+0x56>
     }
 
     if (queue->head == queue->tail)
- 800533e:	687b      	ldr	r3, [r7, #4]
- 8005340:	689a      	ldr	r2, [r3, #8]
- 8005342:	687b      	ldr	r3, [r7, #4]
- 8005344:	68db      	ldr	r3, [r3, #12]
- 8005346:	429a      	cmp	r2, r3
- 8005348:	d101      	bne.n	800534e <mq_pop+0x22>
+ 8005298:	687b      	ldr	r3, [r7, #4]
+ 800529a:	689a      	ldr	r2, [r3, #8]
+ 800529c:	687b      	ldr	r3, [r7, #4]
+ 800529e:	68db      	ldr	r3, [r3, #12]
+ 80052a0:	429a      	cmp	r2, r3
+ 80052a2:	d101      	bne.n	80052a8 <mq_pop+0x22>
     {
         return NULL;
- 800534a:	2300      	movs	r3, #0
- 800534c:	e00d      	b.n	800536a <mq_pop+0x3e>
+ 80052a4:	2300      	movs	r3, #0
+ 80052a6:	e019      	b.n	80052dc <mq_pop+0x56>
     }
-    uint8_t index = queue->tail & (MSGQUEUEDATASIZE - 1);
- 800534e:	687b      	ldr	r3, [r7, #4]
- 8005350:	68db      	ldr	r3, [r3, #12]
- 8005352:	b2da      	uxtb	r2, r3
- 8005354:	200f      	movs	r0, #15
- 8005356:	183b      	adds	r3, r7, r0
- 8005358:	211f      	movs	r1, #31
- 800535a:	400a      	ands	r2, r1
- 800535c:	701a      	strb	r2, [r3, #0]
-    return &(queue->list[index]);
- 800535e:	183b      	adds	r3, r7, r0
- 8005360:	781b      	ldrb	r3, [r3, #0]
- 8005362:	3302      	adds	r3, #2
- 8005364:	00db      	lsls	r3, r3, #3
- 8005366:	687a      	ldr	r2, [r7, #4]
- 8005368:	18d3      	adds	r3, r2, r3
-}
- 800536a:	0018      	movs	r0, r3
- 800536c:	46bd      	mov	sp, r7
- 800536e:	b004      	add	sp, #16
- 8005370:	bd80      	pop	{r7, pc}
-	...
 
-08005374 <messageQueueTest>:
+    if (queue->tail == MSGQUEUESIZE - 1)
+ 80052a8:	687b      	ldr	r3, [r7, #4]
+ 80052aa:	68db      	ldr	r3, [r3, #12]
+ 80052ac:	2b0f      	cmp	r3, #15
+ 80052ae:	d102      	bne.n	80052b6 <mq_pop+0x30>
+    {
+        queue->tail = 0;
+ 80052b0:	687b      	ldr	r3, [r7, #4]
+ 80052b2:	2200      	movs	r2, #0
+ 80052b4:	60da      	str	r2, [r3, #12]
+    }
+    
+    uint8_t index = queue->tail & (MSGQUEUESIZE - 1);
+ 80052b6:	687b      	ldr	r3, [r7, #4]
+ 80052b8:	68db      	ldr	r3, [r3, #12]
+ 80052ba:	b2da      	uxtb	r2, r3
+ 80052bc:	200f      	movs	r0, #15
+ 80052be:	183b      	adds	r3, r7, r0
+ 80052c0:	210f      	movs	r1, #15
+ 80052c2:	400a      	ands	r2, r1
+ 80052c4:	701a      	strb	r2, [r3, #0]
+    queue->tail++;
+ 80052c6:	687b      	ldr	r3, [r7, #4]
+ 80052c8:	68db      	ldr	r3, [r3, #12]
+ 80052ca:	1c5a      	adds	r2, r3, #1
+ 80052cc:	687b      	ldr	r3, [r7, #4]
+ 80052ce:	60da      	str	r2, [r3, #12]
+    return &(queue->list[index]);
+ 80052d0:	183b      	adds	r3, r7, r0
+ 80052d2:	781b      	ldrb	r3, [r3, #0]
+ 80052d4:	3302      	adds	r3, #2
+ 80052d6:	00db      	lsls	r3, r3, #3
+ 80052d8:	687a      	ldr	r2, [r7, #4]
+ 80052da:	18d3      	adds	r3, r2, r3
+}
+ 80052dc:	0018      	movs	r0, r3
+ 80052de:	46bd      	mov	sp, r7
+ 80052e0:	b004      	add	sp, #16
+ 80052e2:	bd80      	pop	{r7, pc}
+
+080052e4 <messageQueueTest>:
  * 
  * @param None
  * @retval None
  */
 void messageQueueTest(void)
 {
- 8005374:	b580      	push	{r7, lr}
- 8005376:	b086      	sub	sp, #24
- 8005378:	af00      	add	r7, sp, #0
+ 80052e4:	b580      	push	{r7, lr}
+ 80052e6:	b086      	sub	sp, #24
+ 80052e8:	af00      	add	r7, sp, #0
     struct msgQueue *mq = mq_init();
- 800537a:	f7ff fea3 	bl	80050c4 <mq_init>
- 800537e:	0003      	movs	r3, r0
- 8005380:	617b      	str	r3, [r7, #20]
+ 80052ea:	f7ff feeb 	bl	80050c4 <mq_init>
+ 80052ee:	0003      	movs	r3, r0
+ 80052f0:	617b      	str	r3, [r7, #20]
     if (mq_isEmpty(mq))
- 8005382:	697b      	ldr	r3, [r7, #20]
- 8005384:	0018      	movs	r0, r3
- 8005386:	f7ff ff45 	bl	8005214 <mq_isEmpty>
- 800538a:	1e03      	subs	r3, r0, #0
- 800538c:	d004      	beq.n	8005398 <messageQueueTest+0x24>
+ 80052f2:	697b      	ldr	r3, [r7, #20]
+ 80052f4:	0018      	movs	r0, r3
+ 80052f6:	f7ff ff3d 	bl	8005174 <mq_isEmpty>
+ 80052fa:	1e03      	subs	r3, r0, #0
+ 80052fc:	d004      	beq.n	8005308 <messageQueueTest+0x24>
     {
         mq_lock(mq);
- 800538e:	697b      	ldr	r3, [r7, #20]
- 8005390:	0018      	movs	r0, r3
- 8005392:	f7ff ff1d 	bl	80051d0 <mq_lock>
- 8005396:	e003      	b.n	80053a0 <messageQueueTest+0x2c>
+ 80052fe:	697b      	ldr	r3, [r7, #20]
+ 8005300:	0018      	movs	r0, r3
+ 8005302:	f7ff ff15 	bl	8005130 <mq_lock>
+ 8005306:	e003      	b.n	8005310 <messageQueueTest+0x2c>
     }
     else
     {
         mq_unlock(mq);
- 8005398:	697b      	ldr	r3, [r7, #20]
- 800539a:	0018      	movs	r0, r3
- 800539c:	f7ff ff29 	bl	80051f2 <mq_unlock>
+ 8005308:	697b      	ldr	r3, [r7, #20]
+ 800530a:	0018      	movs	r0, r3
+ 800530c:	f7ff ff21 	bl	8005152 <mq_unlock>
     }
     uint32_t size = mq_getCurrentSize(mq);
- 80053a0:	697b      	ldr	r3, [r7, #20]
- 80053a2:	0018      	movs	r0, r3
- 80053a4:	f7ff ff4a 	bl	800523c <mq_getCurrentSize>
- 80053a8:	0003      	movs	r3, r0
- 80053aa:	613b      	str	r3, [r7, #16]
+ 8005310:	697b      	ldr	r3, [r7, #20]
+ 8005312:	0018      	movs	r0, r3
+ 8005314:	f7ff ff42 	bl	800519c <mq_getCurrentSize>
+ 8005318:	0003      	movs	r3, r0
+ 800531a:	613b      	str	r3, [r7, #16]
     uint32_t totalSize = mq_getQueueSize(mq);
- 80053ac:	697b      	ldr	r3, [r7, #20]
- 80053ae:	0018      	movs	r0, r3
- 80053b0:	f7ff ff6b 	bl	800528a <mq_getQueueSize>
- 80053b4:	0003      	movs	r3, r0
- 80053b6:	60fb      	str	r3, [r7, #12]
+ 800531c:	697b      	ldr	r3, [r7, #20]
+ 800531e:	0018      	movs	r0, r3
+ 8005320:	f7ff ff63 	bl	80051ea <mq_getQueueSize>
+ 8005324:	0003      	movs	r3, r0
+ 8005326:	60fb      	str	r3, [r7, #12]
 
     msg1.type = 10;
- 80053b8:	4b13      	ldr	r3, [pc, #76]	; (8005408 <messageQueueTest+0x94>)
- 80053ba:	220a      	movs	r2, #10
- 80053bc:	601a      	str	r2, [r3, #0]
+ 8005328:	4b13      	ldr	r3, [pc, #76]	; (8005378 <messageQueueTest+0x94>)
+ 800532a:	220a      	movs	r2, #10
+ 800532c:	601a      	str	r2, [r3, #0]
     msg1.data = (void *)msg1Data;
- 80053be:	4b12      	ldr	r3, [pc, #72]	; (8005408 <messageQueueTest+0x94>)
- 80053c0:	4a12      	ldr	r2, [pc, #72]	; (800540c <messageQueueTest+0x98>)
- 80053c2:	605a      	str	r2, [r3, #4]
+ 800532e:	4b12      	ldr	r3, [pc, #72]	; (8005378 <messageQueueTest+0x94>)
+ 8005330:	4a12      	ldr	r2, [pc, #72]	; (800537c <messageQueueTest+0x98>)
+ 8005332:	605a      	str	r2, [r3, #4]
     mq_push(mq, &msg1);
- 80053c4:	4a10      	ldr	r2, [pc, #64]	; (8005408 <messageQueueTest+0x94>)
- 80053c6:	697b      	ldr	r3, [r7, #20]
- 80053c8:	0011      	movs	r1, r2
- 80053ca:	0018      	movs	r0, r3
- 80053cc:	f7ff ff6c 	bl	80052a8 <mq_push>
+ 8005334:	4a10      	ldr	r2, [pc, #64]	; (8005378 <messageQueueTest+0x94>)
+ 8005336:	697b      	ldr	r3, [r7, #20]
+ 8005338:	0011      	movs	r1, r2
+ 800533a:	0018      	movs	r0, r3
+ 800533c:	f7ff ff64 	bl	8005208 <mq_push>
     msg2.type = 10;
- 80053d0:	4b0f      	ldr	r3, [pc, #60]	; (8005410 <messageQueueTest+0x9c>)
- 80053d2:	220a      	movs	r2, #10
- 80053d4:	601a      	str	r2, [r3, #0]
+ 8005340:	4b0f      	ldr	r3, [pc, #60]	; (8005380 <messageQueueTest+0x9c>)
+ 8005342:	220a      	movs	r2, #10
+ 8005344:	601a      	str	r2, [r3, #0]
     msg2.data = (void *)msg2Data;
- 80053d6:	4b0e      	ldr	r3, [pc, #56]	; (8005410 <messageQueueTest+0x9c>)
- 80053d8:	4a0e      	ldr	r2, [pc, #56]	; (8005414 <messageQueueTest+0xa0>)
- 80053da:	605a      	str	r2, [r3, #4]
+ 8005346:	4b0e      	ldr	r3, [pc, #56]	; (8005380 <messageQueueTest+0x9c>)
+ 8005348:	4a0e      	ldr	r2, [pc, #56]	; (8005384 <messageQueueTest+0xa0>)
+ 800534a:	605a      	str	r2, [r3, #4]
     mq_push(mq, &msg2);
- 80053dc:	4a0c      	ldr	r2, [pc, #48]	; (8005410 <messageQueueTest+0x9c>)
- 80053de:	697b      	ldr	r3, [r7, #20]
- 80053e0:	0011      	movs	r1, r2
- 80053e2:	0018      	movs	r0, r3
- 80053e4:	f7ff ff60 	bl	80052a8 <mq_push>
+ 800534c:	4a0c      	ldr	r2, [pc, #48]	; (8005380 <messageQueueTest+0x9c>)
+ 800534e:	697b      	ldr	r3, [r7, #20]
+ 8005350:	0011      	movs	r1, r2
+ 8005352:	0018      	movs	r0, r3
+ 8005354:	f7ff ff58 	bl	8005208 <mq_push>
 
     struct msg *msg1 = mq_pop(mq);
- 80053e8:	697b      	ldr	r3, [r7, #20]
- 80053ea:	0018      	movs	r0, r3
- 80053ec:	f7ff ff9e 	bl	800532c <mq_pop>
- 80053f0:	0003      	movs	r3, r0
- 80053f2:	60bb      	str	r3, [r7, #8]
+ 8005358:	697b      	ldr	r3, [r7, #20]
+ 800535a:	0018      	movs	r0, r3
+ 800535c:	f7ff ff93 	bl	8005286 <mq_pop>
+ 8005360:	0003      	movs	r3, r0
+ 8005362:	60bb      	str	r3, [r7, #8]
     struct msg *msg2 = mq_pop(mq);
- 80053f4:	697b      	ldr	r3, [r7, #20]
- 80053f6:	0018      	movs	r0, r3
- 80053f8:	f7ff ff98 	bl	800532c <mq_pop>
- 80053fc:	0003      	movs	r3, r0
- 80053fe:	607b      	str	r3, [r7, #4]
- 8005400:	46c0      	nop			; (mov r8, r8)
- 8005402:	46bd      	mov	sp, r7
- 8005404:	b006      	add	sp, #24
- 8005406:	bd80      	pop	{r7, pc}
- 8005408:	200003c8 	.word	0x200003c8
- 800540c:	20000024 	.word	0x20000024
- 8005410:	200003d0 	.word	0x200003d0
- 8005414:	20000064 	.word	0x20000064
+ 8005364:	697b      	ldr	r3, [r7, #20]
+ 8005366:	0018      	movs	r0, r3
+ 8005368:	f7ff ff8d 	bl	8005286 <mq_pop>
+ 800536c:	0003      	movs	r3, r0
+ 800536e:	607b      	str	r3, [r7, #4]
+ 8005370:	46c0      	nop			; (mov r8, r8)
+ 8005372:	46bd      	mov	sp, r7
+ 8005374:	b006      	add	sp, #24
+ 8005376:	bd80      	pop	{r7, pc}
+ 8005378:	200003c8 	.word	0x200003c8
+ 800537c:	20000024 	.word	0x20000024
+ 8005380:	200003d0 	.word	0x200003d0
+ 8005384:	20000064 	.word	0x20000064
 
-08005418 <__errno>:
- 8005418:	4b01      	ldr	r3, [pc, #4]	; (8005420 <__errno+0x8>)
- 800541a:	6818      	ldr	r0, [r3, #0]
- 800541c:	4770      	bx	lr
- 800541e:	46c0      	nop			; (mov r8, r8)
- 8005420:	200000a4 	.word	0x200000a4
+08005388 <__errno>:
+ 8005388:	4b01      	ldr	r3, [pc, #4]	; (8005390 <__errno+0x8>)
+ 800538a:	6818      	ldr	r0, [r3, #0]
+ 800538c:	4770      	bx	lr
+ 800538e:	46c0      	nop			; (mov r8, r8)
+ 8005390:	200000a4 	.word	0x200000a4
 
-08005424 <__libc_init_array>:
- 8005424:	b570      	push	{r4, r5, r6, lr}
- 8005426:	2600      	movs	r6, #0
- 8005428:	4d0c      	ldr	r5, [pc, #48]	; (800545c <__libc_init_array+0x38>)
- 800542a:	4c0d      	ldr	r4, [pc, #52]	; (8005460 <__libc_init_array+0x3c>)
- 800542c:	1b64      	subs	r4, r4, r5
- 800542e:	10a4      	asrs	r4, r4, #2
- 8005430:	42a6      	cmp	r6, r4
- 8005432:	d109      	bne.n	8005448 <__libc_init_array+0x24>
- 8005434:	2600      	movs	r6, #0
- 8005436:	f000 f945 	bl	80056c4 <_init>
- 800543a:	4d0a      	ldr	r5, [pc, #40]	; (8005464 <__libc_init_array+0x40>)
- 800543c:	4c0a      	ldr	r4, [pc, #40]	; (8005468 <__libc_init_array+0x44>)
- 800543e:	1b64      	subs	r4, r4, r5
- 8005440:	10a4      	asrs	r4, r4, #2
- 8005442:	42a6      	cmp	r6, r4
- 8005444:	d105      	bne.n	8005452 <__libc_init_array+0x2e>
- 8005446:	bd70      	pop	{r4, r5, r6, pc}
- 8005448:	00b3      	lsls	r3, r6, #2
- 800544a:	58eb      	ldr	r3, [r5, r3]
- 800544c:	4798      	blx	r3
- 800544e:	3601      	adds	r6, #1
- 8005450:	e7ee      	b.n	8005430 <__libc_init_array+0xc>
- 8005452:	00b3      	lsls	r3, r6, #2
- 8005454:	58eb      	ldr	r3, [r5, r3]
- 8005456:	4798      	blx	r3
- 8005458:	3601      	adds	r6, #1
- 800545a:	e7f2      	b.n	8005442 <__libc_init_array+0x1e>
- 800545c:	080058e0 	.word	0x080058e0
- 8005460:	080058e0 	.word	0x080058e0
- 8005464:	080058e0 	.word	0x080058e0
- 8005468:	080058e4 	.word	0x080058e4
+08005394 <__libc_init_array>:
+ 8005394:	b570      	push	{r4, r5, r6, lr}
+ 8005396:	2600      	movs	r6, #0
+ 8005398:	4d0c      	ldr	r5, [pc, #48]	; (80053cc <__libc_init_array+0x38>)
+ 800539a:	4c0d      	ldr	r4, [pc, #52]	; (80053d0 <__libc_init_array+0x3c>)
+ 800539c:	1b64      	subs	r4, r4, r5
+ 800539e:	10a4      	asrs	r4, r4, #2
+ 80053a0:	42a6      	cmp	r6, r4
+ 80053a2:	d109      	bne.n	80053b8 <__libc_init_array+0x24>
+ 80053a4:	2600      	movs	r6, #0
+ 80053a6:	f000 f8f1 	bl	800558c <_init>
+ 80053aa:	4d0a      	ldr	r5, [pc, #40]	; (80053d4 <__libc_init_array+0x40>)
+ 80053ac:	4c0a      	ldr	r4, [pc, #40]	; (80053d8 <__libc_init_array+0x44>)
+ 80053ae:	1b64      	subs	r4, r4, r5
+ 80053b0:	10a4      	asrs	r4, r4, #2
+ 80053b2:	42a6      	cmp	r6, r4
+ 80053b4:	d105      	bne.n	80053c2 <__libc_init_array+0x2e>
+ 80053b6:	bd70      	pop	{r4, r5, r6, pc}
+ 80053b8:	00b3      	lsls	r3, r6, #2
+ 80053ba:	58eb      	ldr	r3, [r5, r3]
+ 80053bc:	4798      	blx	r3
+ 80053be:	3601      	adds	r6, #1
+ 80053c0:	e7ee      	b.n	80053a0 <__libc_init_array+0xc>
+ 80053c2:	00b3      	lsls	r3, r6, #2
+ 80053c4:	58eb      	ldr	r3, [r5, r3]
+ 80053c6:	4798      	blx	r3
+ 80053c8:	3601      	adds	r6, #1
+ 80053ca:	e7f2      	b.n	80053b2 <__libc_init_array+0x1e>
+ 80053cc:	080057a8 	.word	0x080057a8
+ 80053d0:	080057a8 	.word	0x080057a8
+ 80053d4:	080057a8 	.word	0x080057a8
+ 80053d8:	080057ac 	.word	0x080057ac
 
-0800546c <malloc>:
- 800546c:	b510      	push	{r4, lr}
- 800546e:	4b03      	ldr	r3, [pc, #12]	; (800547c <malloc+0x10>)
- 8005470:	0001      	movs	r1, r0
- 8005472:	6818      	ldr	r0, [r3, #0]
- 8005474:	f000 f88c 	bl	8005590 <_malloc_r>
- 8005478:	bd10      	pop	{r4, pc}
- 800547a:	46c0      	nop			; (mov r8, r8)
- 800547c:	200000a4 	.word	0x200000a4
+080053dc <malloc>:
+ 80053dc:	b510      	push	{r4, lr}
+ 80053de:	4b03      	ldr	r3, [pc, #12]	; (80053ec <malloc+0x10>)
+ 80053e0:	0001      	movs	r1, r0
+ 80053e2:	6818      	ldr	r0, [r3, #0]
+ 80053e4:	f000 f838 	bl	8005458 <_malloc_r>
+ 80053e8:	bd10      	pop	{r4, pc}
+ 80053ea:	46c0      	nop			; (mov r8, r8)
+ 80053ec:	200000a4 	.word	0x200000a4
 
-08005480 <free>:
- 8005480:	b510      	push	{r4, lr}
- 8005482:	4b03      	ldr	r3, [pc, #12]	; (8005490 <free+0x10>)
- 8005484:	0001      	movs	r1, r0
- 8005486:	6818      	ldr	r0, [r3, #0]
- 8005488:	f000 f816 	bl	80054b8 <_free_r>
- 800548c:	bd10      	pop	{r4, pc}
- 800548e:	46c0      	nop			; (mov r8, r8)
- 8005490:	200000a4 	.word	0x200000a4
+080053f0 <memcpy>:
+ 80053f0:	2300      	movs	r3, #0
+ 80053f2:	b510      	push	{r4, lr}
+ 80053f4:	429a      	cmp	r2, r3
+ 80053f6:	d100      	bne.n	80053fa <memcpy+0xa>
+ 80053f8:	bd10      	pop	{r4, pc}
+ 80053fa:	5ccc      	ldrb	r4, [r1, r3]
+ 80053fc:	54c4      	strb	r4, [r0, r3]
+ 80053fe:	3301      	adds	r3, #1
+ 8005400:	e7f8      	b.n	80053f4 <memcpy+0x4>
 
-08005494 <memcpy>:
- 8005494:	2300      	movs	r3, #0
- 8005496:	b510      	push	{r4, lr}
- 8005498:	429a      	cmp	r2, r3
- 800549a:	d100      	bne.n	800549e <memcpy+0xa>
- 800549c:	bd10      	pop	{r4, pc}
- 800549e:	5ccc      	ldrb	r4, [r1, r3]
- 80054a0:	54c4      	strb	r4, [r0, r3]
- 80054a2:	3301      	adds	r3, #1
- 80054a4:	e7f8      	b.n	8005498 <memcpy+0x4>
-
-080054a6 <memset>:
- 80054a6:	0003      	movs	r3, r0
- 80054a8:	1882      	adds	r2, r0, r2
- 80054aa:	4293      	cmp	r3, r2
- 80054ac:	d100      	bne.n	80054b0 <memset+0xa>
- 80054ae:	4770      	bx	lr
- 80054b0:	7019      	strb	r1, [r3, #0]
- 80054b2:	3301      	adds	r3, #1
- 80054b4:	e7f9      	b.n	80054aa <memset+0x4>
+08005402 <memset>:
+ 8005402:	0003      	movs	r3, r0
+ 8005404:	1882      	adds	r2, r0, r2
+ 8005406:	4293      	cmp	r3, r2
+ 8005408:	d100      	bne.n	800540c <memset+0xa>
+ 800540a:	4770      	bx	lr
+ 800540c:	7019      	strb	r1, [r3, #0]
+ 800540e:	3301      	adds	r3, #1
+ 8005410:	e7f9      	b.n	8005406 <memset+0x4>
 	...
 
-080054b8 <_free_r>:
- 80054b8:	b570      	push	{r4, r5, r6, lr}
- 80054ba:	0005      	movs	r5, r0
- 80054bc:	2900      	cmp	r1, #0
- 80054be:	d010      	beq.n	80054e2 <_free_r+0x2a>
- 80054c0:	1f0c      	subs	r4, r1, #4
- 80054c2:	6823      	ldr	r3, [r4, #0]
- 80054c4:	2b00      	cmp	r3, #0
- 80054c6:	da00      	bge.n	80054ca <_free_r+0x12>
- 80054c8:	18e4      	adds	r4, r4, r3
- 80054ca:	0028      	movs	r0, r5
- 80054cc:	f000 f8e8 	bl	80056a0 <__malloc_lock>
- 80054d0:	4a1d      	ldr	r2, [pc, #116]	; (8005548 <_free_r+0x90>)
- 80054d2:	6813      	ldr	r3, [r2, #0]
- 80054d4:	2b00      	cmp	r3, #0
- 80054d6:	d105      	bne.n	80054e4 <_free_r+0x2c>
- 80054d8:	6063      	str	r3, [r4, #4]
- 80054da:	6014      	str	r4, [r2, #0]
- 80054dc:	0028      	movs	r0, r5
- 80054de:	f000 f8e7 	bl	80056b0 <__malloc_unlock>
- 80054e2:	bd70      	pop	{r4, r5, r6, pc}
- 80054e4:	42a3      	cmp	r3, r4
- 80054e6:	d908      	bls.n	80054fa <_free_r+0x42>
- 80054e8:	6821      	ldr	r1, [r4, #0]
- 80054ea:	1860      	adds	r0, r4, r1
- 80054ec:	4283      	cmp	r3, r0
- 80054ee:	d1f3      	bne.n	80054d8 <_free_r+0x20>
- 80054f0:	6818      	ldr	r0, [r3, #0]
- 80054f2:	685b      	ldr	r3, [r3, #4]
- 80054f4:	1841      	adds	r1, r0, r1
- 80054f6:	6021      	str	r1, [r4, #0]
- 80054f8:	e7ee      	b.n	80054d8 <_free_r+0x20>
- 80054fa:	001a      	movs	r2, r3
- 80054fc:	685b      	ldr	r3, [r3, #4]
- 80054fe:	2b00      	cmp	r3, #0
- 8005500:	d001      	beq.n	8005506 <_free_r+0x4e>
- 8005502:	42a3      	cmp	r3, r4
- 8005504:	d9f9      	bls.n	80054fa <_free_r+0x42>
- 8005506:	6811      	ldr	r1, [r2, #0]
- 8005508:	1850      	adds	r0, r2, r1
- 800550a:	42a0      	cmp	r0, r4
- 800550c:	d10b      	bne.n	8005526 <_free_r+0x6e>
- 800550e:	6820      	ldr	r0, [r4, #0]
- 8005510:	1809      	adds	r1, r1, r0
- 8005512:	1850      	adds	r0, r2, r1
- 8005514:	6011      	str	r1, [r2, #0]
- 8005516:	4283      	cmp	r3, r0
- 8005518:	d1e0      	bne.n	80054dc <_free_r+0x24>
- 800551a:	6818      	ldr	r0, [r3, #0]
- 800551c:	685b      	ldr	r3, [r3, #4]
- 800551e:	1841      	adds	r1, r0, r1
- 8005520:	6011      	str	r1, [r2, #0]
- 8005522:	6053      	str	r3, [r2, #4]
- 8005524:	e7da      	b.n	80054dc <_free_r+0x24>
- 8005526:	42a0      	cmp	r0, r4
- 8005528:	d902      	bls.n	8005530 <_free_r+0x78>
- 800552a:	230c      	movs	r3, #12
- 800552c:	602b      	str	r3, [r5, #0]
- 800552e:	e7d5      	b.n	80054dc <_free_r+0x24>
- 8005530:	6821      	ldr	r1, [r4, #0]
- 8005532:	1860      	adds	r0, r4, r1
- 8005534:	4283      	cmp	r3, r0
- 8005536:	d103      	bne.n	8005540 <_free_r+0x88>
- 8005538:	6818      	ldr	r0, [r3, #0]
- 800553a:	685b      	ldr	r3, [r3, #4]
- 800553c:	1841      	adds	r1, r0, r1
- 800553e:	6021      	str	r1, [r4, #0]
- 8005540:	6063      	str	r3, [r4, #4]
- 8005542:	6054      	str	r4, [r2, #4]
- 8005544:	e7ca      	b.n	80054dc <_free_r+0x24>
- 8005546:	46c0      	nop			; (mov r8, r8)
- 8005548:	200003d8 	.word	0x200003d8
+08005414 <sbrk_aligned>:
+ 8005414:	b570      	push	{r4, r5, r6, lr}
+ 8005416:	4e0f      	ldr	r6, [pc, #60]	; (8005454 <sbrk_aligned+0x40>)
+ 8005418:	000d      	movs	r5, r1
+ 800541a:	6831      	ldr	r1, [r6, #0]
+ 800541c:	0004      	movs	r4, r0
+ 800541e:	2900      	cmp	r1, #0
+ 8005420:	d102      	bne.n	8005428 <sbrk_aligned+0x14>
+ 8005422:	f000 f88f 	bl	8005544 <_sbrk_r>
+ 8005426:	6030      	str	r0, [r6, #0]
+ 8005428:	0029      	movs	r1, r5
+ 800542a:	0020      	movs	r0, r4
+ 800542c:	f000 f88a 	bl	8005544 <_sbrk_r>
+ 8005430:	1c43      	adds	r3, r0, #1
+ 8005432:	d00a      	beq.n	800544a <sbrk_aligned+0x36>
+ 8005434:	2303      	movs	r3, #3
+ 8005436:	1cc5      	adds	r5, r0, #3
+ 8005438:	439d      	bics	r5, r3
+ 800543a:	42a8      	cmp	r0, r5
+ 800543c:	d007      	beq.n	800544e <sbrk_aligned+0x3a>
+ 800543e:	1a29      	subs	r1, r5, r0
+ 8005440:	0020      	movs	r0, r4
+ 8005442:	f000 f87f 	bl	8005544 <_sbrk_r>
+ 8005446:	1c43      	adds	r3, r0, #1
+ 8005448:	d101      	bne.n	800544e <sbrk_aligned+0x3a>
+ 800544a:	2501      	movs	r5, #1
+ 800544c:	426d      	negs	r5, r5
+ 800544e:	0028      	movs	r0, r5
+ 8005450:	bd70      	pop	{r4, r5, r6, pc}
+ 8005452:	46c0      	nop			; (mov r8, r8)
+ 8005454:	200003dc 	.word	0x200003dc
 
-0800554c <sbrk_aligned>:
- 800554c:	b570      	push	{r4, r5, r6, lr}
- 800554e:	4e0f      	ldr	r6, [pc, #60]	; (800558c <sbrk_aligned+0x40>)
- 8005550:	000d      	movs	r5, r1
- 8005552:	6831      	ldr	r1, [r6, #0]
- 8005554:	0004      	movs	r4, r0
- 8005556:	2900      	cmp	r1, #0
- 8005558:	d102      	bne.n	8005560 <sbrk_aligned+0x14>
- 800555a:	f000 f88f 	bl	800567c <_sbrk_r>
- 800555e:	6030      	str	r0, [r6, #0]
- 8005560:	0029      	movs	r1, r5
- 8005562:	0020      	movs	r0, r4
- 8005564:	f000 f88a 	bl	800567c <_sbrk_r>
- 8005568:	1c43      	adds	r3, r0, #1
- 800556a:	d00a      	beq.n	8005582 <sbrk_aligned+0x36>
- 800556c:	2303      	movs	r3, #3
- 800556e:	1cc5      	adds	r5, r0, #3
- 8005570:	439d      	bics	r5, r3
- 8005572:	42a8      	cmp	r0, r5
- 8005574:	d007      	beq.n	8005586 <sbrk_aligned+0x3a>
- 8005576:	1a29      	subs	r1, r5, r0
- 8005578:	0020      	movs	r0, r4
- 800557a:	f000 f87f 	bl	800567c <_sbrk_r>
- 800557e:	1c43      	adds	r3, r0, #1
- 8005580:	d101      	bne.n	8005586 <sbrk_aligned+0x3a>
- 8005582:	2501      	movs	r5, #1
- 8005584:	426d      	negs	r5, r5
- 8005586:	0028      	movs	r0, r5
- 8005588:	bd70      	pop	{r4, r5, r6, pc}
- 800558a:	46c0      	nop			; (mov r8, r8)
- 800558c:	200003dc 	.word	0x200003dc
+08005458 <_malloc_r>:
+ 8005458:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 800545a:	2203      	movs	r2, #3
+ 800545c:	1ccb      	adds	r3, r1, #3
+ 800545e:	4393      	bics	r3, r2
+ 8005460:	3308      	adds	r3, #8
+ 8005462:	0006      	movs	r6, r0
+ 8005464:	001f      	movs	r7, r3
+ 8005466:	2b0c      	cmp	r3, #12
+ 8005468:	d232      	bcs.n	80054d0 <_malloc_r+0x78>
+ 800546a:	270c      	movs	r7, #12
+ 800546c:	42b9      	cmp	r1, r7
+ 800546e:	d831      	bhi.n	80054d4 <_malloc_r+0x7c>
+ 8005470:	0030      	movs	r0, r6
+ 8005472:	f000 f879 	bl	8005568 <__malloc_lock>
+ 8005476:	4d32      	ldr	r5, [pc, #200]	; (8005540 <_malloc_r+0xe8>)
+ 8005478:	682b      	ldr	r3, [r5, #0]
+ 800547a:	001c      	movs	r4, r3
+ 800547c:	2c00      	cmp	r4, #0
+ 800547e:	d12e      	bne.n	80054de <_malloc_r+0x86>
+ 8005480:	0039      	movs	r1, r7
+ 8005482:	0030      	movs	r0, r6
+ 8005484:	f7ff ffc6 	bl	8005414 <sbrk_aligned>
+ 8005488:	0004      	movs	r4, r0
+ 800548a:	1c43      	adds	r3, r0, #1
+ 800548c:	d11e      	bne.n	80054cc <_malloc_r+0x74>
+ 800548e:	682c      	ldr	r4, [r5, #0]
+ 8005490:	0025      	movs	r5, r4
+ 8005492:	2d00      	cmp	r5, #0
+ 8005494:	d14a      	bne.n	800552c <_malloc_r+0xd4>
+ 8005496:	6823      	ldr	r3, [r4, #0]
+ 8005498:	0029      	movs	r1, r5
+ 800549a:	18e3      	adds	r3, r4, r3
+ 800549c:	0030      	movs	r0, r6
+ 800549e:	9301      	str	r3, [sp, #4]
+ 80054a0:	f000 f850 	bl	8005544 <_sbrk_r>
+ 80054a4:	9b01      	ldr	r3, [sp, #4]
+ 80054a6:	4283      	cmp	r3, r0
+ 80054a8:	d143      	bne.n	8005532 <_malloc_r+0xda>
+ 80054aa:	6823      	ldr	r3, [r4, #0]
+ 80054ac:	3703      	adds	r7, #3
+ 80054ae:	1aff      	subs	r7, r7, r3
+ 80054b0:	2303      	movs	r3, #3
+ 80054b2:	439f      	bics	r7, r3
+ 80054b4:	3708      	adds	r7, #8
+ 80054b6:	2f0c      	cmp	r7, #12
+ 80054b8:	d200      	bcs.n	80054bc <_malloc_r+0x64>
+ 80054ba:	270c      	movs	r7, #12
+ 80054bc:	0039      	movs	r1, r7
+ 80054be:	0030      	movs	r0, r6
+ 80054c0:	f7ff ffa8 	bl	8005414 <sbrk_aligned>
+ 80054c4:	1c43      	adds	r3, r0, #1
+ 80054c6:	d034      	beq.n	8005532 <_malloc_r+0xda>
+ 80054c8:	6823      	ldr	r3, [r4, #0]
+ 80054ca:	19df      	adds	r7, r3, r7
+ 80054cc:	6027      	str	r7, [r4, #0]
+ 80054ce:	e013      	b.n	80054f8 <_malloc_r+0xa0>
+ 80054d0:	2b00      	cmp	r3, #0
+ 80054d2:	dacb      	bge.n	800546c <_malloc_r+0x14>
+ 80054d4:	230c      	movs	r3, #12
+ 80054d6:	2500      	movs	r5, #0
+ 80054d8:	6033      	str	r3, [r6, #0]
+ 80054da:	0028      	movs	r0, r5
+ 80054dc:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+ 80054de:	6822      	ldr	r2, [r4, #0]
+ 80054e0:	1bd1      	subs	r1, r2, r7
+ 80054e2:	d420      	bmi.n	8005526 <_malloc_r+0xce>
+ 80054e4:	290b      	cmp	r1, #11
+ 80054e6:	d917      	bls.n	8005518 <_malloc_r+0xc0>
+ 80054e8:	19e2      	adds	r2, r4, r7
+ 80054ea:	6027      	str	r7, [r4, #0]
+ 80054ec:	42a3      	cmp	r3, r4
+ 80054ee:	d111      	bne.n	8005514 <_malloc_r+0xbc>
+ 80054f0:	602a      	str	r2, [r5, #0]
+ 80054f2:	6863      	ldr	r3, [r4, #4]
+ 80054f4:	6011      	str	r1, [r2, #0]
+ 80054f6:	6053      	str	r3, [r2, #4]
+ 80054f8:	0030      	movs	r0, r6
+ 80054fa:	0025      	movs	r5, r4
+ 80054fc:	f000 f83c 	bl	8005578 <__malloc_unlock>
+ 8005500:	2207      	movs	r2, #7
+ 8005502:	350b      	adds	r5, #11
+ 8005504:	1d23      	adds	r3, r4, #4
+ 8005506:	4395      	bics	r5, r2
+ 8005508:	1aea      	subs	r2, r5, r3
+ 800550a:	429d      	cmp	r5, r3
+ 800550c:	d0e5      	beq.n	80054da <_malloc_r+0x82>
+ 800550e:	1b5b      	subs	r3, r3, r5
+ 8005510:	50a3      	str	r3, [r4, r2]
+ 8005512:	e7e2      	b.n	80054da <_malloc_r+0x82>
+ 8005514:	605a      	str	r2, [r3, #4]
+ 8005516:	e7ec      	b.n	80054f2 <_malloc_r+0x9a>
+ 8005518:	6862      	ldr	r2, [r4, #4]
+ 800551a:	42a3      	cmp	r3, r4
+ 800551c:	d101      	bne.n	8005522 <_malloc_r+0xca>
+ 800551e:	602a      	str	r2, [r5, #0]
+ 8005520:	e7ea      	b.n	80054f8 <_malloc_r+0xa0>
+ 8005522:	605a      	str	r2, [r3, #4]
+ 8005524:	e7e8      	b.n	80054f8 <_malloc_r+0xa0>
+ 8005526:	0023      	movs	r3, r4
+ 8005528:	6864      	ldr	r4, [r4, #4]
+ 800552a:	e7a7      	b.n	800547c <_malloc_r+0x24>
+ 800552c:	002c      	movs	r4, r5
+ 800552e:	686d      	ldr	r5, [r5, #4]
+ 8005530:	e7af      	b.n	8005492 <_malloc_r+0x3a>
+ 8005532:	230c      	movs	r3, #12
+ 8005534:	0030      	movs	r0, r6
+ 8005536:	6033      	str	r3, [r6, #0]
+ 8005538:	f000 f81e 	bl	8005578 <__malloc_unlock>
+ 800553c:	e7cd      	b.n	80054da <_malloc_r+0x82>
+ 800553e:	46c0      	nop			; (mov r8, r8)
+ 8005540:	200003d8 	.word	0x200003d8
 
-08005590 <_malloc_r>:
- 8005590:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
- 8005592:	2203      	movs	r2, #3
- 8005594:	1ccb      	adds	r3, r1, #3
- 8005596:	4393      	bics	r3, r2
- 8005598:	3308      	adds	r3, #8
- 800559a:	0006      	movs	r6, r0
- 800559c:	001f      	movs	r7, r3
- 800559e:	2b0c      	cmp	r3, #12
- 80055a0:	d232      	bcs.n	8005608 <_malloc_r+0x78>
- 80055a2:	270c      	movs	r7, #12
- 80055a4:	42b9      	cmp	r1, r7
- 80055a6:	d831      	bhi.n	800560c <_malloc_r+0x7c>
- 80055a8:	0030      	movs	r0, r6
- 80055aa:	f000 f879 	bl	80056a0 <__malloc_lock>
- 80055ae:	4d32      	ldr	r5, [pc, #200]	; (8005678 <_malloc_r+0xe8>)
- 80055b0:	682b      	ldr	r3, [r5, #0]
- 80055b2:	001c      	movs	r4, r3
- 80055b4:	2c00      	cmp	r4, #0
- 80055b6:	d12e      	bne.n	8005616 <_malloc_r+0x86>
- 80055b8:	0039      	movs	r1, r7
- 80055ba:	0030      	movs	r0, r6
- 80055bc:	f7ff ffc6 	bl	800554c <sbrk_aligned>
- 80055c0:	0004      	movs	r4, r0
- 80055c2:	1c43      	adds	r3, r0, #1
- 80055c4:	d11e      	bne.n	8005604 <_malloc_r+0x74>
- 80055c6:	682c      	ldr	r4, [r5, #0]
- 80055c8:	0025      	movs	r5, r4
- 80055ca:	2d00      	cmp	r5, #0
- 80055cc:	d14a      	bne.n	8005664 <_malloc_r+0xd4>
- 80055ce:	6823      	ldr	r3, [r4, #0]
- 80055d0:	0029      	movs	r1, r5
- 80055d2:	18e3      	adds	r3, r4, r3
- 80055d4:	0030      	movs	r0, r6
- 80055d6:	9301      	str	r3, [sp, #4]
- 80055d8:	f000 f850 	bl	800567c <_sbrk_r>
- 80055dc:	9b01      	ldr	r3, [sp, #4]
- 80055de:	4283      	cmp	r3, r0
- 80055e0:	d143      	bne.n	800566a <_malloc_r+0xda>
- 80055e2:	6823      	ldr	r3, [r4, #0]
- 80055e4:	3703      	adds	r7, #3
- 80055e6:	1aff      	subs	r7, r7, r3
- 80055e8:	2303      	movs	r3, #3
- 80055ea:	439f      	bics	r7, r3
- 80055ec:	3708      	adds	r7, #8
- 80055ee:	2f0c      	cmp	r7, #12
- 80055f0:	d200      	bcs.n	80055f4 <_malloc_r+0x64>
- 80055f2:	270c      	movs	r7, #12
- 80055f4:	0039      	movs	r1, r7
- 80055f6:	0030      	movs	r0, r6
- 80055f8:	f7ff ffa8 	bl	800554c <sbrk_aligned>
- 80055fc:	1c43      	adds	r3, r0, #1
- 80055fe:	d034      	beq.n	800566a <_malloc_r+0xda>
- 8005600:	6823      	ldr	r3, [r4, #0]
- 8005602:	19df      	adds	r7, r3, r7
- 8005604:	6027      	str	r7, [r4, #0]
- 8005606:	e013      	b.n	8005630 <_malloc_r+0xa0>
- 8005608:	2b00      	cmp	r3, #0
- 800560a:	dacb      	bge.n	80055a4 <_malloc_r+0x14>
- 800560c:	230c      	movs	r3, #12
- 800560e:	2500      	movs	r5, #0
- 8005610:	6033      	str	r3, [r6, #0]
- 8005612:	0028      	movs	r0, r5
- 8005614:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
- 8005616:	6822      	ldr	r2, [r4, #0]
- 8005618:	1bd1      	subs	r1, r2, r7
- 800561a:	d420      	bmi.n	800565e <_malloc_r+0xce>
- 800561c:	290b      	cmp	r1, #11
- 800561e:	d917      	bls.n	8005650 <_malloc_r+0xc0>
- 8005620:	19e2      	adds	r2, r4, r7
- 8005622:	6027      	str	r7, [r4, #0]
- 8005624:	42a3      	cmp	r3, r4
- 8005626:	d111      	bne.n	800564c <_malloc_r+0xbc>
- 8005628:	602a      	str	r2, [r5, #0]
- 800562a:	6863      	ldr	r3, [r4, #4]
- 800562c:	6011      	str	r1, [r2, #0]
- 800562e:	6053      	str	r3, [r2, #4]
- 8005630:	0030      	movs	r0, r6
- 8005632:	0025      	movs	r5, r4
- 8005634:	f000 f83c 	bl	80056b0 <__malloc_unlock>
- 8005638:	2207      	movs	r2, #7
- 800563a:	350b      	adds	r5, #11
- 800563c:	1d23      	adds	r3, r4, #4
- 800563e:	4395      	bics	r5, r2
- 8005640:	1aea      	subs	r2, r5, r3
- 8005642:	429d      	cmp	r5, r3
- 8005644:	d0e5      	beq.n	8005612 <_malloc_r+0x82>
- 8005646:	1b5b      	subs	r3, r3, r5
- 8005648:	50a3      	str	r3, [r4, r2]
- 800564a:	e7e2      	b.n	8005612 <_malloc_r+0x82>
- 800564c:	605a      	str	r2, [r3, #4]
- 800564e:	e7ec      	b.n	800562a <_malloc_r+0x9a>
- 8005650:	6862      	ldr	r2, [r4, #4]
- 8005652:	42a3      	cmp	r3, r4
- 8005654:	d101      	bne.n	800565a <_malloc_r+0xca>
- 8005656:	602a      	str	r2, [r5, #0]
- 8005658:	e7ea      	b.n	8005630 <_malloc_r+0xa0>
- 800565a:	605a      	str	r2, [r3, #4]
- 800565c:	e7e8      	b.n	8005630 <_malloc_r+0xa0>
- 800565e:	0023      	movs	r3, r4
- 8005660:	6864      	ldr	r4, [r4, #4]
- 8005662:	e7a7      	b.n	80055b4 <_malloc_r+0x24>
- 8005664:	002c      	movs	r4, r5
- 8005666:	686d      	ldr	r5, [r5, #4]
- 8005668:	e7af      	b.n	80055ca <_malloc_r+0x3a>
- 800566a:	230c      	movs	r3, #12
- 800566c:	0030      	movs	r0, r6
- 800566e:	6033      	str	r3, [r6, #0]
- 8005670:	f000 f81e 	bl	80056b0 <__malloc_unlock>
- 8005674:	e7cd      	b.n	8005612 <_malloc_r+0x82>
- 8005676:	46c0      	nop			; (mov r8, r8)
- 8005678:	200003d8 	.word	0x200003d8
+08005544 <_sbrk_r>:
+ 8005544:	2300      	movs	r3, #0
+ 8005546:	b570      	push	{r4, r5, r6, lr}
+ 8005548:	4d06      	ldr	r5, [pc, #24]	; (8005564 <_sbrk_r+0x20>)
+ 800554a:	0004      	movs	r4, r0
+ 800554c:	0008      	movs	r0, r1
+ 800554e:	602b      	str	r3, [r5, #0]
+ 8005550:	f7fc fe7a 	bl	8002248 <_sbrk>
+ 8005554:	1c43      	adds	r3, r0, #1
+ 8005556:	d103      	bne.n	8005560 <_sbrk_r+0x1c>
+ 8005558:	682b      	ldr	r3, [r5, #0]
+ 800555a:	2b00      	cmp	r3, #0
+ 800555c:	d000      	beq.n	8005560 <_sbrk_r+0x1c>
+ 800555e:	6023      	str	r3, [r4, #0]
+ 8005560:	bd70      	pop	{r4, r5, r6, pc}
+ 8005562:	46c0      	nop			; (mov r8, r8)
+ 8005564:	200003e0 	.word	0x200003e0
 
-0800567c <_sbrk_r>:
- 800567c:	2300      	movs	r3, #0
- 800567e:	b570      	push	{r4, r5, r6, lr}
- 8005680:	4d06      	ldr	r5, [pc, #24]	; (800569c <_sbrk_r+0x20>)
- 8005682:	0004      	movs	r4, r0
- 8005684:	0008      	movs	r0, r1
- 8005686:	602b      	str	r3, [r5, #0]
- 8005688:	f7fc fdde 	bl	8002248 <_sbrk>
- 800568c:	1c43      	adds	r3, r0, #1
- 800568e:	d103      	bne.n	8005698 <_sbrk_r+0x1c>
- 8005690:	682b      	ldr	r3, [r5, #0]
- 8005692:	2b00      	cmp	r3, #0
- 8005694:	d000      	beq.n	8005698 <_sbrk_r+0x1c>
- 8005696:	6023      	str	r3, [r4, #0]
- 8005698:	bd70      	pop	{r4, r5, r6, pc}
- 800569a:	46c0      	nop			; (mov r8, r8)
- 800569c:	200003e0 	.word	0x200003e0
+08005568 <__malloc_lock>:
+ 8005568:	b510      	push	{r4, lr}
+ 800556a:	4802      	ldr	r0, [pc, #8]	; (8005574 <__malloc_lock+0xc>)
+ 800556c:	f000 f80c 	bl	8005588 <__retarget_lock_acquire_recursive>
+ 8005570:	bd10      	pop	{r4, pc}
+ 8005572:	46c0      	nop			; (mov r8, r8)
+ 8005574:	200003e4 	.word	0x200003e4
 
-080056a0 <__malloc_lock>:
- 80056a0:	b510      	push	{r4, lr}
- 80056a2:	4802      	ldr	r0, [pc, #8]	; (80056ac <__malloc_lock+0xc>)
- 80056a4:	f000 f80c 	bl	80056c0 <__retarget_lock_acquire_recursive>
- 80056a8:	bd10      	pop	{r4, pc}
- 80056aa:	46c0      	nop			; (mov r8, r8)
- 80056ac:	200003e4 	.word	0x200003e4
+08005578 <__malloc_unlock>:
+ 8005578:	b510      	push	{r4, lr}
+ 800557a:	4802      	ldr	r0, [pc, #8]	; (8005584 <__malloc_unlock+0xc>)
+ 800557c:	f000 f805 	bl	800558a <__retarget_lock_release_recursive>
+ 8005580:	bd10      	pop	{r4, pc}
+ 8005582:	46c0      	nop			; (mov r8, r8)
+ 8005584:	200003e4 	.word	0x200003e4
 
-080056b0 <__malloc_unlock>:
- 80056b0:	b510      	push	{r4, lr}
- 80056b2:	4802      	ldr	r0, [pc, #8]	; (80056bc <__malloc_unlock+0xc>)
- 80056b4:	f000 f805 	bl	80056c2 <__retarget_lock_release_recursive>
- 80056b8:	bd10      	pop	{r4, pc}
- 80056ba:	46c0      	nop			; (mov r8, r8)
- 80056bc:	200003e4 	.word	0x200003e4
+08005588 <__retarget_lock_acquire_recursive>:
+ 8005588:	4770      	bx	lr
 
-080056c0 <__retarget_lock_acquire_recursive>:
- 80056c0:	4770      	bx	lr
+0800558a <__retarget_lock_release_recursive>:
+ 800558a:	4770      	bx	lr
 
-080056c2 <__retarget_lock_release_recursive>:
- 80056c2:	4770      	bx	lr
+0800558c <_init>:
+ 800558c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800558e:	46c0      	nop			; (mov r8, r8)
+ 8005590:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8005592:	bc08      	pop	{r3}
+ 8005594:	469e      	mov	lr, r3
+ 8005596:	4770      	bx	lr
 
-080056c4 <_init>:
- 80056c4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 80056c6:	46c0      	nop			; (mov r8, r8)
- 80056c8:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 80056ca:	bc08      	pop	{r3}
- 80056cc:	469e      	mov	lr, r3
- 80056ce:	4770      	bx	lr
-
-080056d0 <_fini>:
- 80056d0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 80056d2:	46c0      	nop			; (mov r8, r8)
- 80056d4:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 80056d6:	bc08      	pop	{r3}
- 80056d8:	469e      	mov	lr, r3
- 80056da:	4770      	bx	lr
+08005598 <_fini>:
+ 8005598:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800559a:	46c0      	nop			; (mov r8, r8)
+ 800559c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 800559e:	bc08      	pop	{r3}
+ 80055a0:	469e      	mov	lr, r3
+ 80055a2:	4770      	bx	lr

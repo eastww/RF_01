@@ -21,13 +21,7 @@ struct msgQueue *mq_init(void)
     mq->tail = 0;
     for (uint8_t i = 0; i < MSGQUEUESIZE; i++)
     {
-        mq->list[i].data = (uint8_t *)malloc(MSGQUEUEDATASIZE);
-        if (mq->list[i].data == NULL)
-        {
-            /* rough handle */
-            mq_deinit(mq);
-            return NULL;
-        }
+        memset(&(mq->list[i]), 0, sizeof(struct msgQueue));
     }
     return mq;
 }
@@ -43,11 +37,6 @@ void mq_deinit(struct msgQueue *queue)
     queue->lock = 0;
     queue->head = 0;
     queue->tail = 0;
-    for (uint8_t i = 0; i < MSGQUEUESIZE; i++)
-    {
-        free(queue->list[i].data);
-        queue->list[i].data = NULL;
-    }
     queue->size = 0;
     free(queue);
     queue = NULL;
@@ -166,7 +155,7 @@ uint32_t mq_push(struct msgQueue *queue, struct msg *msg)
 
     uint8_t index = queue->head & (MSGQUEUESIZE - 1);
     queue->list[index].type = msg->type;
-    memcpy(queue->list[index].data, msg->data, MSGQUEUEDATASIZE);
+    queue->list[index].data = msg->data;
     queue->head++;
 
     return queue->head;
@@ -195,7 +184,7 @@ struct msg *mq_pop(struct msgQueue *queue)
         queue->tail = 0;
     }
     
-    uint8_t index = queue->tail & (MSGQUEUEDATASIZE - 1);
+    uint8_t index = queue->tail & (MSGQUEUESIZE - 1);
     queue->tail++;
     return &(queue->list[index]);
 }
