@@ -20,5 +20,6 @@
 //
 // void BSPTimerEnable(TIM_HandleTypeDef *htim);
 // void BSPTimerDisable(TIM_HandleTypeDef *htim);
+void HAL_SysTick_Handler(void);
 
 #endif

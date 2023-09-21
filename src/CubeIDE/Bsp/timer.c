@@ -14,6 +14,8 @@ extern TIM_HandleTypeDef htim17;
 /* exter function definition */
 extern void uartTimerIrqHandler(TIM_HandleTypeDef *htim);
 
+/* systickcount define */
+volatile uint32_t g_nSysTickCount = 0;
 ///**
 //  * @brief  使能定时器
 //  * @param	htim:	定时器句柄
@@ -76,4 +78,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if (htim->Instance == htim17.Instance) {
         uartTimerIrqHandler(htim);
     }
+}
+
+void HAL_SysTick_Handler(void)
+{
+	g_nSysTickCount++;
 }

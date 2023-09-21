@@ -131,17 +131,18 @@ int main(void)
 #if BSP_TEST_ENABLE
 	  bspTest();
 #endif
-	bufferSize = uartGetData(BSP_TTL_CHANNEL1, buffer, 256);
-	if (bufferSize)
-	{
-		/* send the buffer data to uart1 */
-		uartSendData(BSP_TTL_CHANNEL1, buffer, bufferSize);
-		HAL_Delay_nMs(1000);
-
-		/* reset the value */
-		bufferSize = 0;
-		uartResetData(BSP_TTL_CHANNEL1);
-	}
+//	bufferSize = uartGetData(BSP_TTL_CHANNEL1, buffer, 256);
+//	if (bufferSize)
+//	{
+//		/* send the buffer data to uart1 */
+//		 uartSendData(BSP_TTL_CHANNEL1, buffer, bufferSize);
+//		 HAL_Delay_nMs(1000);
+//    RF_sendMessage(unsigned char *message, unsigned char messageLen);
+//
+//		/* reset the value */
+//		bufferSize = 0;
+//		uartResetData(BSP_TTL_CHANNEL1);
+//	}
   }
   /* USER CODE END 3 */
 }
@@ -362,6 +363,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
 
 }
 

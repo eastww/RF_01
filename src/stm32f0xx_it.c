@@ -108,8 +108,6 @@ void EXTI4_15_IRQHandler(void)
     /* Clear the EXTI line 10 pending bit */
     EXTI_ClearITPendingBit(EXTI_Line10);   
     cmt2300_irq_request=1;
-
-    
   }
 }
 

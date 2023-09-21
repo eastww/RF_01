@@ -64,6 +64,7 @@ void Error_Handler(void);
 #define GPIO_RF_GPIO1_GPIO_Port GPIOB
 #define GPIO_RF_GPIO2_Pin GPIO_PIN_13
 #define GPIO_RF_GPIO2_GPIO_Port GPIOB
+#define GPIO_RF_GPIO2_EXTI_IRQn EXTI4_15_IRQn
 #define GPIO_RF_FCSB_Pin GPIO_PIN_14
 #define GPIO_RF_FCSB_GPIO_Port GPIOB
 #define GPIO_RF_CSB_Pin GPIO_PIN_15
@@ -74,6 +75,7 @@ void Error_Handler(void);
 #define GPIO_RF_SCK_GPIO_Port GPIOA
 #define GPIO_RF_GPIO3_Pin GPIO_PIN_12
 #define GPIO_RF_GPIO3_GPIO_Port GPIOA
+#define GPIO_RF_GPIO3_EXTI_IRQn EXTI4_15_IRQn
 #define GPIO_LED1_Pin GPIO_PIN_4
 #define GPIO_LED1_GPIO_Port GPIOB
 #define GPIO_LED2_Pin GPIO_PIN_5

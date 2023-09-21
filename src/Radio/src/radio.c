@@ -22,8 +22,11 @@
 #include "cmt2300_params.h"
 #include "CMT230_params_RxTxTest.h"
 #include "string.h"
+#ifdef USE_CUBEIDE
 #include "./../../gpio.h"
 #include "./../../delay.h"
+#include "./../../CubeIDE/Bsp/timer.h"
+#endif
 
 #define INFINITE 0xffffffff
 
@@ -217,12 +220,16 @@ EnumRFResult RF_Process(void)
         Cmt2300_ClearFifo();
 
         if (false == Cmt2300_GoRx())
+        {
             g_nNextRFState = RF_STATE_ERROR;
+        }
         else
+        {
             cmt2300_irq_request=0;
             g_nNextRFState = RF_STATE_RX_WAIT;
 
             g_nRxTimeCount = Cmt2300_GetTickCount();
+        }
 
         break;
     }
@@ -247,7 +254,7 @@ EnumRFResult RF_Process(void)
 
     case RF_STATE_RX_DONE:
     {
-         Cmt2300_GoStby();
+        Cmt2300_GoStby();
 
         Cmt2300_ReadFifo(g_pRxBuffer, 1);//读取数据长度
            
@@ -268,8 +275,8 @@ EnumRFResult RF_Process(void)
     {
         //        Cmt2300_GoSleep();
         //
-                g_nNextRFState = RF_STATE_IDLE;
-                nRes = RF_RX_TIMEOUT;
+        g_nNextRFState = RF_STATE_IDLE;
+        nRes = RF_RX_TIMEOUT;
                 
         break;
     }
@@ -284,20 +291,25 @@ EnumRFResult RF_Process(void)
         Cmt2300_ClearFifo();
 
         Cmt2300_SetPayloadLength(g_nTxLength); //发射数据长度
-        
       
         Cmt2300_WriteFifo(g_pTxBuffer, g_nTxLength);
 
         if (0 == (CMT2300_MASK_TX_FIFO_NMTY_FLG & Cmt2300_ReadReg(CMT2300_CUS_FIFO_FLAG)))
+        {
             g_nNextRFState = RF_STATE_ERROR;
+        }
 
         if (false == Cmt2300_GoTx())
+        {
             g_nNextRFState = RF_STATE_ERROR;
+        }
         else  
+        {
             cmt2300_irq_request=0;
             g_nNextRFState = RF_STATE_TX_WAIT;
 
             g_nTxTimeCount = Cmt2300_GetTickCount();
+        }
 
         break;
     }
@@ -313,27 +325,27 @@ EnumRFResult RF_Process(void)
           g_nNextRFState = RF_STATE_TX_DONE;
         }
         
-                if( (INFINITE != g_nTxTimeout) && ((g_nSysTickCount-g_nTxTimeCount) > g_nTxTimeout) )
-                    g_nNextRFState = RF_STATE_TX_TIMEOUT;
-        
-                break;
+        if( (INFINITE != g_nTxTimeout) && ((g_nSysTickCount-g_nTxTimeCount) > g_nTxTimeout) )
+            g_nNextRFState = RF_STATE_TX_TIMEOUT;
+
+        break;
     }
 
     case RF_STATE_TX_DONE:
     {
-            Cmt2300_ClearInterruptFlags();
-            //Cmt2300_GoSleep();
+        Cmt2300_ClearInterruptFlags();
+        //Cmt2300_GoSleep();
 
-            g_nNextRFState = RF_STATE_IDLE;
-            nRes = RF_TX_DONE;
+        g_nNextRFState = RF_STATE_IDLE;
+        nRes = RF_TX_DONE;
         break;
     }
 
     case RF_STATE_TX_TIMEOUT:
     {
         //        Cmt2300_GoSleep();      
-             g_nNextRFState = RF_STATE_IDLE;
-              nRes = RF_TX_TIMEOUT;
+        g_nNextRFState = RF_STATE_IDLE;
+        nRes = RF_TX_TIMEOUT;
         break;
     }
 
@@ -359,6 +371,7 @@ EnumRFResult RF_Process(void)
 EnumRFResult RF_sendMessage(unsigned char *message, unsigned char messageLen)
 {
     EnumRFResult nRes = RF_BUSY;
+
     switch (g_nNextRFState)
     {
     case RF_STATE_IDLE:
@@ -399,8 +412,8 @@ EnumRFResult RF_sendMessage(unsigned char *message, unsigned char messageLen)
         if (cmt2300_irq_request) /* Read INT1, TX_DONE */
 #endif
         {
-          cmt2300_irq_request=0;
-              g_nNextRFState = RF_STATE_TX_DONE;
+            cmt2300_irq_request=0;
+            g_nNextRFState = RF_STATE_TX_DONE;
         }
 
         //        if( (INFINITE != g_nTxTimeout) && ((Cmt2300_GetTickCount()-g_nTxTimeCount) > g_nTxTimeout) )

@@ -1,6 +1,9 @@
 #include "stm32f0xx.h"
 #include "gpio.h"
 
+/* request for irq */
+volatile uint8_t  cmt2300_irq_request;
+
 #ifndef USE_CUBEIDE
 void GPIO_Pin_Setting(GPIO_TypeDef *gpio, uint16_t nPin, GPIOSpeed_TypeDef speed, GPIOMode_TypeDef mode)
 {
@@ -170,4 +173,12 @@ void NVIC_Config(void)
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
 #endif
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin == GPIO_RF_GPIO3_Pin)
+	{
+		cmt2300_irq_request = 1;
+	}
 }

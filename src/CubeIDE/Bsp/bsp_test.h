@@ -24,7 +24,8 @@
 // #include "./../../Radio/inc/cmt2300a_params.h"
 // #include "./../../Radio/inc/crc.h"
 #include "./../../Radio/inc/radio.h"
-// #include "./../../Radio/inc/typedefs.h"
+#include "./../../Radio/inc/typedefs.h"
+#include "uart.h"
 
 #if BSP_TEST_ENABLE
 /* external function */
