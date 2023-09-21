@@ -4618,7 +4618,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 #if BSP_TEST_ENABLE
-	  bspTest();
+	bspTest();
  8001bd2:	f7ff fcf7 	bl	80015c4 <bspTest>
  8001bd6:	e7fc      	b.n	8001bd2 <main+0x8a>
  8001bd8:	fffffefc 	.word	0xfffffefc

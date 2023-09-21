@@ -27,4 +27,6 @@ Core/Src \
 Core/Startup \
 Drivers/STM32F0xx_HAL_Driver/Src \
 Service/kfifo \
+Service/message_queue \
+Service/state_machine \
 

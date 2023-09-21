@@ -129,7 +129,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 #if BSP_TEST_ENABLE
-	  bspTest();
+	bspTest();
 #endif
 //	bufferSize = uartGetData(BSP_TTL_CHANNEL1, buffer, 256);
 //	if (bufferSize)
