@@ -60,6 +60,7 @@ volatile uint32_t g_nSysTickCount = 0;
 //   */
 /**
  * @brief Timer interrupt callback function
+ * 
  * @param htim timer handler
  * @retval None
  */
@@ -80,6 +81,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
 }
 
+/**
+ * @brief systick callback function, this used by rf
+ * 
+ * @param None
+ * @retval None
+ */
 void HAL_SysTick_Handler(void)
 {
 	g_nSysTickCount++;

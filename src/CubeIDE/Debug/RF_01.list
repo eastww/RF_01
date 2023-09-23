@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  0002001c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00010c1e  00000000  00000000  00020044  2**0
+ 12 .debug_info   00010c21  00000000  00000000  00020044  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00002af3  00000000  00000000  00030c62  2**0
+ 13 .debug_abbrev 00002b31  00000000  00000000  00030c65  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00001038  00000000  00000000  00033758  2**3
+ 14 .debug_aranges 00001038  00000000  00000000  00033798  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000f00  00000000  00000000  00034790  2**3
+ 15 .debug_ranges 00000f00  00000000  00000000  000347d0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00012ad7  00000000  00000000  00035690  2**0
+ 16 .debug_macro  00012ad7  00000000  00000000  000356d0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000147a8  00000000  00000000  00048167  2**0
+ 17 .debug_line   000147a8  00000000  00000000  000481a7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00069c6b  00000000  00000000  0005c90f  2**0
+ 18 .debug_str    00069c6b  00000000  00000000  0005c94f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000c657a  2**0
+ 19 .comment      00000050  00000000  00000000  000c65ba  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003958  00000000  00000000  000c65cc  2**2
+ 20 .debug_frame  00003958  00000000  00000000  000c660c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2631,7 +2631,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
  8001040:	20000038 	.word	0x20000038
 
 08001044 <HAL_TIM_PeriodElapsedCallback>:
- * @brief Timer interrupt callback function
+ * 
  * @param htim timer handler
  * @retval None
  */
@@ -2666,7 +2666,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
  8001068:	20000164 	.word	0x20000164
 
 0800106c <HAL_SysTick_Handler>:
-
+ * 
+ * @param None
+ * @retval None
+ */
 void HAL_SysTick_Handler(void)
 {
  800106c:	b580      	push	{r7, lr}
@@ -2710,7 +2713,7 @@ static __inline void kfifo_reset(struct kfifo *fifo)
 	...
 
 080010a4 <uartInitRxFifo>:
- * @brief Init uart fifo
+ * 
  * @param None
  * @retval None
  */
@@ -2809,7 +2812,7 @@ static HAL_StatusTypeDef UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pDa
  800112e:	bdb0      	pop	{r4, r5, r7, pc}
 
 08001130 <uartInit>:
- * @brief Uart init
+ * 
  * @param channel uart channel
  * @retval None
  */
@@ -2876,9 +2879,9 @@ void uartInit(uartChannel_t channel)
  80011a4:	20000040 	.word	0x20000040
 
 080011a8 <uartRecovery>:
-/**
- * @brief uart recovery mode
+ * 
  * @param channel 
+ * @retval None
  */
 static void uartRecovery(uartChannel_t channel)
 {
@@ -2912,7 +2915,7 @@ static void uartRecovery(uartChannel_t channel)
  80011dc:	20000000 	.word	0x20000000
 
 080011e0 <HAL_UART_TxCpltCallback>:
- * @brief uart send done callback function
+ * 
  * @param huart 
  * @retval None
  */
@@ -2974,9 +2977,9 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
  8001238:	2000015c 	.word	0x2000015c
 
 0800123c <HAL_UART_RxCpltCallback>:
-/**
- * @brief Uart rx callback
+ * 
  * @param huart 
+ * @retval None
  */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -3108,9 +3111,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  8001324:	20000154 	.word	0x20000154
 
 08001328 <uartTimerIrqHandler>:
-/**
- * @brief Uart rx timeout callback
+ * 
  * @param htim 
+ * @retval None
  */
 void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
 {
@@ -3254,9 +3257,9 @@ void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
  800141c:	20000144 	.word	0x20000144
 
 08001420 <HAL_UART_ErrorCallback>:
-/**
- * @brief uart error callback
- * @param huart 
+ * 
+ * @param huart
+ * @retval None 
  */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 {

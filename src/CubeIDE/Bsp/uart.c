@@ -23,6 +23,7 @@ static uartParamDef uartPara[UART_ENABLED_CHANNEL] = {
 
 /**
  * @brief Init uart fifo
+ * 
  * @param None
  * @retval None
  */
@@ -33,6 +34,7 @@ static void uartInitRxFifo(uartChannel_t channel)
 
 /**
  * @brief uart receive one byte data, enabel uart rx interrupt
+ * 
  * @param huart uart instance
  * @param pData data
  * @param Size size
@@ -59,6 +61,7 @@ static HAL_StatusTypeDef UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pDa
 
 /**
  * @brief Uart init
+ * 
  * @param channel uart channel
  * @retval None
  */
@@ -74,7 +77,9 @@ void uartInit(uartChannel_t channel)
 
 /**
  * @brief uart recovery mode
+ * 
  * @param channel 
+ * @retval None
  */
 static void uartRecovery(uartChannel_t channel)
 {
@@ -84,6 +89,7 @@ static void uartRecovery(uartChannel_t channel)
 
 /**
  * @brief Uart send handle
+ * 
  * @param channel
  * @param data
  * @param length
@@ -104,6 +110,7 @@ void uartSendData(uartChannel_t channel, uint8_t data[], uint16_t length)
 
 /**
  * @brief uart send done callback function
+ * 
  * @param huart 
  * @retval None
  */
@@ -121,10 +128,11 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 
 /**
  * @brief Get uart fifo data
+ * 
  * @param channel 
  * @param data 
  * @param length 
- * @return uint32_t 
+ * @retval uint32_t 
  */
 uint32_t uartGetData(uartChannel_t channel, uint8_t data[], uint16_t length)
 {
@@ -144,6 +152,7 @@ uint32_t uartGetData(uartChannel_t channel, uint8_t data[], uint16_t length)
 
 /**
  * @brief Reset uart fifo data
+ * 
  * @param channel 
  * @retval None
  */
@@ -156,8 +165,9 @@ void uartResetData(uartChannel_t channel)
 
 /**
  * @brief Get rx status
+ * 
  * @param channel 
- * @return uartStatus_t 
+ * @retval uartStatus_t 
  */
 uartStatus_t uartReadRxStatus(uartChannel_t channel)
 {
@@ -166,8 +176,9 @@ uartStatus_t uartReadRxStatus(uartChannel_t channel)
 
 /**
  * @brief Get tx status
+ * 
  * @param channel 
- * @return uartStatus_t 
+ * @retval uartStatus_t 
  */
 uartStatus_t uartReadTxStatus(uartChannel_t channel)
 {
@@ -176,8 +187,10 @@ uartStatus_t uartReadTxStatus(uartChannel_t channel)
 
 /**
  * @brief Set rx status
+ * 
  * @param channel 
  * @param status 
+ * @retval None
  */
 void uartSetRxStatus(uartChannel_t channel, uartStatus_t status)
 {
@@ -189,7 +202,9 @@ void uartSetRxStatus(uartChannel_t channel, uartStatus_t status)
 
 /**
  * @brief Uart rx callback
+ * 
  * @param huart 
+ * @retval None
  */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -211,7 +226,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 /**
  * @brief Uart rx timeout callback
+ * 
  * @param htim 
+ * @retval None
  */
 void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
 {
@@ -238,7 +255,9 @@ void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
 
 /**
  * @brief uart error callback
- * @param huart 
+ * 
+ * @param huart
+ * @retval None 
  */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 {
