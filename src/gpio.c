@@ -175,6 +175,7 @@ void NVIC_Config(void)
 #endif
 }
 
+#ifdef USE_CUBEIDE
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == GPIO_RF_GPIO3_Pin)
@@ -182,3 +183,4 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		cmt2300_irq_request = 1;
 	}
 }
+#endif

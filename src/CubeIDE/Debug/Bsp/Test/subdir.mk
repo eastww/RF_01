@@ -5,23 +5,23 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Service/stateMachine/stateMachine.c 
+../Bsp/Test/bsp_test.c 
 
 OBJS += \
-./Service/stateMachine/stateMachine.o 
+./Bsp/Test/bsp_test.o 
 
 C_DEPS += \
-./Service/stateMachine/stateMachine.d 
+./Bsp/Test/bsp_test.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Service/stateMachine/%.o Service/stateMachine/%.su: ../Service/stateMachine/%.c Service/stateMachine/subdir.mk
+Bsp/Test/%.o Bsp/Test/%.su: ../Bsp/Test/%.c Bsp/Test/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F030x8 -DUSE_CUBEIDE -DBSP_TEST_ENABLE=0 -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I"D:/work/rf_01/src/CubeIDE/Bsp" -I"D:/work/rf_01/src/Radio/inc" -I"D:/work/rf_01/src/CubeIDE/Service/kfifo" -I"D:/work/rf_01/src/CubeIDE/Bsp/Test" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 
-clean: clean-Service-2f-stateMachine
+clean: clean-Bsp-2f-Test
 
-clean-Service-2f-stateMachine:
-	-$(RM) ./Service/stateMachine/stateMachine.d ./Service/stateMachine/stateMachine.o ./Service/stateMachine/stateMachine.su
+clean-Bsp-2f-Test:
+	-$(RM) ./Bsp/Test/bsp_test.d ./Bsp/Test/bsp_test.o ./Bsp/Test/bsp_test.su
 
-.PHONY: clean-Service-2f-stateMachine
+.PHONY: clean-Bsp-2f-Test
 

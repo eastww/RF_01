@@ -119,7 +119,7 @@ int main(void)
   /* enable fifo */
   Cmt2300_EnableFifoMerge(true);
 
-  messageQueueTest();
+//  messageQueueTest();
   /* USER CODE END 2 */
 
   /* Infinite loop */
