@@ -1,15 +1,15 @@
 /**
- * @file bsp_test.h
+ * @file bsp.h
  * @author Marshall (eastww@hotmail.com)
- * @brief This is the bsp unit test code
+ * @brief bsp interface
  * @version 0.1
- * @date 2023-09-17
- *
+ * @date 2023-09-24
+ * 
  * @copyright Copyright (c) 2023
- *
+ * 
  */
-#ifndef __BSP_TEST_H
-#define __BSP_TEST_H
+#ifndef __BSP_H
+#define __BSP_H
 
 /*----------------------------------------------------------------
  *  INCLUDE
@@ -29,11 +29,9 @@
 #include "./../../Radio/inc/typedefs.h"
 #include "uart.h"
 
-#if BSP_TEST_ENABLE
 /*----------------------------------------------------------------
  *  FUNCTION INTERFACE
  *--------------------------------------------------------------*/
-void bspTest(void);
-#endif
+void bspInit(void);
 
 #endif

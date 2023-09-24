@@ -4,6 +4,7 @@
 "./Bsp/Radio/src/crc.o"
 "./Bsp/Radio/src/radio.o"
 "./Bsp/Test/bsp_test.o"
+"./Bsp/bsp.o"
 "./Bsp/delay.o"
 "./Bsp/gpio.o"
 "./Bsp/timer.o"

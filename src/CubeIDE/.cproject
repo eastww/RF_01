@@ -82,7 +82,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Bsp"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
-						<entry excluding="messageQueue/messageQueueTest.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Service"/>
+						<entry excluding="stateMachine/examples|messageQueue/messageQueueTest.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Service"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -156,7 +156,7 @@
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
-						<entry excluding="messageQueue/messageQueueTest.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Service"/>
+						<entry excluding="stateMachine/examples|messageQueue/messageQueueTest.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Service"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
