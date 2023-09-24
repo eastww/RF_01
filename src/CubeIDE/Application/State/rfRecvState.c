@@ -27,7 +27,7 @@ struct state rfRecvState = {
       { rfRecvTimeoutEvent, NULL, NULL, NULL, &rfRecvState },
    },
    .numTransitions = 2,
-//   .data = "rfRecv",
+   .data = "rfRecv",
    .entryAction = &rfRecvStateEnter,
    .exitAction = &rfRecvStateExit,
 };

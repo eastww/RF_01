@@ -24,7 +24,7 @@ struct state rfSendState = {
       { rfRecvEvent, NULL, NULL, &rfSendStateAction, &rfRecvState },
    },
    .numTransitions = 1,
-//   .data = "rfSend",
+   .data = "rfSend",
    .entryAction = &rfSendStateEnter,
    .exitAction = &rfSendStateExit,
 };

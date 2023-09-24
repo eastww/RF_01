@@ -9,7 +9,11 @@ extern "C"
 #include "stm32f0xx.h"
 
 #define xdata
+#ifdef USE_CUBEIDE
+
+#else
 #define data
+#endif
 #define code const
 
 #define NOP() __NOP()

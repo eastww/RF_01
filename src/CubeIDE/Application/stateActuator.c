@@ -13,12 +13,15 @@
 void stateActuator(void)
 {
     struct stateMachine m;
-    stateM_init( &m, &rfRecvState, &errorState );
+    stateM_init(&m, &rfRecvState, &errorState);
 
     struct msgQueue *mq = mq_init();
     struct msg *msg;
-    while ( (msg = mq_pop( mq ) ) != NULL )
+    while ( 1 )
     {
-        stateM_handleEvent( &m, (struct event *)msg );
+        if ((msg = mq_pop( mq )) != NULL)
+        {
+            stateM_handleEvent(&m, (struct event *)msg);
+        }
     }
 }
