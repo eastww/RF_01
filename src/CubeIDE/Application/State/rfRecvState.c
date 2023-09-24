@@ -17,20 +17,6 @@
 /*----------------------------------------------------------------
  *  PARAMETER DEFINITION
  *--------------------------------------------------------------*/
-struct state rfRecvState = {
-   .parentState = NULL,
-   .entryState = NULL,
-   .transitions = (struct transition[]){
-      { rfRecvEvent, NULL, NULL, &rfRecvStateAction, &rfRecvState },
-      { uartRecvEvent, NULL, NULL, NULL, &rfSendState },
-      { rfRecvErrorEvent, NULL, NULL, NULL, &rfRecvState },
-      { rfRecvTimeoutEvent, NULL, NULL, NULL, &rfRecvState },
-   },
-   .numTransitions = 2,
-   .data = "rfRecv",
-   .entryAction = &rfRecvStateEnter,
-   .exitAction = &rfRecvStateExit,
-};
 
 /*----------------------------------------------------------------
  *  FUNCTION DEFINITION
@@ -44,9 +30,25 @@ struct state rfRecvState = {
  */
 void rfRecvStateAction( void *oldStateData, struct event *event,
       void *newStateData )
-{
-   puts( "Resetting" );
-   //todo: use uart send interface to send data
+{   
+    uint8_t user_rxBuffer[RF_PACKET_SIZE] = { 0 };
+    memcpy(user_rxBuffer, g_rxBuffer, g_rxBuffer[0]);
+    uartSendData(BSP_TTL_CHANNEL1, user_rxBuffer, user_rxBuffer[0]);
+    
+    RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
+}
+
+/**
+ * @brief rf enable recv
+ * 
+ * @param oldStateData 
+ * @param event 
+ * @param newStateData 
+ */
+void rfRecvEnableRecv( void *oldStateData, struct event *event,
+      void *newStateData )
+{   
+    RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
 }
 
 /**
@@ -68,5 +70,5 @@ void rfRecvStateEnter( void *stateData, struct event *event )
  */
 void rfRecvStateExit( void *stateData, struct event *event )
 {
-   printf( "Entering %s state\n", (char *)stateData );
+
 }

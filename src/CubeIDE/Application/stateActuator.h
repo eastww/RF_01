@@ -40,6 +40,7 @@ extern uint8_t g_rxBuffer[128];
 
 extern struct state rfRecvState;
 extern void rfRecvStateAction( void *oldStateData, struct event *event, void *newStateData );
+extern void rfRecvEnableRecv( void *oldStateData, struct event *event, void *newStateData );
 extern void rfRecvStateEnter( void *stateData, struct event *event );
 extern void rfRecvStateExit( void *stateData, struct event *event );
 

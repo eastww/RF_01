@@ -14,10 +14,6 @@
 /*----------------------------------------------------------------
  *  PARAMETER DEFINITION
  *--------------------------------------------------------------*/
-struct state errorState = {
-	.data = "errorState",
-	.entryAction = &errorStateHandler,
-};
 
 /*----------------------------------------------------------------
  *  FUNCTION DEFINITION

@@ -13,21 +13,13 @@
  *  INCLUDE
  *--------------------------------------------------------------*/
 #include "stateActuator.h"
+#include <stdint.h>
 
 /*----------------------------------------------------------------
  *  PARAMETER DEFINITION
  *--------------------------------------------------------------*/
-struct state rfSendState = {
-   .parentState = NULL,
-   .entryState = NULL,
-   .transitions = (struct transition[]){
-      { rfRecvEvent, NULL, NULL, &rfSendStateAction, &rfRecvState },
-   },
-   .numTransitions = 1,
-   .data = "rfSend",
-   .entryAction = &rfSendStateEnter,
-   .exitAction = &rfSendStateExit,
-};
+static uint8_t txBuffer[256] = { 0 };
+static uint32_t bufferSize = 0;
 
 /*----------------------------------------------------------------
  *  FUNCTION DEFINITION
@@ -43,7 +35,7 @@ struct state rfSendState = {
 void rfSendStateAction( void *oldStateData, struct event *event,
       void *newStateData )
 {
-   puts( "Resetting" );
+//    puts( "Resetting" );
    //todo: use uart send interface to send data
 }
 
@@ -55,7 +47,19 @@ void rfSendStateAction( void *oldStateData, struct event *event,
  */
 void rfSendStateEnter( void *stateData, struct event *event )
 {
-   printf( "Entering %s state\n", (char *)stateData );
+	bufferSize = uartGetData(BSP_TTL_CHANNEL1, txBuffer + 1, 256);
+	if (bufferSize)
+	{
+		/* send the buffer data to uart1 */
+        // uartSendData(BSP_TTL_CHANNEL1, txBuffer, bufferSize);
+        // HAL_Delay_nMs(1000);
+
+		/* reset the value */
+		// bufferSize = 0;
+        txBuffer[0] = bufferSize + 1;
+        RF_StartTx(txBuffer,  txBuffer[0] , INFINITE);
+		uartResetData(BSP_TTL_CHANNEL1);
+	}
 }
 
 /**
@@ -66,5 +70,5 @@ void rfSendStateEnter( void *stateData, struct event *event )
  */
 void rfSendStateExit( void *stateData, struct event *event )
 {
-   printf( "Entering %s state\n", (char *)stateData );
+   bufferSize = 0;
 }
