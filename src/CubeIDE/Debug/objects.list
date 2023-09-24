@@ -1,3 +1,8 @@
+"./Application/State/errorState.o"
+"./Application/State/rfRecvState.o"
+"./Application/State/rfSendState.o"
+"./Application/global.o"
+"./Application/stateActuator.o"
 "./Bsp/Radio/src/cmt2300.o"
 "./Bsp/Radio/src/cmt2300_hal.o"
 "./Bsp/Radio/src/cmt_spi3.o"

@@ -21,6 +21,8 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/State \
+Application \
 Bsp/Radio/src \
 Bsp/Test \
 Bsp \

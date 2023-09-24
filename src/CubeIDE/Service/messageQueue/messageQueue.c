@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*----------------------------------------------------------------
+ *  FUNCTION DEFINITION
+ *--------------------------------------------------------------*/
 /**
  * @brief message queue initialization
  * 

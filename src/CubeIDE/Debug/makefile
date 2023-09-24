@@ -18,6 +18,8 @@ RM := rm -rf
 -include Bsp/Test/subdir.mk
 -include Bsp/Radio/src/subdir.mk
 -include Bsp/subdir.mk
+-include Application/State/subdir.mk
+-include Application/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

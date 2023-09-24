@@ -56,7 +56,8 @@ static void MX_USART1_UART_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM17_Init(void);
 /* USER CODE BEGIN PFP */
-extern void messageQueueTest(void);
+// extern void messageQueueTest(void);
+extern void stateActuator(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -70,8 +71,8 @@ extern void messageQueueTest(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  uint8_t buffer[256] = { 0 };
-  uint32_t bufferSize = 0;
+  // uint8_t buffer[256] = { 0 };
+  // uint32_t bufferSize = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -96,6 +97,7 @@ int main(void)
   MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
   bspInit();
+  stateActuator();
 //  messageQueueTest();
   /* USER CODE END 2 */
 

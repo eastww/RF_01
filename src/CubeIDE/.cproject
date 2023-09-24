@@ -50,9 +50,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Bsp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Bsp/Radio/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Service/kfifo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Service/state_machine}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Service/message_queue}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Bsp/Test}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Application}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Application/State}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Service/messageQueue}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Service/stateMachine}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1063191176" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -79,6 +81,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Application"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Bsp"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>

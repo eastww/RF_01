@@ -12,15 +12,24 @@
  * @copyright Copyright (c) 2023
  * 
  */
-#ifndef __MESSAGE_H
-#define __MESSAGE_H
+#ifndef __MESSAGE_QUEUE_H
+#define __MESSAGE_QUEUE_H
 
+/*----------------------------------------------------------------
+ *  INCLUDE
+ *--------------------------------------------------------------*/
 #include <stdint.h>
 #include <stdbool.h>
 
+/*----------------------------------------------------------------
+ *  MACRO DEFINITION
+ *--------------------------------------------------------------*/
 /* define msg queue size */
-#define MSGQUEUESIZE                        16
+#define MSGQUEUESIZE                                        16
 
+/*----------------------------------------------------------------
+ *  PARAMETER DEFINITION
+ *--------------------------------------------------------------*/
 /* message */
 struct msg
 {
@@ -38,7 +47,9 @@ struct msgQueue
     struct msg list[MSGQUEUESIZE];
 };
 
-/* function definition */
+/*----------------------------------------------------------------
+ *  FUNCTION INTERFACE
+ *--------------------------------------------------------------*/
 struct msgQueue *mq_init(void);
 void mq_deinit(struct msgQueue *queue);
 bool mq_lock(struct msgQueue *queue);

@@ -1,35 +1,25 @@
 /**
- * @file event.h
+ * @file global.h
  * @author Marshall (eastww@hotmail.com)
- * @brief This is the event handler
+ * @brief common variable definiton, shared by all files 
  * @version 0.1
- * @date 2023-09-23
+ * @date 2023-09-24
  * 
  * @copyright Copyright (c) 2023
  * 
  */
-#ifndef __EVENT_H
-#define __EVENT_H
 
 /*----------------------------------------------------------------
  *  INCLUDE
  *--------------------------------------------------------------*/
-#include "messageQueue.h"
-#include "stateMachine.h"
+#include <stdint.h>
 
 /*----------------------------------------------------------------
- *  STRUCTURE DEFINE
+ *  MACRO DEFINITION
  *--------------------------------------------------------------*/
-enum eventType
-{
-    uartEvent = 0u,
-
-    eventAmount,
-};
+#define RF_PACKET_SIZE                                      128 
 
 /*----------------------------------------------------------------
- *  FUNCTION INTERFACE
+ *  PARAMETER DEFINITION
  *--------------------------------------------------------------*/
-void event_actuator(struct msgQueue *mq);
-
-#endif
+extern uint8_t g_rxBuffer[RF_PACKET_SIZE];
