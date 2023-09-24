@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "kfifo.h": "c",
-        "messagequeue.h": "c"
+        "messagequeue.h": "c",
+        "stateactuator.h": "c",
+        "rf_cfg.h": "c"
     }
 }

@@ -1,5 +1,8 @@
 #include "stm32f0xx.h"
 #include "gpio.h"
+#ifdef USE_CUBEIDE
+#include "rf_cfg.h"
+#endif
 
 /* request for irq */
 volatile uint8_t  cmt2300_irq_request;
@@ -180,6 +183,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == GPIO_RF_GPIO3_Pin)
 	{
+        EnumRFStatus ret = RF_GetStatus();
+        if (ret == RF_STATE_RX_WAIT)
+        {
+            rfRecvDoneCallback();
+        }
+        else if (ret == RF_STATE_TX_WAIT)
+        {
+            rfSendDoneCallback();
+        }
+        
 		cmt2300_irq_request = 1;
 	}
 }

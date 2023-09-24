@@ -1,4 +1,8 @@
 #include "uart.h"
+#include "messageQueue.h"
+#ifdef USE_CUBEIDE
+#include "uart_cfg.h"
+#endif
 
 /*----------------------------------------------------------------
  *  EXTERN VARIABLE
@@ -260,6 +264,10 @@ void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
             	uart_rx_size[i] = 0;
             }
             uart_rx_counter[i] = 0;
+
+#ifdef USE_CUBEIDE
+            uartRecvDoneCallback();
+#endif
 //            UART_Receive_IT(uartPara[i].uart_handle_addr, &uart_rx_byte[i], 1);
             break;
         }

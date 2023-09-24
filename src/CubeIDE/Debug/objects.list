@@ -14,6 +14,8 @@
 "./Bsp/gpio.o"
 "./Bsp/timer.o"
 "./Bsp/uart.o"
+"./Bsp/config/rf_cfg.o"
+"./Bsp/config/uart_cfg.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f0xx_hal_msp.o"
 "./Core/Src/stm32f0xx_it.o"

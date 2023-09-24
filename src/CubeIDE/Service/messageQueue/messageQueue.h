@@ -50,7 +50,7 @@ struct msgQueue
 /*----------------------------------------------------------------
  *  FUNCTION INTERFACE
  *--------------------------------------------------------------*/
-struct msgQueue *mq_init(void);
+void mq_init(struct msgQueue *queue);
 void mq_deinit(struct msgQueue *queue);
 bool mq_lock(struct msgQueue *queue);
 bool mq_unlock(struct msgQueue *queue);

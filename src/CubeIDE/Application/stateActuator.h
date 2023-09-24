@@ -37,6 +37,8 @@ enum eventType
  *  EXTERN DEFINITION
  *--------------------------------------------------------------*/
 extern uint8_t g_rxBuffer[128];
+extern struct stateMachine m;
+extern struct msgQueue mq;
 
 extern struct state rfRecvState;
 extern void rfRecvStateAction( void *oldStateData, struct event *event, void *newStateData );

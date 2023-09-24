@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /*----------------------------------------------------------------
- *  PARAMETER DEFINITION
+ *  STATE DEFINITION
  *--------------------------------------------------------------*/
 struct state rfRecvState = {
    .parentState = NULL,
@@ -37,6 +37,12 @@ struct state errorState = {
 };
 
 /*----------------------------------------------------------------
+ *  PARAMETER DEFINITION
+ *--------------------------------------------------------------*/
+struct stateMachine m;
+struct msgQueue mq;
+
+/*----------------------------------------------------------------
  *  FUNCTION DEFINE
  *--------------------------------------------------------------*/
 /**
@@ -47,14 +53,13 @@ struct state errorState = {
  */
 void stateActuator(void)
 {
-    struct stateMachine m;
-    stateM_init(&m, &rfRecvState, &errorState);
-
-    struct msgQueue *mq = mq_init();
     struct msg *msg;
+    stateM_init(&m, &rfRecvState, &errorState);
+    mq_init(&mq);
+    
     while ( 1 )
     {
-        if ((msg = mq_pop( mq )) != NULL)
+        if ((msg = mq_pop( &mq )) != NULL)
         {
             stateM_handleEvent(&m, (struct event *)msg);
         }

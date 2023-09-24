@@ -11,12 +11,12 @@
  * @param None
  * @return struct msgQueue   
  */
-struct msgQueue *mq_init(void)
+void mq_init(struct msgQueue *queue)
 {
     struct msgQueue *mq = (struct msgQueue *)malloc(sizeof(struct msgQueue));
     if (mq == NULL)
     {
-        return NULL;
+    	queue = NULL;
     }
     mq->lock = 0;
     mq->size = MSGQUEUESIZE;
@@ -26,7 +26,6 @@ struct msgQueue *mq_init(void)
     {
         memset(&(mq->list[i]), 0, sizeof(struct msgQueue));
     }
-    return mq;
 }
 
 /**

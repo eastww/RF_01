@@ -55,6 +55,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Application/State}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Service/messageQueue}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Service/stateMachine}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RF_01/Bsp/config}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1063191176" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
