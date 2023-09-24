@@ -11,6 +11,9 @@
 #ifndef __BSP_TIMER_H
 #define __BSP_TIMER_H
 
+/*----------------------------------------------------------------
+ *  INCLUDE
+ *--------------------------------------------------------------*/
 #include "main.h"
 #include <stdbool.h>
 
@@ -20,6 +23,9 @@
 //
 // void BSPTimerEnable(TIM_HandleTypeDef *htim);
 // void BSPTimerDisable(TIM_HandleTypeDef *htim);
+/*----------------------------------------------------------------
+ *  FUNCTION INTERFACE
+ *--------------------------------------------------------------*/
 void HAL_SysTick_Handler(void);
 
 #endif

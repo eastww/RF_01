@@ -8,12 +8,17 @@
 // extern TIM_HandleTypeDef htim14; /* 10ms中断一次 */
 // extern TIM_HandleTypeDef htim16; /* 100ms中断一次 */
 
-/* extern variable definition */
+/*----------------------------------------------------------------
+ *  EXTERN VARIABLE
+ *--------------------------------------------------------------*/
 extern TIM_HandleTypeDef htim17;
 
 /* exter function definition */
 extern void uartTimerIrqHandler(TIM_HandleTypeDef *htim);
 
+/*----------------------------------------------------------------
+ *  VARIABLE DEFINITION
+ *--------------------------------------------------------------*/
 /* systickcount define */
 volatile uint32_t g_nSysTickCount = 0;
 ///**
@@ -58,6 +63,9 @@ volatile uint32_t g_nSysTickCount = 0;
 //   * @param	htim:	定时器句柄
 //   * @retval	None
 //   */
+/*----------------------------------------------------------------
+ *  FUNCTION DEFINITION
+ *--------------------------------------------------------------*/
 /**
  * @brief Timer interrupt callback function
  * 
@@ -81,6 +89,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
 }
 
+/*----------------------------------------------------------------
+ *  INTERRUPT CALLBACK
+ *--------------------------------------------------------------*/
 /**
  * @brief systick callback function, this used by rf
  * 

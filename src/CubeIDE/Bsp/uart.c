@@ -1,6 +1,14 @@
 #include "uart.h"
 
-/* fifo definition */
+/*----------------------------------------------------------------
+ *  EXTERN VARIABLE
+ *--------------------------------------------------------------*/
+extern TIM_HandleTypeDef htim17;
+extern UART_HandleTypeDef huart1;
+
+/*----------------------------------------------------------------
+ *  KFIFO DEFINITION
+ *--------------------------------------------------------------*/
 static uint8_t uart_rx_byte[UART_ENABLED_CHANNEL];
 static uint8_t uart_rx_buffer[UART_ENABLED_CHANNEL][UART_BUFFER_SIZE];
 static struct kfifo uart_rx_fifo[UART_ENABLED_CHANNEL];
@@ -8,19 +16,21 @@ static struct kfifo uart_rx_fifo[UART_ENABLED_CHANNEL];
 static uint16_t uart_rx_counter[UART_ENABLED_CHANNEL];
 static uint16_t uart_rx_size[UART_ENABLED_CHANNEL];
 
+/*----------------------------------------------------------------
+ *  VARIABLE DEFINITION
+ *--------------------------------------------------------------*/
 /* uart state definition */
 volatile static uartStatus_t uart_tx_status[UART_ENABLED_CHANNEL];
 volatile static uartStatus_t uart_rx_status[UART_ENABLED_CHANNEL];
-
-/* extern variable definition */
-extern TIM_HandleTypeDef htim17;
-extern UART_HandleTypeDef huart1;
 
 /* connect uart and timer */
 static uartParamDef uartPara[UART_ENABLED_CHANNEL] = {
     [BSP_TTL_CHANNEL1] = { USART1, &huart1, TIM17, &htim17 },
 };
 
+/*----------------------------------------------------------------
+ *  FUNCTION DEFINITION
+ *--------------------------------------------------------------*/
 /**
  * @brief Init uart fifo
  * 
@@ -200,6 +210,9 @@ void uartSetRxStatus(uartChannel_t channel, uartStatus_t status)
     }
 }
 
+/*----------------------------------------------------------------
+ *  INTERRUPT CALLBACK
+ *--------------------------------------------------------------*/
 /**
  * @brief Uart rx callback
  * 

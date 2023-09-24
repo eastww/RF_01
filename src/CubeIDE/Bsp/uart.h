@@ -13,17 +13,22 @@
  */
 #ifndef __BSP_UART_H
 #define __BSP_UART_H
+
+/*----------------------------------------------------------------
+ *  INCLUDE
+ *--------------------------------------------------------------*/
 #include "kfifo.h"
 #include "main.h"
 #include <stdbool.h>
 #include <string.h>
 
-/* UART channel size */
-#define UART_ENABLED_CHANNEL 1
-
+/*----------------------------------------------------------------
+ *  PARAMETER DEFINITION
+ *--------------------------------------------------------------*/
 /* UART channel */
 typedef enum {
     BSP_TTL_CHANNEL1 = 0x00U,
+    UART_ENABLED_CHANNEL,
 } uartChannel_t;
 
 /* UART buffer size */
@@ -47,7 +52,9 @@ typedef struct
     TIM_HandleTypeDef *tim_handle_addr;
 } uartParamDef;
 
-/* External function api */
+/*----------------------------------------------------------------
+ *  FUNCTION INTERFACE
+ *--------------------------------------------------------------*/
 void uartInit(uartChannel_t channel);
 void uartSendData(uartChannel_t channel, uint8_t data[], uint16_t length);
 uint32_t uartGetData(uartChannel_t channel, uint8_t data[], uint16_t length);
