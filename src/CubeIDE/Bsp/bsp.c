@@ -28,4 +28,7 @@ void bspInit(void)
     Cmt2300_ConfigDataMode(CMT2300_DATA_MODE_PACKET);
     /* enable fifo */
     Cmt2300_EnableFifoMerge(true);
+
+    /* disable rf time */
+    rfTimerDisable();
 }

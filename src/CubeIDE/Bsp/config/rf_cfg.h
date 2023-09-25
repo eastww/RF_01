@@ -24,5 +24,6 @@ extern void rfRecvDoneCallback(void);
 extern void rfSendDoneCallback(void);
 extern void rfRecvTimeoutCallback(void);
 extern void rfRecvErrorCallback(void);
+extern void HAL_Timer16Callback(void);
 
 #endif

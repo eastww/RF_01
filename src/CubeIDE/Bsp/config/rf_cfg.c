@@ -1,4 +1,5 @@
 #include "rf_cfg.h"
+#include "./../../Radio/inc/radio.h"
 
 /*----------------------------------------------------------------
  *  FUNCTION DEFINITION
@@ -9,12 +10,7 @@
  */
 void rfRecvDoneCallback(void)
 {
-    struct msg msg = { 
-        .type = uartRecvEvent,
-        .data = NULL,
-    };
-
-    mq_push(&mq, &msg);
+    mq_push(&mq, &(struct msg){uartRecvEvent, NULL});
 }
 
 /**
@@ -23,12 +19,7 @@ void rfRecvDoneCallback(void)
  */
 void rfSendDoneCallback(void)
 {
-    struct msg msg = { 
-        .type = rfSendEvent,
-        .data = NULL,
-    };
-
-    mq_push(&mq, &msg);
+    mq_push(&mq, &(struct msg){rfSendEvent, NULL});
 }
 
 /**
@@ -37,12 +28,7 @@ void rfSendDoneCallback(void)
  */
 void rfRecvTimeoutCallback(void)
 {
-    struct msg msg = { 
-        .type = rfRecvTimeoutEvent,
-        .data = NULL,
-    };
-
-    mq_push(&mq, &msg);
+    mq_push(&mq, &(struct msg){rfRecvTimeoutEvent, NULL});
 }
 
 /**
@@ -51,10 +37,22 @@ void rfRecvTimeoutCallback(void)
  */
 void rfRecvErrorCallback(void)
 {
-    struct msg msg = { 
-        .type = rfRecvErrorEvent,
-        .data = NULL,
-    };
+    mq_push(&mq, &(struct msg){rfRecvErrorEvent, NULL});
+}
 
-    mq_push(&mq, &msg);
+/**
+ * @brief timer16 callback,10ms
+ * 
+ */
+void HAL_Timer16Callback(void)
+{
+    EnumRFStatus rfState = RF_GetStatus();
+    if (RF_STATE_RX_TIMEOUT == rfState)
+    {
+        rfRecvTimeoutCallback();
+    }
+    else if (RF_STATE_ERROR == rfState)
+    {
+        rfRecvErrorCallback();
+    }
 }

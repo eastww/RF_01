@@ -13,6 +13,7 @@
  *  INCLUDE
  *--------------------------------------------------------------*/
 #include "stateActuator.h"
+#include <stddef.h>
 
 /*----------------------------------------------------------------
  *  PARAMETER DEFINITION
@@ -60,6 +61,7 @@ void rfRecvEnableRecv( void *oldStateData, struct event *event,
 void rfRecvStateEnter( void *stateData, struct event *event )
 {
     RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
+    rfTimerEnable();
 }
 
 /**
@@ -70,5 +72,19 @@ void rfRecvStateEnter( void *stateData, struct event *event )
  */
 void rfRecvStateExit( void *stateData, struct event *event )
 {
+    rfTimerDisable();
+}
 
+/**
+ * @brief rf default state, will alway get in, beside triggle other state
+ * 
+ * @param oldStateData 
+ * @param event 
+ * @param newStateData 
+ */
+void rfRecvDefaultStateAction( void *oldStateData, struct event *event,
+      void *newStateData )
+{   
+    RF_Process();
+    mq_push(&mq, &(struct msg){rfRecvDefaultEvent, NULL});
 }

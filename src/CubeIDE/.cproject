@@ -83,10 +83,10 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Application"/>
+						<entry excluding="stateMachine/examples|messageQueue/messageQueueTest.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Service"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Bsp"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
-						<entry excluding="stateMachine/examples|messageQueue/messageQueueTest.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Service"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -158,9 +158,9 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry excluding="stateMachine/examples|messageQueue/messageQueueTest.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Service"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
-						<entry excluding="stateMachine/examples|messageQueue/messageQueueTest.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Service"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

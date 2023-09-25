@@ -1,4 +1,5 @@
 #include "timer.h"
+#include "rf_cfg.h"
 
 ///* 定时标志位 */
 // volatile bool time10ms_flag;
@@ -11,6 +12,7 @@
 /*----------------------------------------------------------------
  *  EXTERN VARIABLE
  *--------------------------------------------------------------*/
+extern TIM_HandleTypeDef htim16;
 extern TIM_HandleTypeDef htim17;
 
 /* exter function definition */
@@ -55,6 +57,24 @@ volatile uint32_t g_nSysTickCount = 0;
 //	}
 //}
 
+/**
+ * @brief rf timer enable
+ * 
+ */
+void rfTimerEnable(void)
+{
+    HAL_TIM_Base_Start_IT(&htim16);
+}
+
+/**
+ * @brief rf timer disable
+ * 
+ */
+void rfTimerDisable(void)
+{
+    HAL_TIM_Base_Stop_IT(&htim16);
+}
+
 // /**
 //   * @brief  定时器的回调函数
 //   * 		定时器6定时为10ms一次
@@ -79,11 +99,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     //		time10ms_flag = 1;
     //		timer10InterruptHandler();
     //	}
-    //	if(htim->Instance == htim16.Instance)
-    //	{
-    //		time100ms_flag = 1;
-    //		timer100InterruptHandler();
-    //	}
+    if(htim->Instance == htim16.Instance)
+    {
+        HAL_Timer16Callback();
+    }
     if (htim->Instance == htim17.Instance) {
         uartTimerIrqHandler(htim);
     }

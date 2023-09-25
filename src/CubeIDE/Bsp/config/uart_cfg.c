@@ -9,12 +9,7 @@
  */
 void uartRecvDoneCallback(void)
 {
-    struct msg msg = { 
-        .type = uartRecvEvent,
-        .data = NULL,
-    };
-
-    mq_push(&mq, &msg);
+    mq_push(&mq, &(struct msg){uartRecvEvent, NULL});
 }
 
 /**

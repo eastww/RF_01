@@ -24,11 +24,12 @@
  *--------------------------------------------------------------*/
 enum eventType
 {
-    uartRecvEvent       = 0u,
-    rfRecvEvent         = 1u,
-    rfSendEvent         = 2u,
-    rfRecvErrorEvent    = 3u,
-    rfRecvTimeoutEvent  = 4u,
+    uartRecvEvent = 0,
+    rfRecvEvent,
+	rfRecvDefaultEvent,
+    rfSendEvent,
+    rfRecvErrorEvent,
+    rfRecvTimeoutEvent,
 
     eventAmount,
 };
@@ -45,6 +46,7 @@ extern void rfRecvStateAction( void *oldStateData, struct event *event, void *ne
 extern void rfRecvEnableRecv( void *oldStateData, struct event *event, void *newStateData );
 extern void rfRecvStateEnter( void *stateData, struct event *event );
 extern void rfRecvStateExit( void *stateData, struct event *event );
+extern void rfRecvDefaultStateAction( void *oldStateData, struct event *event, void *newStateData );
 
 extern struct state rfSendState;
 extern void rfSendStateAction( void *oldStateData, struct event *event, void *newStateData );

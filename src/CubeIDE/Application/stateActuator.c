@@ -12,6 +12,7 @@ struct state rfRecvState = {
       { uartRecvEvent, NULL, NULL, NULL, &rfSendState },
       { rfRecvErrorEvent, NULL, NULL, &rfRecvEnableRecv, &rfRecvState },
       { rfRecvTimeoutEvent, NULL, NULL, &rfRecvEnableRecv, &rfRecvState },
+      { rfRecvDefaultEvent, NULL, NULL, &rfRecvDefaultStateAction, &rfRecvState },
    },
    .numTransitions = 4,
    .data = "rfRecv",

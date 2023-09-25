@@ -23,9 +23,12 @@
 //
 // void BSPTimerEnable(TIM_HandleTypeDef *htim);
 // void BSPTimerDisable(TIM_HandleTypeDef *htim);
+
 /*----------------------------------------------------------------
  *  FUNCTION INTERFACE
  *--------------------------------------------------------------*/
 void HAL_SysTick_Handler(void);
+void rfTimerEnable(void);
+void rfTimerDisable(void);
 
 #endif
