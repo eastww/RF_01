@@ -35,8 +35,7 @@ static uint32_t bufferSize = 0;
 void rfSendStateAction( void *oldStateData, struct event *event,
       void *newStateData )
 {
-//    puts( "Resetting" );
-   //todo: use uart send interface to send data
+
 }
 
 /**
@@ -59,6 +58,7 @@ void rfSendStateEnter( void *stateData, struct event *event )
         txBuffer[0] = bufferSize + 1;
         RF_StartTx(txBuffer,  txBuffer[0] , INFINITE);
 		uartResetData(BSP_TTL_CHANNEL1);
+		mq_push(&mq, &(struct msg){rfSendEvent, NULL});
 	}
 }
 
@@ -71,4 +71,7 @@ void rfSendStateEnter( void *stateData, struct event *event )
 void rfSendStateExit( void *stateData, struct event *event )
 {
    bufferSize = 0;
+   mq_push(&mq, &(struct msg){rfRecvDefaultEvent, NULL});
+   RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
+   rfTimerEnable();
 }
