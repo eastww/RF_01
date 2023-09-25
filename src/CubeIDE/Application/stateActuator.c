@@ -14,7 +14,7 @@ struct state rfRecvState = {
       { rfRecvTimeoutEvent, NULL, NULL, &rfRecvEnableRecv, &rfRecvState },
       { rfRecvDefaultEvent, NULL, NULL, &rfRecvDefaultStateAction, &rfRecvState },
    },
-   .numTransitions = 4,
+   .numTransitions = 5,
    .data = "rfRecv",
    .entryAction = &rfRecvStateEnter,
    .exitAction = &rfRecvStateExit,
@@ -58,6 +58,9 @@ void stateActuator(void)
     stateM_init(&m, &rfRecvState, &errorState);
     mq_init(&mq);
     
+    /* triggle state machine */
+    mq_push(&mq, &(struct msg){rfRecvDefaultEvent, NULL});
+
     while ( 1 )
     {
         if ((msg = mq_pop( &mq )) != NULL)

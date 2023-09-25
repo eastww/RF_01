@@ -30,5 +30,6 @@ void bspInit(void)
     Cmt2300_EnableFifoMerge(true);
 
     /* disable rf time */
-    rfTimerDisable();
+    RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
+    rfTimerEnable();
 }

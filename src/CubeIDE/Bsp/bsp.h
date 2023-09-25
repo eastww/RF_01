@@ -29,6 +29,7 @@
 #include "./../../Radio/inc/typedefs.h"
 #include "uart.h"
 #include "timer.h"
+#include "global.h"
 
 /*----------------------------------------------------------------
  *  FUNCTION INTERFACE
