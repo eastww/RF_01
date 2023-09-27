@@ -269,6 +269,7 @@ EnumRFResult RF_Process(void)
         //        Cmt2300_GoSleep();
 #ifdef USE_CUBEIDE
         rfRecvDoneCallback();
+        led2Toggle();
 #endif
         g_nNextRFState = RF_STATE_IDLE;
         nRes = RF_RX_DONE;
@@ -344,6 +345,7 @@ EnumRFResult RF_Process(void)
         //Cmt2300_GoSleep();
 #ifdef USE_CUBEIDE
         rfSendDoneCallback();
+        led1Toggle();
 #endif
         g_nNextRFState = RF_STATE_IDLE;
         nRes = RF_TX_DONE;

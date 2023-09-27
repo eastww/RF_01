@@ -184,13 +184,12 @@ struct msg *mq_pop(struct msgQueue *queue)
     {
         return NULL;
     }
-
-    if (queue->tail == MSGQUEUESIZE - 1)
-    {
-        queue->tail = 0;
-    }
     
     uint8_t index = queue->tail & (MSGQUEUESIZE - 1);
     queue->tail++;
+    if (queue->tail == MSGQUEUESIZE)
+	{
+		queue->tail = 0;
+	}
     return &(queue->list[index]);
 }

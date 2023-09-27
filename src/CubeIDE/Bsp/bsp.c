@@ -32,4 +32,6 @@ void bspInit(void)
     /* disable rf time */
     RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
     rfTimerEnable();
+    led2Off();
+    led2Off();
 }

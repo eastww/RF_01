@@ -51,7 +51,7 @@
 #define led2On()               	HAL_GPIO_WritePin(LED2_PORT, LED2_PIN, GPIO_PIN_SET)
 #define led2Off()              	HAL_GPIO_WritePin(LED2_PORT, LED2_PIN, GPIO_PIN_RESET)
 #define led1Toggle()           	do{led1Off(); Delay_Ms(50); led1On();} while (0)
-#define led2Toggle()           	do{led2Off(); Delay_Ms(2); led2On();} while (0)
+#define led2Toggle()           	do{led2Off(); Delay_Ms(50); led2On();} while (0)
 
 /* define RS485 enable */
 #define rs485_on 				HAL_GPIO_WritePin(GPIO_RS485_EN_GPIO_Port, GPIO_RS485_EN_Pin, GPIO_PIN_SET)
