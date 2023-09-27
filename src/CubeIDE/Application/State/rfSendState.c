@@ -58,7 +58,7 @@ void rfSendStateEnter( void *stateData, struct event *event )
         txBuffer[0] = bufferSize + 1;
         RF_StartTx(txBuffer,  txBuffer[0] , INFINITE);
 		uartResetData(BSP_TTL_CHANNEL1);
-		mq_push(&mq, &(struct msg){rfSendEvent, NULL});
+		mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 	}
 }
 
@@ -71,7 +71,21 @@ void rfSendStateEnter( void *stateData, struct event *event )
 void rfSendStateExit( void *stateData, struct event *event )
 {
    bufferSize = 0;
-   mq_push(&mq, &(struct msg){rfRecvDefaultEvent, NULL});
+   mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
    RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
    rfTimerEnable();
+}
+
+/**
+ * @brief rf default state, will alway get in, beside triggle other state
+ * 
+ * @param oldStateData 
+ * @param event 
+ * @param newStateData 
+ */
+void rfSendDefaultStateAction( void *oldStateData, struct event *event,
+      void *newStateData )
+{   
+    RF_Process();
+    mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 }

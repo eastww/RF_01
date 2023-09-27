@@ -86,5 +86,5 @@ void rfRecvDefaultStateAction( void *oldStateData, struct event *event,
       void *newStateData )
 {   
     RF_Process();
-    mq_push(&mq, &(struct msg){rfRecvDefaultEvent, NULL});
+    mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 }
