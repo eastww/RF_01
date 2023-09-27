@@ -150,9 +150,13 @@ uint32_t mq_push(struct msgQueue *queue, struct msg *msg)
     {
         return 0;
     }
-    if ((queue->head - queue->tail) == MSGQUEUESIZE - 1)
+//    if ((queue->head - queue->tail) == MSGQUEUESIZE - 1)
+//    {
+//        queue->head -= MSGQUEUESIZE - 1;
+//    }
+    if (queue->head >= MSGQUEUESIZE)
     {
-        queue->head -= MSGQUEUESIZE - 1;
+    	queue->head -= MSGQUEUESIZE;
     }
 
     uint8_t index = queue->head & (MSGQUEUESIZE - 1);

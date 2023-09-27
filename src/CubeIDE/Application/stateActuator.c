@@ -25,9 +25,9 @@ struct state rfSendState = {
    .entryState = NULL,
    .transitions = (struct transition[]){
       { rfSendEvent, NULL, NULL, &rfSendStateAction, &rfRecvState },
-      { rfProcessEvent, NULL, NULL, &rfSendDefaultStateAction, &rfRecvState },
+      { rfProcessEvent, NULL, NULL, &rfSendDefaultStateAction, &rfSendState },
    },
-   .numTransitions = 1,
+   .numTransitions = 2,
    .data = "rfSend",
    .entryAction = &rfSendStateEnter,
    .exitAction = &rfSendStateExit,

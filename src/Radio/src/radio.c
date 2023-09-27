@@ -25,6 +25,7 @@
 #ifdef USE_CUBEIDE
 #include "./../../gpio.h"
 #include "./../../delay.h"
+#include "./../../CubeIDE/Bsp/config/rf_cfg.h"
 #include "./../../CubeIDE/Bsp/timer.h"
 #endif
 
@@ -266,6 +267,9 @@ EnumRFResult RF_Process(void)
         g_nInterrutFlags = Cmt2300_ClearInterruptFlags();
 
         //        Cmt2300_GoSleep();
+#ifdef USE_CUBEIDE
+        rfRecvDoneCallback();
+#endif
         g_nNextRFState = RF_STATE_IDLE;
         nRes = RF_RX_DONE;
         break;
@@ -275,9 +279,12 @@ EnumRFResult RF_Process(void)
     {
         //        Cmt2300_GoSleep();
         //
+#ifdef USE_CUBEIDE
+    	rfRecvTimeoutCallback();
+#endif
         g_nNextRFState = RF_STATE_IDLE;
         nRes = RF_RX_TIMEOUT;
-                
+
         break;
     }
 
@@ -335,7 +342,9 @@ EnumRFResult RF_Process(void)
     {
         Cmt2300_ClearInterruptFlags();
         //Cmt2300_GoSleep();
-
+#ifdef USE_CUBEIDE
+        rfSendDoneCallback();
+#endif
         g_nNextRFState = RF_STATE_IDLE;
         nRes = RF_TX_DONE;
         break;
@@ -356,7 +365,9 @@ EnumRFResult RF_Process(void)
 
         Cmt2300_GoStby();
         RF_Config();
-
+#ifdef USE_CUBEIDE
+        rfRecvErrorCallback();
+#endif
         g_nNextRFState = RF_STATE_IDLE;
         nRes = RF_ERROR;
         break;
