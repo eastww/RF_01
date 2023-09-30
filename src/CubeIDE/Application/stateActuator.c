@@ -9,7 +9,7 @@ struct state rfRecvState = {
    .entryState = NULL,
    .transitions = (struct transition[]){
       { rfRecvEvent, NULL, NULL, &rfRecvStateAction, &rfRecvState },
-      { uartRecvEvent, NULL, NULL, NULL, &rfSendState },
+      { uartRecvEvent, NULL, NULL, &rfUartGetMessage, &rfSendState },
       { rfRecvErrorEvent, NULL, NULL, &rfRecvEnableRecv, &rfRecvState },
       { rfRecvTimeoutEvent, NULL, NULL, &rfRecvEnableRecv, &rfRecvState },
       { rfProcessEvent, NULL, NULL, &rfRecvDefaultStateAction, &rfRecvState },
@@ -26,8 +26,9 @@ struct state rfSendState = {
    .transitions = (struct transition[]){
       { rfSendEvent, NULL, NULL, &rfSendStateAction, &rfRecvState },
       { rfProcessEvent, NULL, NULL, &rfSendDefaultStateAction, &rfSendState },
+      { uartRecvEvent, NULL, NULL, &rfUartGetMessage, &rfSendState },
    },
-   .numTransitions = 2,
+   .numTransitions = 3,
    .data = "rfSend",
    .entryAction = &rfSendStateEnter,
    .exitAction = &rfSendStateExit,

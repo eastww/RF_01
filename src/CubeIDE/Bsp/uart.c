@@ -233,6 +233,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             uartPara[i].tim_instance->SR = 0; 
             uartPara[i].tim_instance->CNT = 1;
             HAL_TIM_Base_Start_IT(uartPara[i].tim_handle_addr); 
+            if (uart_rx_counter[i] >= (UART_BUFFER_SIZE-1))
+            {
+            	kfifo_reset(&uart_rx_fifo[i]);
+            	uart_rx_counter[i] = 0;
+            }
             kfifo_in(&uart_rx_fifo[i], &uart_rx_byte[i], sizeof(uart_rx_byte[i]));
             uart_rx_counter[i]++;
             UART_Receive_IT(uartPara[i].uart_handle_addr, &uart_rx_byte[i], 1);
@@ -259,8 +264,8 @@ void uartTimerIrqHandler(TIM_HandleTypeDef *htim)
             /* uart fifo overflow, discard one package */
             if (uart_rx_size[i] > UART_BUFFER_SIZE)
             {
-            	uart_rx_size[i] = uart_rx_counter[i];
             	kfifo_reset(&uart_rx_fifo[i]);
+            	uart_rx_size[i] = uart_rx_counter[i];
             	uart_rx_size[i] = 0;
             }
             uart_rx_counter[i] = 0;

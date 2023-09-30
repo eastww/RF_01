@@ -32,7 +32,7 @@ typedef enum {
 } uartChannel_t;
 
 /* UART buffer size */
-#define UART_BUFFER_SIZE 256
+#define UART_BUFFER_SIZE 								512
 
 /* UART state define */
 typedef enum {

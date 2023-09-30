@@ -53,6 +53,7 @@ extern void rfSendStateAction( void *oldStateData, struct event *event, void *ne
 extern void rfSendStateEnter( void *stateData, struct event *event );
 extern void rfSendStateExit( void *stateData, struct event *event );
 extern void rfSendDefaultStateAction( void *oldStateData, struct event *event, void *newStateData );
+extern void rfUartGetMessage( void *oldStateData, struct event *event, void *newStateData );
 
 extern struct state errorState;
 extern void errorStateHandler(void *stateData, struct event *event );

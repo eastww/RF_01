@@ -39,14 +39,16 @@ void rfSendStateAction( void *oldStateData, struct event *event,
 }
 
 /**
- * @brief rf send state enter
+ * @brief rf send state get uart message
  * 
- * @param stateData 
+ * @param oldStateData 
  * @param event 
+ * @param newStateData 
  */
-void rfSendStateEnter( void *stateData, struct event *event )
+void rfUartGetMessage( void *oldStateData, struct event *event,
+      void *newStateData )
 {
-	bufferSize = uartGetData(BSP_TTL_CHANNEL1, txBuffer + 1, 256);
+    bufferSize = uartGetData(BSP_TTL_CHANNEL1, txBuffer + 1, 256);
 	if (bufferSize)
 	{
 		/* send the buffer data to uart1 */
@@ -56,10 +58,21 @@ void rfSendStateEnter( void *stateData, struct event *event )
 		/* reset the value */
 		// bufferSize = 0;
         txBuffer[0] = bufferSize + 1;
+        uartResetData(BSP_TTL_CHANNEL1);
         RF_StartTx(txBuffer,  txBuffer[0] , INFINITE);
-		uartResetData(BSP_TTL_CHANNEL1);
 		mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 	}
+}
+
+/**
+ * @brief rf send state enter
+ * 
+ * @param stateData 
+ * @param event 
+ */
+void rfSendStateEnter( void *stateData, struct event *event )
+{
+	
 }
 
 /**
