@@ -61,6 +61,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 RF_01.list \
 
+OBJCOPY_HEX += \
+RF_01.hex \
+
 
 # All Target
 all: main-build
@@ -84,12 +87,17 @@ RF_01.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+RF_01.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "RF_01.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) RF_01.elf RF_01.list RF_01.map default.size.stdout
+	-$(RM) RF_01.elf RF_01.hex RF_01.list RF_01.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
