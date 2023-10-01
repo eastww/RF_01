@@ -61,7 +61,7 @@ void rfRecvEnableRecv( void *oldStateData, struct event *event,
 void rfRecvStateEnter( void *stateData, struct event *event )
 {
     RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
-    rfTimerEnable();
+    // rfTimerEnable();
 }
 
 /**
@@ -72,7 +72,7 @@ void rfRecvStateEnter( void *stateData, struct event *event )
  */
 void rfRecvStateExit( void *stateData, struct event *event )
 {
-    rfTimerDisable();
+    // rfTimerDisable();
 }
 
 /**

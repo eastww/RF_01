@@ -10,7 +10,7 @@
  */
 void rfRecvDoneCallback(void)
 {
-    mq_push(&mq, &(struct msg){uartRecvEvent, NULL});
+    mq_push(&mq, &(struct msg){rfRecvEvent, NULL});
 }
 
 /**

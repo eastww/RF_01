@@ -99,13 +99,13 @@ static void rfTxTest(void)
 void bspTest(void)
 {
     /* led test */
-#if 0
+#if 1
     ledTest();
 #endif
-#if 0
-    uartTest();
-#endif
 #if 1
+    uartTxTest();
+#endif
+#if 0
     rfTxTest();
 #endif
 }
