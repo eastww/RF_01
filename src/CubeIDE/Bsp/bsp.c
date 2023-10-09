@@ -9,14 +9,14 @@ void bspInit(void)
     
     RF_Init();
     /* check rf is inited ok */
-    if (Cmt2300_IsExist())
-    {
-        led1On();
-    }
-    else
-    {
-        led2On();
-    }
+//    if (Cmt2300_IsExist())
+//    {
+//        led1On();
+//    }
+//    else
+//    {
+//        led2On();
+//    }
 
     /* level7: 20dbm */
     Cmt2300_ConfigTxPower(7);
