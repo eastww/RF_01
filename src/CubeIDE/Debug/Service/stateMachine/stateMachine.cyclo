@@ -1,0 +1,7 @@
+../Service/stateMachine/stateMachine.c:30:6:stateM_init	2
+../Service/stateMachine/stateMachine.c:41:5:stateM_handleEvent	17
+../Service/stateMachine/stateMachine.c:121:15:stateM_currentState	2
+../Service/stateMachine/stateMachine.c:129:15:stateM_previousState	2
+../Service/stateMachine/stateMachine.c:138:13:goToErrorState	3
+../Service/stateMachine/stateMachine.c:148:27:getTransition	5
+../Service/stateMachine/stateMachine.c:172:6:stateM_stopped	2

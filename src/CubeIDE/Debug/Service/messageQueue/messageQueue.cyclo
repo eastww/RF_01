@@ -1,0 +1,9 @@
+../Service/messageQueue/messageQueue.c:14:6:mq_init	3
+../Service/messageQueue/messageQueue.c:37:6:mq_deinit	1
+../Service/messageQueue/messageQueue.c:54:6:mq_lock	2
+../Service/messageQueue/messageQueue.c:72:6:mq_unlock	2
+../Service/messageQueue/messageQueue.c:90:6:mq_isEmpty	3
+../Service/messageQueue/messageQueue.c:105:10:mq_getCurrentSize	4
+../Service/messageQueue/messageQueue.c:131:10:mq_getQueueSize	2
+../Service/messageQueue/messageQueue.c:147:10:mq_push	4
+../Service/messageQueue/messageQueue.c:176:13:mq_pop	4

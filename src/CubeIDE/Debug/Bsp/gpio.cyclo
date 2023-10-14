@@ -1,0 +1,7 @@
+D:/Code/rf_01/src/gpio.c:30:6:spi_gpio_init	1
+D:/Code/rf_01/src/gpio.c:68:6:cmt_spi3_sda_out	1
+D:/Code/rf_01/src/gpio.c:90:6:cmt_spi3_sda_in	1
+D:/Code/rf_01/src/gpio.c:110:6:cmt_spi3_gpio3_out	1
+D:/Code/rf_01/src/gpio.c:132:6:cmt_spi3_gpio3_in	1
+D:/Code/rf_01/src/gpio.c:156:6:NVIC_Config	1
+D:/Code/rf_01/src/gpio.c:182:6:HAL_GPIO_EXTI_Callback	2

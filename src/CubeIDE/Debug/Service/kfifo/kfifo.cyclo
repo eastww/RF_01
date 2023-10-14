@@ -1,0 +1,14 @@
+D:/Code/rf_01/src/CubeIDE/Service/kfifo/Kfifo.h:80:22:kfifo_reset	1
+D:/Code/rf_01/src/CubeIDE/Service/kfifo/Kfifo.h:98:30:kfifo_size	1
+D:/Code/rf_01/src/CubeIDE/Service/kfifo/Kfifo.h:107:30:kfifo_len	1
+D:/Code/rf_01/src/CubeIDE/Service/kfifo/Kfifo.h:138:30:kfifo_avail	1
+D:/Code/rf_01/src/CubeIDE/Service/kfifo/Kfifo.h:148:22:__kfifo_add_out	1
+D:/Code/rf_01/src/CubeIDE/Service/kfifo/Kfifo.h:157:22:__kfifo_add_in	1
+D:/Code/rf_01/src/CubeIDE/Service/kfifo/Kfifo.h:167:30:__kfifo_off	1
+../Service/kfifo/kfifo.c:41:6:kfifo_init	1
+../Service/kfifo/kfifo.c:49:22:__kfifo_in_data	2
+../Service/kfifo/kfifo.c:69:22:__kfifo_out_data	2
+../Service/kfifo/kfifo.c:89:14:__kfifo_in_n	2
+../Service/kfifo/kfifo.c:113:14:kfifo_in	2
+../Service/kfifo/kfifo.c:122:14:__kfifo_out_n	2
+../Service/kfifo/kfifo.c:145:14:kfifo_out	2

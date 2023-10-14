@@ -1,0 +1,5 @@
+D:/Code/rf_01/src/Radio/src/cmt2300_hal.c:28:6:Cmt2300_InitGpio	1
+D:/Code/rf_01/src/Radio/src/cmt2300_hal.c:39:9:Cmt2300_ReadReg	1
+D:/Code/rf_01/src/Radio/src/cmt2300_hal.c:53:6:Cmt2300_WriteReg	1
+D:/Code/rf_01/src/Radio/src/cmt2300_hal.c:64:6:Cmt2300_ReadFifo	1
+D:/Code/rf_01/src/Radio/src/cmt2300_hal.c:75:6:Cmt2300_WriteFifo	1

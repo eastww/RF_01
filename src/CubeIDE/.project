@@ -33,32 +33,32 @@
 		<link>
 			<name>Bsp/Radio</name>
 			<type>2</type>
-			<location>D:/work/rf_01/src/Radio</location>
+			<location>D:/Code/rf_01/src/Radio</location>
 		</link>
 		<link>
 			<name>Bsp/delay.c</name>
 			<type>1</type>
-			<location>D:/work/rf_01/src/delay.c</location>
+			<location>D:/Code/rf_01/src/delay.c</location>
 		</link>
 		<link>
 			<name>Bsp/delay.h</name>
 			<type>1</type>
-			<location>D:/work/rf_01/src/delay.h</location>
+			<location>D:/Code/rf_01/src/delay.h</location>
 		</link>
 		<link>
 			<name>Bsp/gpio.c</name>
 			<type>1</type>
-			<location>D:/work/rf_01/src/gpio.c</location>
+			<location>D:/Code/rf_01/src/gpio.c</location>
 		</link>
 		<link>
 			<name>Bsp/gpio.h</name>
 			<type>1</type>
-			<location>D:/work/rf_01/src/gpio.h</location>
+			<location>D:/Code/rf_01/src/gpio.h</location>
 		</link>
 		<link>
 			<name>Bsp/user.h</name>
 			<type>1</type>
-			<location>D:/work/rf_01/src/user.h</location>
+			<location>D:/Code/rf_01/src/user.h</location>
 		</link>
 	</linkedResources>
 </projectDescription>

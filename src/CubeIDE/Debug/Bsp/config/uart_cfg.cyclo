@@ -1,0 +1,2 @@
+../Bsp/config/uart_cfg.c:10:6:uartRecvDoneCallback	1
+../Bsp/config/uart_cfg.c:19:6:uartSendDoneCallback	1

@@ -1,0 +1,9 @@
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:4:6:cmt_spi3_delay	2
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:11:6:cmt_spi3_delay_us	2
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:18:6:cmt_spi3_init	1
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:25:6:cmt_spi3_send	3
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:47:9:cmt_spi3_recv	3
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:72:6:cmt_spi3_write	1
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:110:6:cmt_spi3_read	1
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:151:6:cmt_spi3_write_fifo	2
+D:/Code/rf_01/src/Radio/src/cmt_spi3.c:202:6:cmt_spi3_read_fifo	2
