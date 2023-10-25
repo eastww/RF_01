@@ -59,7 +59,7 @@ void rfSendStateEnter( void *stateData, struct event *event )
  */
 void rfSendStateExit( void *stateData, struct event *event )
 {
-   mq_push(&mq, &(struct msg){rfProcessEvent, (void*)'R'});
+   mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
    RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
    rfTimerEnable();
 }

@@ -4,7 +4,6 @@
 /*----------------------------------------------------------------
  *  FUNCTION DECLARATION
  *--------------------------------------------------------------*/
-static bool compareStr( void *str, struct event *event );
 
 /*----------------------------------------------------------------
  *  STATE DEFINITION
@@ -14,10 +13,9 @@ struct state checkGroupState = {
    .entryState = &rfRecvState,
    .transitions = (struct transition[]){
       { uartRecvEvent, NULL, NULL, &rfUartGetMessage, &rfSendState },
-      { rfProcessEvent, (void*)'R', *compareStr, &checkGroupStateAction, &rfRecvState },
-      { rfProcessEvent, (void*)'T', *compareStr, &checkGroupStateAction, &rfSendState },
+      { rfProcessEvent, NULL, NULL, &checkGroupStateAction, &rfSendState },
    },
-   .numTransitions = 3,
+   .numTransitions = 2,
    .data = "group",
    .entryAction = &checkGroupStateEnter,
    .exitAction = &checkGroupStateExit,
@@ -63,23 +61,6 @@ struct msgQueue mq;
 /*----------------------------------------------------------------
  *  FUNCTION DEFINE
  *--------------------------------------------------------------*/
-
-/**
- * @brief compare string
- * 
- * @param str 
- * @param event 
- * @return true 
- * @return false 
- */
-static bool compareStr( void *str, struct event *event )
-{
-   if ( event->type != rfProcessEvent )
-      return false;
-
-   return str == event->data;
-}
-
 /**
  * @brief state actuator
  * 
@@ -93,7 +74,7 @@ void stateActuator(void)
     mq_init(&mq);
     
     /* triggle state machine */
-    mq_push(&mq, &(struct msg){rfProcessEvent, (void*)'R'});
+    mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 
     while ( 1 )
     {

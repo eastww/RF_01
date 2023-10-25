@@ -1,4 +1,4 @@
 ../Application/State/checkGroupState.c:34:6:rfUartGetMessage	2
-../Application/State/checkGroupState.c:61:6:checkGroupStateAction	4
-../Application/State/checkGroupState.c:91:6:checkGroupStateEnter	1
-../Application/State/checkGroupState.c:103:6:checkGroupStateExit	1
+../Application/State/checkGroupState.c:61:6:checkGroupStateAction	1
+../Application/State/checkGroupState.c:74:6:checkGroupStateEnter	1
+../Application/State/checkGroupState.c:86:6:checkGroupStateExit	1

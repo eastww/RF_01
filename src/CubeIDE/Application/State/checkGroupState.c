@@ -47,7 +47,7 @@ void rfUartGetMessage( void *oldStateData, struct event *event,
         txBuffer[0] = bufferSize + 1;
         uartResetData(BSP_TTL_CHANNEL1);
         RF_StartTx(txBuffer,  txBuffer[0] , INFINITE);
-		mq_push(&mq, &(struct msg){rfProcessEvent, (void*)'T'});
+		mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 	}
 }
 
@@ -62,24 +62,7 @@ void checkGroupStateAction( void *oldStateData, struct event *event,
       void *newStateData )
 {   
     RF_Process();
-    switch (RF_GetStatus())
-    {
-    case RF_STATE_RX_START:
-    case RF_STATE_RX_WAIT:
-    case RF_STATE_RX_DONE:
-    case RF_STATE_RX_TIMEOUT:
-        mq_push(&mq, &(struct msg){rfProcessEvent, (void*)'R'});
-        break;
-    case RF_STATE_TX_START:
-    case RF_STATE_TX_WAIT:
-    case RF_STATE_TX_DONE:
-    case RF_STATE_TX_TIMEOUT:
-        mq_push(&mq, &(struct msg){rfProcessEvent, (void*)'T'});
-        break;
-    case RF_STATE_ERROR:
-    default:
-        break;
-    }
+    mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 }
 
 /**
