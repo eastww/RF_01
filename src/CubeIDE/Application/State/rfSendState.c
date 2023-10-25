@@ -18,8 +18,6 @@
 /*----------------------------------------------------------------
  *  PARAMETER DEFINITION
  *--------------------------------------------------------------*/
-static uint8_t txBuffer[256] = { 0 };
-static uint32_t bufferSize = 0;
 
 /*----------------------------------------------------------------
  *  FUNCTION DEFINITION
@@ -35,34 +33,11 @@ static uint32_t bufferSize = 0;
 void rfSendStateAction( void *oldStateData, struct event *event,
       void *newStateData )
 {
-
-}
-
-/**
- * @brief rf send state get uart message
- * 
- * @param oldStateData 
- * @param event 
- * @param newStateData 
- */
-void rfUartGetMessage( void *oldStateData, struct event *event,
-      void *newStateData )
-{
-	led2Toggle();
-    bufferSize = uartGetData(BSP_TTL_CHANNEL1, txBuffer + 1, 256);
-	if (bufferSize)
-	{
-		/* send the buffer data to uart1 */
-        // uartSendData(BSP_TTL_CHANNEL1, txBuffer, bufferSize);
-        // HAL_Delay_nMs(1000);
-
-		/* reset the value */
-		// bufferSize = 0;
-        txBuffer[0] = bufferSize + 1;
-        uartResetData(BSP_TTL_CHANNEL1);
-        RF_StartTx(txBuffer,  txBuffer[0] , INFINITE);
-		mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
-	}
+//    while (1)
+//    {
+//
+//    }
+    
 }
 
 /**
@@ -84,22 +59,7 @@ void rfSendStateEnter( void *stateData, struct event *event )
  */
 void rfSendStateExit( void *stateData, struct event *event )
 {
-   bufferSize = 0;
-   mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
+   mq_push(&mq, &(struct msg){rfProcessEvent, (void*)'R'});
    RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
    rfTimerEnable();
-}
-
-/**
- * @brief rf default state, will alway get in, beside triggle other state
- * 
- * @param oldStateData 
- * @param event 
- * @param newStateData 
- */
-void rfSendDefaultStateAction( void *oldStateData, struct event *event,
-      void *newStateData )
-{   
-    RF_Process();
-    mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 }

@@ -381,6 +381,7 @@ EnumRFResult RF_Process(void)
 
     return nRes;
 }
+
 EnumRFResult RF_sendMessage(unsigned char *message, unsigned char messageLen)
 {
     EnumRFResult nRes = RF_BUSY;

@@ -46,7 +46,6 @@ extern void rfRecvStateAction( void *oldStateData, struct event *event, void *ne
 extern void rfRecvEnableRecv( void *oldStateData, struct event *event, void *newStateData );
 extern void rfRecvStateEnter( void *stateData, struct event *event );
 extern void rfRecvStateExit( void *stateData, struct event *event );
-extern void rfRecvDefaultStateAction( void *oldStateData, struct event *event, void *newStateData );
 
 extern struct state rfSendState;
 extern void rfSendStateAction( void *oldStateData, struct event *event, void *newStateData );
@@ -54,6 +53,12 @@ extern void rfSendStateEnter( void *stateData, struct event *event );
 extern void rfSendStateExit( void *stateData, struct event *event );
 extern void rfSendDefaultStateAction( void *oldStateData, struct event *event, void *newStateData );
 extern void rfUartGetMessage( void *oldStateData, struct event *event, void *newStateData );
+
+extern struct state checkGroupState;
+extern void rfUartGetMessage( void *oldStateData, struct event *event, void *newStateData );
+extern void checkGroupStateAction( void *oldStateData, struct event *event, void *newStateData );
+extern void checkGroupStateEnter( void *stateData, struct event *event );
+extern void checkGroupStateExit( void *stateData, struct event *event );
 
 extern struct state errorState;
 extern void errorStateHandler(void *stateData, struct event *event );

@@ -74,17 +74,3 @@ void rfRecvStateExit( void *stateData, struct event *event )
 {
     // rfTimerDisable();
 }
-
-/**
- * @brief rf default state, will alway get in, beside triggle other state
- * 
- * @param oldStateData 
- * @param event 
- * @param newStateData 
- */
-void rfRecvDefaultStateAction( void *oldStateData, struct event *event,
-      void *newStateData )
-{   
-    RF_Process();
-    mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
-}

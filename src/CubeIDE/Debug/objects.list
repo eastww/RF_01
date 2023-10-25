@@ -1,3 +1,4 @@
+"./Application/State/checkGroupState.o"
 "./Application/State/errorState.o"
 "./Application/State/rfRecvState.o"
 "./Application/State/rfSendState.o"

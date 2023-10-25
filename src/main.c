@@ -4,22 +4,22 @@
 #include "string.h"
 
 /**************************************************************************************************************************************
-Demo ³ÌĞòÁ÷³Ì  EnableMaster=true  ÎªÖ÷»ú¶Ë
-               EnableMaster=false Îª´Ó»ú¶Ë
+Demo ç¨‹åºæµç¨‹  EnableMaster=true  ä¸ºä¸»æœºç«¯
+               EnableMaster=false ä¸ºä»æœºç«¯
 ***************************************************************************************************************************************/
 
 /*
-1.Ö§³Ö×î´ó64×Ö½ÚFIFO
+1.æ”¯æŒæœ€å¤§64å­—èŠ‚FIFO
 
-2.ËÙÂÊ0.6K-200k¿ÉÑ¡
+2.é€Ÿç‡0.6K-200kå¯é€‰
 
-3.DIO3×öÎª½ÓÊÕÖĞ¶ÏÒı½Å
+3.DIO3åšä¸ºæ¥æ”¶ä¸­æ–­å¼•è„š
 
-4.¹¦ÂÊ×î´ó20dbm
+4.åŠŸç‡æœ€å¤§20dbm
 */
 
-bool EnableMaster = true;//EnableMaster=true  ÎªÖ÷»ú¶Ë
-                         //EnableMaster=false Îª´Ó»ú¶Ë
+bool EnableMaster = true;//EnableMaster=true  ä¸ºä¸»æœºç«¯
+                         //EnableMaster=false ä¸ºä»æœºç«¯
 #define RF_PACKET_SIZE 100 /* Define the payload size here */
 
 u8 g_txBuffer[]={0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07}; /* RF Tx buffer */
@@ -86,22 +86,22 @@ void LedToggle(void)
 int main(void)
 {
   HW_Int();
-  RF_Init();//ÉäÆµ³õÊ¼»¯
+  RF_Init();//å°„é¢‘åˆå§‹åŒ–
   
-  if (Cmt2300_IsExist())//³õÊ¼»¯³É¹¦
+  if (Cmt2300_IsExist())//åˆå§‹åŒ–æˆåŠŸ
   {
     LedToggle();
   }
-  else//³õÊ¼»¯Ê§°Ü
+  else//åˆå§‹åŒ–å¤±è´¥
   {
      GPIO_WriteBit(LED1_PORT, LED1_PIN, Bit_SET);
   }
     
-   Cmt2300_ConfigTxPower(7);//µÈ¼¶7   +20dbm
-   Cmt2300_ConfigDataRate(rf_rate_1K2);//ËÙÂÊÉèÖÃÎª1.2Kbps // 0.6k¡¢1.2k¡¢ 2.4k ¡¢4.8k¡¢10k¡¢50k¡¢100k¡¢200k ¿ÉÑ¡
-   Cmt2300_ConfigPktLenthType(CMT2300_PKT_TYPE_VARIABLE);//¿É±ä°üÀàĞÍ
-   Cmt2300_ConfigDataMode(CMT2300_DATA_MODE_PACKET); // packer Ä£Ê½
-   Cmt2300_EnableFifoMerge(true); // Ê¹ÄÜ 64-byte  FIFO
+   Cmt2300_ConfigTxPower(7);//ç­‰çº§7   +20dbm
+   Cmt2300_ConfigDataRate(rf_rate_1K2);//é€Ÿç‡è®¾ç½®ä¸º1.2Kbps // 0.6kã€1.2kã€ 2.4k ã€4.8kã€10kã€50kã€100kã€200k å¯é€‰
+   Cmt2300_ConfigPktLenthType(CMT2300_PKT_TYPE_VARIABLE);//å¯å˜åŒ…ç±»å‹
+   Cmt2300_ConfigDataMode(CMT2300_DATA_MODE_PACKET); // packer æ¨¡å¼
+   Cmt2300_EnableFifoMerge(true); // ä½¿èƒ½ 64-byte  FIFO
   
  
   if (true == EnableMaster)
@@ -134,11 +134,11 @@ void OnMaster(void)
   {
     case RF_IDLE:
  
-      RF_StartTx(g_txBuffer,  g_txBuffer[0] , INFINITE);//·¢ÉäÊı¾İ
+      RF_StartTx(g_txBuffer,  g_txBuffer[0] , INFINITE);//å‘å°„æ•°æ®
       
       break;
     
-    case RF_TX_DONE: //·¢ÉäÍê³É
+    case RF_TX_DONE: //å‘å°„å®Œæˆ
     
       LedToggle();
 
@@ -160,7 +160,7 @@ void OnSlave(void)
     
     break;
   
-  case RF_RX_DONE: //½ÓÊÕÊı¾İÍê³É
+  case RF_RX_DONE: //æ¥æ”¶æ•°æ®å®Œæˆ
     
       memcpy(user_rxBuffer,g_rxBuffer,g_rxBuffer[0]); 
   

@@ -5,16 +5,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Application/State/checkGroupState.c \
 ../Application/State/errorState.c \
 ../Application/State/rfRecvState.c \
 ../Application/State/rfSendState.c 
 
 OBJS += \
+./Application/State/checkGroupState.o \
 ./Application/State/errorState.o \
 ./Application/State/rfRecvState.o \
 ./Application/State/rfSendState.o 
 
 C_DEPS += \
+./Application/State/checkGroupState.d \
 ./Application/State/errorState.d \
 ./Application/State/rfRecvState.d \
 ./Application/State/rfSendState.d 
@@ -27,7 +30,7 @@ Application/State/%.o Application/State/%.su Application/State/%.cyclo: ../Appli
 clean: clean-Application-2f-State
 
 clean-Application-2f-State:
-	-$(RM) ./Application/State/errorState.cyclo ./Application/State/errorState.d ./Application/State/errorState.o ./Application/State/errorState.su ./Application/State/rfRecvState.cyclo ./Application/State/rfRecvState.d ./Application/State/rfRecvState.o ./Application/State/rfRecvState.su ./Application/State/rfSendState.cyclo ./Application/State/rfSendState.d ./Application/State/rfSendState.o ./Application/State/rfSendState.su
+	-$(RM) ./Application/State/checkGroupState.cyclo ./Application/State/checkGroupState.d ./Application/State/checkGroupState.o ./Application/State/checkGroupState.su ./Application/State/errorState.cyclo ./Application/State/errorState.d ./Application/State/errorState.o ./Application/State/errorState.su ./Application/State/rfRecvState.cyclo ./Application/State/rfRecvState.d ./Application/State/rfRecvState.o ./Application/State/rfRecvState.su ./Application/State/rfSendState.cyclo ./Application/State/rfSendState.d ./Application/State/rfSendState.o ./Application/State/rfSendState.su
 
 .PHONY: clean-Application-2f-State
 
