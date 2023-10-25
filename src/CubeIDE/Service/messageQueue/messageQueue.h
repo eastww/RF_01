@@ -25,7 +25,7 @@
  *  MACRO DEFINITION
  *--------------------------------------------------------------*/
 /* define msg queue size */
-#define MSGQUEUESIZE                                        16
+#define MSGQUEUESIZE                                        32
 
 /*----------------------------------------------------------------
  *  PARAMETER DEFINITION

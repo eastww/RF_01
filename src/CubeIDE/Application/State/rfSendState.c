@@ -48,6 +48,7 @@ void rfSendStateAction( void *oldStateData, struct event *event,
 void rfUartGetMessage( void *oldStateData, struct event *event,
       void *newStateData )
 {
+	led2Toggle();
     bufferSize = uartGetData(BSP_TTL_CHANNEL1, txBuffer + 1, 256);
 	if (bufferSize)
 	{
