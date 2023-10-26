@@ -3,7 +3,8 @@
     "kfifo.h": "c",
     "messagequeue.h": "c",
     "stateactuator.h": "c",
-    "rf_cfg.h": "c"
+    "rf_cfg.h": "c",
+    "bsp.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

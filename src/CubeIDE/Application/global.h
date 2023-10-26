@@ -13,13 +13,24 @@
  *  INCLUDE
  *--------------------------------------------------------------*/
 #include <stdint.h>
+#include "bsp.h"
 
 /*----------------------------------------------------------------
  *  MACRO DEFINITION
  *--------------------------------------------------------------*/
-#define RF_PACKET_SIZE                                      128 
+#define RF_PACKET_SIZE                                      256
 
 /*----------------------------------------------------------------
  *  PARAMETER DEFINITION
  *--------------------------------------------------------------*/
 extern uint8_t g_rxBuffer[RF_PACKET_SIZE];
+extern uint8_t txBuffer[RF_PACKET_SIZE];
+extern uint32_t bufferSize;
+
+/*----------------------------------------------------------------
+ *  FUNCTION INTERFACE
+ *--------------------------------------------------------------*/
+void rfEntryRx(void);
+void rfExitRx(void);
+void rfEntryTx(void);
+void rfExitTx(void);

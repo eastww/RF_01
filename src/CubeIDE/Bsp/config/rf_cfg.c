@@ -46,13 +46,5 @@ void rfRecvErrorCallback(void)
  */
 void HAL_Timer16Callback(void)
 {
-//    EnumRFStatus rfState = RF_GetStatus();
-//    if (RF_STATE_RX_TIMEOUT == rfState)
-//    {
-//        rfRecvTimeoutCallback();
-//    }
-//    else if (RF_STATE_ERROR == rfState)
-//    {
-//        rfRecvErrorCallback();
-//    }
+	RF_Process();
 }

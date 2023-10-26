@@ -18,8 +18,6 @@
 /*----------------------------------------------------------------
  *  PARAMETER DEFINITION
  *--------------------------------------------------------------*/
-static uint8_t txBuffer[256] = { 0 };
-static uint32_t bufferSize = 0;
 
 /*----------------------------------------------------------------
  *  FUNCTION DEFINITION
@@ -46,8 +44,8 @@ void rfUartGetMessage( void *oldStateData, struct event *event,
 		// bufferSize = 0;
         txBuffer[0] = bufferSize + 1;
         uartResetData(BSP_TTL_CHANNEL1);
-        RF_StartTx(txBuffer,  txBuffer[0] , INFINITE);
-		mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
+        // RF_StartTx(txBuffer, txBuffer[0] , INFINITE);
+        rfEntryTx();
 	}
 }
 
@@ -61,8 +59,8 @@ void rfUartGetMessage( void *oldStateData, struct event *event,
 void checkGroupStateAction( void *oldStateData, struct event *event,
       void *newStateData )
 {   
-    RF_Process();
-    mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
+    // RF_Process();
+    // mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
 }
 
 /**
@@ -86,5 +84,6 @@ void checkGroupStateEnter( void *stateData, struct event *event )
 void checkGroupStateExit( void *stateData, struct event *event )
 {
     // rfTimerDisable();
+    rfEntryRx();
     bufferSize = 0;
 }

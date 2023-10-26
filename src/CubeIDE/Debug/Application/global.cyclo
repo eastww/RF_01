@@ -1,0 +1,4 @@
+../Application/global.c:17:6:rfEntryRx	1
+../Application/global.c:27:6:rfExitRx	1
+../Application/global.c:36:6:rfEntryTx	1
+../Application/global.c:46:6:rfExitTx	1

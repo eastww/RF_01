@@ -32,11 +32,12 @@
 void rfRecvStateAction( void *oldStateData, struct event *event,
       void *newStateData )
 {   
+    rfExitRx();
     uint8_t user_rxBuffer[RF_PACKET_SIZE] = { 0 };
     memcpy(user_rxBuffer, g_rxBuffer, g_rxBuffer[0]);
     uartSendData(BSP_TTL_CHANNEL1, user_rxBuffer, user_rxBuffer[0]);
     
-    RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
+    rfEntryRx();
 }
 
 /**
@@ -72,5 +73,5 @@ void rfRecvStateEnter( void *stateData, struct event *event )
  */
 void rfRecvStateExit( void *stateData, struct event *event )
 {
-    // rfTimerDisable();
+    rfExitRx();
 }

@@ -16,7 +16,6 @@
  *--------------------------------------------------------------*/
 #include "messageQueue.h"
 #include "stateMachine.h"
-#include "bsp.h"
 #include "global.h"
 
 /*----------------------------------------------------------------
@@ -37,7 +36,6 @@ enum eventType
 /*----------------------------------------------------------------
  *  EXTERN DEFINITION
  *--------------------------------------------------------------*/
-extern uint8_t g_rxBuffer[128];
 extern struct stateMachine m;
 extern struct msgQueue mq;
 

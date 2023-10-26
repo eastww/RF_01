@@ -33,10 +33,6 @@
 void rfSendStateAction( void *oldStateData, struct event *event,
       void *newStateData )
 {
-//    while (1)
-//    {
-//
-//    }
     
 }
 
@@ -59,7 +55,7 @@ void rfSendStateEnter( void *stateData, struct event *event )
  */
 void rfSendStateExit( void *stateData, struct event *event )
 {
-   mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
-   RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
-   rfTimerEnable();
+//    RF_StartRx(g_rxBuffer, RF_PACKET_SIZE, INFINITE);
+//    rfTimerEnable();
+   rfEntryRx();
 }

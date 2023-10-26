@@ -10,12 +10,11 @@
  *--------------------------------------------------------------*/
 struct state checkGroupState = {
    .parentState = NULL,
-   .entryState = &rfRecvState,
+   .entryState = &rfSendState,
    .transitions = (struct transition[]){
       { uartRecvEvent, NULL, NULL, &rfUartGetMessage, &rfSendState },
-      { rfProcessEvent, NULL, NULL, &checkGroupStateAction, &rfSendState },
    },
-   .numTransitions = 2,
+   .numTransitions = 1,
    .data = "group",
    .entryAction = &checkGroupStateEnter,
    .exitAction = &checkGroupStateExit,
@@ -69,18 +68,21 @@ struct msgQueue mq;
  */
 void stateActuator(void)
 {
-    struct msg *msg;
-    stateM_init(&m, &rfRecvState, &errorState);
-    mq_init(&mq);
-    
-    /* triggle state machine */
-    mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
+   struct msg *msg;
+   stateM_init(&m, &rfRecvState, &errorState);
+   mq_init(&mq);
 
-    while ( 1 )
-    {
-        if ((msg = mq_pop( &mq )) != NULL)
-        {
-            stateM_handleEvent(&m, (struct event *)msg);
-        }
-    }
+   //  /* triggle state machine */
+   //  mq_push(&mq, &(struct msg){rfProcessEvent, NULL});
+   
+   /* rf default state: rx state */
+   rfEntryRx();
+
+   while ( 1 )
+   {
+      if ((msg = mq_pop( &mq )) != NULL)
+      {
+         stateM_handleEvent(&m, (struct event *)msg);
+      }
+   }
 }
