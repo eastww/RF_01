@@ -37,7 +37,7 @@ void rfUartGetMessage( void *oldStateData, struct event *event,
 	if (bufferSize)
 	{
 		/* send the buffer data to uart1 */
-        // uartSendData(BSP_TTL_CHANNEL1, txBuffer, bufferSize);
+        uartSendData(BSP_TTL_CHANNEL1, txBuffer, bufferSize);
         // HAL_Delay_nMs(1000);
 
 		/* reset the value */

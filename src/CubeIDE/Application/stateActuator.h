@@ -23,7 +23,7 @@
  *--------------------------------------------------------------*/
 enum eventType
 {
-    uartRecvEvent = 0,
+    uartRecvEvent = 1,
     rfRecvEvent,
 	rfProcessEvent,
     rfSendEvent,

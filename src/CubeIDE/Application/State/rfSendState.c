@@ -44,7 +44,8 @@ void rfSendStateAction( void *oldStateData, struct event *event,
  */
 void rfSendStateEnter( void *stateData, struct event *event )
 {
-	
+   led1Toggle();
+//    rfTimerDisable();
 }
 
 /**

@@ -6,4 +6,4 @@
 ../Service/messageQueue/messageQueue.c:105:10:mq_getCurrentSize	4
 ../Service/messageQueue/messageQueue.c:131:10:mq_getQueueSize	2
 ../Service/messageQueue/messageQueue.c:147:10:mq_push	4
-../Service/messageQueue/messageQueue.c:176:13:mq_pop	4
+../Service/messageQueue/messageQueue.c:175:13:mq_pop	4
