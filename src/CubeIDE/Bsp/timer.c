@@ -23,6 +23,10 @@ extern void uartTimerIrqHandler(TIM_HandleTypeDef *htim);
  *--------------------------------------------------------------*/
 /* systickcount define */
 volatile uint32_t g_nSysTickCount = 0;
+
+/*----------------------------------------------------------------
+ *  FUNCTION DEFINITION
+ *--------------------------------------------------------------*/
 ///**
 //  * @brief  使能定时器
 //  * @param	htim:	定时器句柄
@@ -83,9 +87,6 @@ void rfTimerDisable(void)
 //   * @param	htim:	定时器句柄
 //   * @retval	None
 //   */
-/*----------------------------------------------------------------
- *  FUNCTION DEFINITION
- *--------------------------------------------------------------*/
 /**
  * @brief Timer interrupt callback function
  * 

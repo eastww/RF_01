@@ -100,7 +100,9 @@ int main(void)
   MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
   bspInit();
+#if (BSP_TEST_ENABLE == 0)
   stateActuator();
+#endif
 //  messageQueueTest();
   /* USER CODE END 2 */
 
@@ -333,6 +335,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
   HAL_GPIO_Init(GPIO_RS485_EN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : GPIO_DS_PIN1_Pin GPIO_DS_PIN2_Pin */
+  GPIO_InitStruct.Pin = GPIO_DS_PIN1_Pin|GPIO_DS_PIN2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : GPIO_RF_GPIO1_Pin */
   GPIO_InitStruct.Pin = GPIO_RF_GPIO1_Pin;

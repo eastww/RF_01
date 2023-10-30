@@ -92,6 +92,40 @@ static void rfTxTest(void)
 }
 
 /**
+ * @brief dial switch test
+ * 
+ */
+static void dsTest(void)
+{
+    uint8_t ret = getDsValue();
+    switch (ret)
+    {
+    case 0:
+        led1Off();
+        led2Off();
+        break;
+    
+    case 1:
+        led1On();
+        led2Off();
+        break;
+    
+    case 2:
+        led1Off();
+        led2On();
+        break;
+    
+    case 3:
+        led1On();
+        led2On();
+        break;
+
+    default:
+        break;
+    }
+}
+
+/**
  * @brief bsp test api
  * @param None
  * @retval None
@@ -99,14 +133,17 @@ static void rfTxTest(void)
 void bspTest(void)
 {
     /* led test */
-#if 1
+#if 0
     ledTest();
 #endif
-#if 1
+#if 0
     uartTxTest();
 #endif
 #if 0
     rfTxTest();
+#endif
+#if 1
+    dsTest();
 #endif
 }
 #endif

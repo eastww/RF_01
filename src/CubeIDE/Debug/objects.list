@@ -12,6 +12,7 @@
 "./Bsp/Test/bsp_test.o"
 "./Bsp/bsp.o"
 "./Bsp/delay.o"
+"./Bsp/dial_switch.o"
 "./Bsp/gpio.o"
 "./Bsp/timer.o"
 "./Bsp/uart.o"

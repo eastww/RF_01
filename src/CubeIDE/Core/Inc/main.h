@@ -60,6 +60,10 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define GPIO_RS485_EN_Pin GPIO_PIN_4
 #define GPIO_RS485_EN_GPIO_Port GPIOA
+#define GPIO_DS_PIN1_Pin GPIO_PIN_5
+#define GPIO_DS_PIN1_GPIO_Port GPIOA
+#define GPIO_DS_PIN2_Pin GPIO_PIN_6
+#define GPIO_DS_PIN2_GPIO_Port GPIOA
 #define GPIO_RF_GPIO1_Pin GPIO_PIN_12
 #define GPIO_RF_GPIO1_GPIO_Port GPIOB
 #define GPIO_RF_GPIO2_Pin GPIO_PIN_13

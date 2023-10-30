@@ -28,6 +28,7 @@
 #include "./../../Radio/inc/radio.h"
 #include "./../../Radio/inc/typedefs.h"
 #include "uart.h"
+#include "dial_switch.h"
 
 #if BSP_TEST_ENABLE
 /*----------------------------------------------------------------
