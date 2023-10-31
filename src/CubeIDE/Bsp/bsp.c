@@ -6,6 +6,7 @@
 void bspInit(void)
 {
     uartInit(BSP_TTL_CHANNEL1);
+    uartInit(BSP_TTL_CHANNEL2);
     
     RF_Init();
     /* check rf is inited ok */

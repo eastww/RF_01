@@ -28,6 +28,7 @@
 /* UART channel */
 typedef enum {
     BSP_TTL_CHANNEL1 = 0x00U,
+	BSP_TTL_CHANNEL2,
     UART_ENABLED_CHANNEL,
 } uartChannel_t;
 

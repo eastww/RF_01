@@ -6,6 +6,7 @@
  *  EXTERNAL VARIABLES
  *--------------------------------------------------------------*/
 extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart2;
 
 /*----------------------------------------------------------------
  *  FUNCTION DEFINITION
@@ -37,7 +38,10 @@ static void ledTest(void)
 static void uartTxTest(void)
 {
     uint8_t buffer[10] = "1234567890";
-    HAL_UART_Transmit(&huart1, buffer, 10, 0xFFFF);
+//    HAL_UART_Transmit(&huart1, buffer, 10, 0xFFFF);
+//    rs485_on;
+//    HAL_UART_Transmit(&huart2, buffer, 10, 0xFFFF);
+    uartSendData(BSP_TTL_CHANNEL2, buffer, 10);
     HAL_Delay_nMs(1000);
 }
 
@@ -136,13 +140,13 @@ void bspTest(void)
 #if 0
     ledTest();
 #endif
-#if 0
+#if 1
     uartTxTest();
 #endif
 #if 0
     rfTxTest();
 #endif
-#if 1
+#if 0
     dsTest();
 #endif
 }

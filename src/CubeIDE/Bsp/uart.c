@@ -9,6 +9,7 @@
  *--------------------------------------------------------------*/
 extern TIM_HandleTypeDef htim17;
 extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart2;
 
 /*----------------------------------------------------------------
  *  KFIFO DEFINITION
@@ -30,6 +31,7 @@ volatile static uartStatus_t uart_rx_status[UART_ENABLED_CHANNEL];
 /* connect uart and timer */
 static uartParamDef uartPara[UART_ENABLED_CHANNEL] = {
     [BSP_TTL_CHANNEL1] = { USART1, &huart1, TIM17, &htim17 },
+	[BSP_TTL_CHANNEL2] = { USART2, &huart2, TIM17, &htim17 },
 };
 
 /*----------------------------------------------------------------
@@ -111,6 +113,11 @@ static void uartRecovery(uartChannel_t channel)
  */
 void uartSendData(uartChannel_t channel, uint8_t data[], uint16_t length)
 {
+	/* compatible with rs485 */
+	if (channel == BSP_TTL_CHANNEL2)
+	{
+		rs485_on;
+	}
     uart_tx_status[channel] = BSP_UART_TX_START;
 	// if (HAL_UART_Transmit_DMA(uartPara[channel].uart_handle_addr, data, length) != HAL_OK)
 	/* use IT mode send data */
